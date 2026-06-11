@@ -279,16 +279,16 @@ const styles = `
 `;
 
 const images = [
-  // AI & ML
-  "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=2000&q=80",
-  // Data Science
-  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=80",
-  // Mathematics
-  "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=2000&q=80",
-  // Programming / Technology
-  "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2000&q=80",
-  // Research & Innovation
-  "https://images.unsplash.com/photo-1534759846116-5799c33ce22a?auto=format&fit=crop&w=2000&q=80",
+  // AI / neural network / futuristic technology
+  "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=2000&q=80",
+  // data analytics / dashboard / business intelligence
+  "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80",
+  // modern software development workspace
+  "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2000&q=80",
+  // abstract glowing digital network / tech lines
+  "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=2000&q=80",
+  // innovation / research / futuristic concept (mathematics / scientific visualization)
+  "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=2000&q=80",
 ];
 
 export default function MTTFHero() {
