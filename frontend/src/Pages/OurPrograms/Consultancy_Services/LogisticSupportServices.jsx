@@ -149,21 +149,21 @@ function SectionHeader({ eyebrow, title, subtitle, center = true }) {
     <div style={{ textAlign: center ? "center" : "left", marginBottom: "3rem" }}>
       {eyebrow && (
         <div style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "0.6rem", color: "#2563eb",
           letterSpacing: "0.25em", textTransform: "uppercase",
           marginBottom: "0.75rem", fontWeight: 500,
         }}>{eyebrow}</div>
       )}
       <h2 style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
-        fontWeight: 700, color: "#1A120A",
+        fontWeight: 700, color: "#0f172a",
         letterSpacing: "-0.02em", margin: "0 0 0.85rem", lineHeight: 1.2,
       }}>{title}</h2>
       {subtitle && (
         <p style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "0.92rem", color: "rgba(90,65,40,0.55)",
           maxWidth: center ? "520px" : "none",
           margin: center ? "0 auto" : 0,
@@ -182,14 +182,14 @@ export default function LogisticSupportServices() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#FBF6EC", color: "#1A120A" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#0f172a" }}>
       <style>{`
-        @keyframes goldShimmer {
+        @keyframes accentShimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
@@ -202,7 +202,7 @@ export default function LogisticSupportServices() {
           to   { transform: translate(-50%, -50%) rotate(360deg); }
         }
         ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #FBF6EC; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 1px; }
       `}</style>
 
@@ -223,15 +223,15 @@ export default function LogisticSupportServices() {
             padding: "7rem 2rem 5rem",
             textAlign: "center",
             overflow: "hidden",
-            borderBottom: "1px solid rgba(139,112,72,0.1)",
+            borderBottom: "1px solid rgba(100, 116, 139,0.1)",
           }}
         >
           {/* Grid */}
           <div style={{
             position: "absolute", inset: 0, pointerEvents: "none",
             backgroundImage: `
-              linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px)
+              linear-gradient(rgba(37, 99, 235,0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(37, 99, 235,0.05) 1px, transparent 1px)
             `,
             backgroundSize: "72px 72px",
           }} />
@@ -241,7 +241,7 @@ export default function LogisticSupportServices() {
             position: "absolute", pointerEvents: "none",
             top: "50%", left: "50%",
             width: "700px", height: "480px",
-            background: "radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(37, 99, 235,0.1) 0%, transparent 70%)",
             transform: "translate(-50%,-50%)",
           }} />
 
@@ -250,7 +250,7 @@ export default function LogisticSupportServices() {
             position: "absolute", pointerEvents: "none",
             top: "50%", left: "50%",
             width: "440px", height: "440px",
-            border: "1px solid rgba(201,168,76,0.08)",
+            border: "1px solid rgba(37, 99, 235,0.08)",
             borderRadius: "50%",
             animation: "rotateSlow 42s linear infinite",
           }} />
@@ -258,7 +258,7 @@ export default function LogisticSupportServices() {
             position: "absolute", pointerEvents: "none",
             top: "50%", left: "50%",
             width: "620px", height: "620px",
-            border: "1px dashed rgba(201,168,76,0.05)",
+            border: "1px dashed rgba(37, 99, 235,0.05)",
             borderRadius: "50%",
             animation: "rotateSlow 68s linear infinite reverse",
           }} />
@@ -285,13 +285,13 @@ export default function LogisticSupportServices() {
               to="/programs/consultancy-services"
               style={{
                 display: "inline-flex", alignItems: "center", gap: "0.5rem",
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.72rem", letterSpacing: "0.1em",
-                color: "#8B7048", textDecoration: "none",
+                color: "#475569", textDecoration: "none",
                 transition: "color 0.2s ease",
               }}
               onMouseEnter={e => e.currentTarget.style.color = "#2563eb"}
-              onMouseLeave={e => e.currentTarget.style.color = "#8B7048"}
+              onMouseLeave={e => e.currentTarget.style.color = "#475569"}
             >
               <ArrowLeft size={14} />
               Back to Consultancy Services
@@ -308,13 +308,13 @@ export default function LogisticSupportServices() {
             {/* Eyebrow */}
             <div style={{
               display: "inline-flex", alignItems: "center", gap: "0.65rem",
-              border: "1px solid rgba(201,168,76,0.28)",
+              border: "1px solid rgba(37, 99, 235,0.28)",
               padding: "0.45rem 1.3rem", marginBottom: "2.25rem",
-              background: "rgba(201,168,76,0.05)", borderRadius: "1px",
+              background: "rgba(37, 99, 235,0.05)", borderRadius: "1px",
             }}>
               <Truck size={12} style={{ color: "#2563eb" }} />
               <span style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.62rem", letterSpacing: "0.25em",
                 textTransform: "uppercase", color: "#2563eb", fontWeight: 500,
               }}>
@@ -324,17 +324,17 @@ export default function LogisticSupportServices() {
 
             {/* Headline */}
             <h1 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(2.5rem, 6.5vw, 5.2rem)",
               fontWeight: 700, lineHeight: 1.04,
-              letterSpacing: "-0.025em", color: "#1A120A",
+              letterSpacing: "-0.025em", color: "#0f172a",
               margin: "0 0 0.5rem",
             }}>
               Logistic Support
               <br />
               <span style={{
                 fontStyle: "italic",
-                background: "linear-gradient(120deg, #2563eb 0%, #E8C97A 38%, #B8965A 72%, #2563eb 100%)",
+                background: "linear-gradient(120deg, #2563eb 0%, #60a5fa 38%, #1d4ed8 72%, #2563eb 100%)",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -346,7 +346,7 @@ export default function LogisticSupportServices() {
             </h1>
 
             <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1.1rem, 2.2vw, 1.5rem)",
               fontStyle: "italic",
               color: "rgba(90,65,40,0.5)",
@@ -356,7 +356,7 @@ export default function LogisticSupportServices() {
             </p>
 
             <p style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.92rem", color: "rgba(90,65,40,0.5)",
               maxWidth: "600px", margin: "1.25rem auto 2.5rem",
               lineHeight: 1.85, fontWeight: 300,
@@ -368,21 +368,21 @@ export default function LogisticSupportServices() {
             {/* Stat bar */}
             <div style={{
               display: "inline-flex", flexWrap: "wrap",
-              border: "1px solid rgba(201,168,76,0.2)",
-              background: "rgba(201,168,76,0.03)", borderRadius: "2px",
+              border: "1px solid rgba(37, 99, 235,0.2)",
+              background: "rgba(37, 99, 235,0.03)", borderRadius: "2px",
             }}>
               {stats.map(({ value, label }, i, arr) => (
                 <div key={label} style={{
                   padding: "1rem 1.5rem", textAlign: "center",
-                  borderRight: i < arr.length - 1 ? "1px solid rgba(201,168,76,0.15)" : "none",
+                  borderRight: i < arr.length - 1 ? "1px solid rgba(37, 99, 235,0.15)" : "none",
                 }}>
                   <div style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "1.7rem", fontWeight: 700,
                     color: "#2563eb", lineHeight: 1,
                   }}>{value}</div>
                   <div style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "0.55rem", color: "rgba(90,65,40,0.38)",
                     letterSpacing: "0.16em", textTransform: "uppercase",
                     marginTop: "0.3rem", fontWeight: 400,
@@ -395,12 +395,12 @@ export default function LogisticSupportServices() {
 
         {/* ── INTRO STRIP ── */}
         <div style={{
-          background: "rgba(201,168,76,0.03)",
-          borderBottom: "1px solid rgba(139,112,72,0.1)",
+          background: "rgba(37, 99, 235,0.03)",
+          borderBottom: "1px solid rgba(100, 116, 139,0.1)",
           padding: "3rem 2rem", textAlign: "center",
         }}>
           <p style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1rem, 2.3vw, 1.4rem)",
             fontStyle: "italic", color: "rgba(90,65,40,0.58)",
             maxWidth: "780px", margin: "0 auto", lineHeight: 1.75,
@@ -424,8 +424,8 @@ export default function LogisticSupportServices() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
             gap: "1px",
-            background: "rgba(139,112,72,0.1)",
-            border: "1px solid rgba(139,112,72,0.1)",
+            background: "rgba(100, 116, 139,0.1)",
+            border: "1px solid rgba(100, 116, 139,0.1)",
             borderRadius: "2px", overflow: "hidden",
           }}>
             {services.map((svc, i) => (
@@ -438,9 +438,9 @@ export default function LogisticSupportServices() {
 
         {/* ── BENEFITS ── */}
         <section style={{
-          background: "rgba(201,168,76,0.03)",
-          borderTop: "1px solid rgba(139,112,72,0.1)",
-          borderBottom: "1px solid rgba(139,112,72,0.1)",
+          background: "rgba(37, 99, 235,0.03)",
+          borderTop: "1px solid rgba(100, 116, 139,0.1)",
+          borderBottom: "1px solid rgba(100, 116, 139,0.1)",
           padding: "5rem 2rem",
         }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -486,8 +486,8 @@ export default function LogisticSupportServices() {
 
         {/* ── STATS ── */}
         <section style={{
-          background: "#1A120A",
-          borderTop: "1px solid rgba(201,168,76,0.15)",
+          background: "#0f172a",
+          borderTop: "1px solid rgba(37, 99, 235,0.15)",
           padding: "5rem 2rem",
         }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
@@ -496,8 +496,8 @@ export default function LogisticSupportServices() {
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
                 gap: "1px",
-                background: "rgba(201,168,76,0.15)",
-                border: "1px solid rgba(201,168,76,0.15)",
+                background: "rgba(37, 99, 235,0.15)",
+                border: "1px solid rgba(37, 99, 235,0.15)",
                 borderRadius: "2px", overflow: "hidden",
               }}>
                 {stats.map(({ value, label }, i) => (
@@ -512,34 +512,34 @@ export default function LogisticSupportServices() {
         <section style={{ maxWidth: "860px", margin: "0 auto", padding: "5rem 2rem" }}>
           <FadeSection>
             <div style={{
-              border: "1px solid rgba(201,168,76,0.25)",
-              background: "rgba(201,168,76,0.03)",
+              border: "1px solid rgba(37, 99, 235,0.25)",
+              background: "rgba(37, 99, 235,0.03)",
               borderRadius: "2px", padding: "4rem 3rem",
               textAlign: "center", position: "relative", overflow: "hidden",
             }}>
               {/* Top gold bar */}
               <div style={{
                 position: "absolute", top: 0, left: 0, right: 0, height: "2px",
-                background: "linear-gradient(90deg, transparent, #2563eb, #E8C97A, #2563eb, transparent)",
+                background: "linear-gradient(90deg, transparent, #2563eb, #60a5fa, #2563eb, transparent)",
               }} />
 
               <div style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.6rem", color: "#2563eb",
                 letterSpacing: "0.25em", textTransform: "uppercase",
                 marginBottom: "1rem", fontWeight: 500,
               }}>Get Started</div>
 
               <h2 style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-                fontWeight: 700, color: "#1A120A",
+                fontWeight: 700, color: "#0f172a",
                 letterSpacing: "-0.02em", margin: "0 0 0.85rem", lineHeight: 1.2,
               }}>
                 Need Logistic Support?
               </h2>
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.92rem", color: "rgba(90,65,40,0.55)",
                 marginBottom: "2.25rem", lineHeight: 1.75, fontWeight: 300,
               }}>
@@ -550,7 +550,7 @@ export default function LogisticSupportServices() {
                 <Link
                   to="/contacts"
                   style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "0.72rem", letterSpacing: "0.2em",
                     textTransform: "uppercase", color: "#fff",
                     background: "#2563eb", border: "none",
@@ -559,7 +559,7 @@ export default function LogisticSupportServices() {
                     textDecoration: "none", display: "inline-block",
                     transition: "background 0.3s ease, transform 0.3s ease",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#B8965A"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#1d4ed8"; e.currentTarget.style.transform = "translateY(-2px)"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#2563eb"; e.currentTarget.style.transform = "translateY(0)"; }}
                 >
                   Request Support
@@ -567,18 +567,18 @@ export default function LogisticSupportServices() {
                 <Link
                   to="/programs/consultancy-services"
                   style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "0.72rem", letterSpacing: "0.2em",
                     textTransform: "uppercase", color: "#2563eb",
                     background: "transparent",
-                    border: "1px solid rgba(201,168,76,0.45)",
+                    border: "1px solid rgba(37, 99, 235,0.45)",
                     padding: "0.9rem 2.2rem", cursor: "pointer",
                     borderRadius: "1px", fontWeight: 400,
                     textDecoration: "none", display: "inline-block",
                     transition: "border-color 0.3s ease, background 0.3s ease",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(201,168,76,0.07)"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.8)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(201,168,76,0.45)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(37, 99, 235,0.07)"; e.currentTarget.style.borderColor = "rgba(37, 99, 235,0.8)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(37, 99, 235,0.45)"; }}
                 >
                   View All Services
                 </Link>
@@ -603,7 +603,7 @@ function ServiceCard({ service, index }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "rgba(201,168,76,0.04)" : "#FBF6EC",
+        background: hovered ? "rgba(37, 99, 235,0.04)" : "#f8fafc",
         padding: "2rem 2rem 2rem 2.25rem",
         position: "relative", overflow: "hidden",
         cursor: "default",
@@ -614,7 +614,7 @@ function ServiceCard({ service, index }) {
       <div style={{
         position: "absolute", left: 0, top: 0, bottom: 0,
         width: hovered ? "3px" : "2px",
-        background: "linear-gradient(180deg, #2563eb 0%, #E8C97A 100%)",
+        background: "linear-gradient(180deg, #2563eb 0%, #60a5fa 100%)",
         transition: "width 0.3s ease",
       }} />
 
@@ -622,9 +622,9 @@ function ServiceCard({ service, index }) {
       <div style={{
         position: "absolute", right: "1rem", top: "50%",
         transform: "translateY(-50%)",
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "4.5rem", fontWeight: 700,
-        color: "rgba(201,168,76,0.06)", lineHeight: 1,
+        color: "rgba(37, 99, 235,0.06)", lineHeight: 1,
         userSelect: "none", pointerEvents: "none",
       }}>
         {String(index + 1).padStart(2, "0")}
@@ -634,8 +634,8 @@ function ServiceCard({ service, index }) {
       <div style={{
         width: "50px", height: "50px",
         display: "flex", alignItems: "center", justifyContent: "center",
-        background: hovered ? "rgba(201,168,76,0.12)" : "rgba(201,168,76,0.06)",
-        border: `1px solid ${hovered ? "rgba(201,168,76,0.4)" : "rgba(201,168,76,0.18)"}`,
+        background: hovered ? "rgba(37, 99, 235,0.12)" : "rgba(37, 99, 235,0.06)",
+        border: `1px solid ${hovered ? "rgba(37, 99, 235,0.4)" : "rgba(37, 99, 235,0.18)"}`,
         borderRadius: "2px", color: "#2563eb",
         marginBottom: "1.25rem",
         transition: "background 0.3s, border-color 0.3s",
@@ -644,20 +644,20 @@ function ServiceCard({ service, index }) {
       </div>
 
       <h3 style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.1rem", fontWeight: 700,
-        color: "#1A120A", margin: "0 0 0.5rem",
+        color: "#0f172a", margin: "0 0 0.5rem",
         letterSpacing: "-0.01em", lineHeight: 1.3,
       }}>{service.title}</h3>
 
       <p style={{
-        fontFamily: "'Jost', sans-serif",
-        fontSize: "0.8rem", color: "#8B7048",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontSize: "0.8rem", color: "#475569",
         lineHeight: 1.7, margin: "0 0 1rem", fontWeight: 300,
       }}>{service.description}</p>
 
       <div style={{
-        height: "1px", background: "rgba(201,168,76,0.18)",
+        height: "1px", background: "rgba(37, 99, 235,0.18)",
         width: hovered ? "100%" : "36%",
         transition: "width 0.4s ease", marginBottom: "1rem",
       }} />
@@ -667,8 +667,8 @@ function ServiceCard({ service, index }) {
           <li key={i} style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}>
             <CheckCircle2 size={12} style={{ color: "#6B9E5E", flexShrink: 0, marginTop: "0.2rem" }} />
             <span style={{
-              fontFamily: "'Jost', sans-serif",
-              fontSize: "0.78rem", color: "#7A6040",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "0.78rem", color: "#475569",
               lineHeight: 1.6, fontWeight: 300,
             }}>{f}</span>
           </li>
@@ -685,8 +685,8 @@ function BenefitCard({ benefit }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "rgba(201,168,76,0.04)" : "#FBF6EC",
-        border: `1px solid ${hovered ? "rgba(201,168,76,0.35)" : "rgba(139,112,72,0.15)"}`,
+        background: hovered ? "rgba(37, 99, 235,0.04)" : "#f8fafc",
+        border: `1px solid ${hovered ? "rgba(37, 99, 235,0.35)" : "rgba(100, 116, 139,0.15)"}`,
         borderRadius: "2px", padding: "2rem",
         textAlign: "center", position: "relative", overflow: "hidden",
         transition: "background 0.3s, border-color 0.3s, transform 0.35s",
@@ -703,8 +703,8 @@ function BenefitCard({ benefit }) {
       <div style={{
         width: "52px", height: "52px",
         display: "flex", alignItems: "center", justifyContent: "center",
-        background: hovered ? "rgba(201,168,76,0.12)" : "rgba(201,168,76,0.06)",
-        border: `1px solid ${hovered ? "rgba(201,168,76,0.4)" : "rgba(201,168,76,0.18)"}`,
+        background: hovered ? "rgba(37, 99, 235,0.12)" : "rgba(37, 99, 235,0.06)",
+        border: `1px solid ${hovered ? "rgba(37, 99, 235,0.4)" : "rgba(37, 99, 235,0.18)"}`,
         borderRadius: "2px", color: "#2563eb",
         margin: "0 auto 1.25rem",
         transition: "background 0.3s, border-color 0.3s, transform 0.35s",
@@ -714,21 +714,21 @@ function BenefitCard({ benefit }) {
       </div>
 
       <h3 style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.05rem", fontWeight: 700,
-        color: "#1A120A", margin: "0 0 0.6rem",
+        color: "#0f172a", margin: "0 0 0.6rem",
       }}>{benefit.title}</h3>
 
       <div style={{
-        height: "1px", background: "rgba(201,168,76,0.18)",
+        height: "1px", background: "rgba(37, 99, 235,0.18)",
         width: hovered ? "60%" : "30%",
         margin: "0 auto 0.85rem",
         transition: "width 0.4s ease",
       }} />
 
       <p style={{
-        fontFamily: "'Jost', sans-serif",
-        fontSize: "0.82rem", color: "#7A6040",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontSize: "0.82rem", color: "#475569",
         lineHeight: 1.75, margin: 0, fontWeight: 300,
       }}>{benefit.description}</p>
     </div>
@@ -746,8 +746,8 @@ function ProcessRow({ phase, index, isLast }) {
         gap: "2rem",
         alignItems: "flex-start",
         padding: "2rem 1.5rem",
-        borderBottom: isLast ? "none" : "1px solid rgba(139,112,72,0.1)",
-        background: hovered ? "rgba(201,168,76,0.03)" : "transparent",
+        borderBottom: isLast ? "none" : "1px solid rgba(100, 116, 139,0.1)",
+        background: hovered ? "rgba(37, 99, 235,0.03)" : "transparent",
         transition: "background 0.3s ease, padding-left 0.3s ease",
         paddingLeft: hovered ? "2rem" : "1.5rem",
         position: "relative",
@@ -757,32 +757,32 @@ function ProcessRow({ phase, index, isLast }) {
       <div style={{
         position: "absolute", left: 0, top: 0, bottom: 0,
         width: hovered ? "3px" : "2px",
-        background: "linear-gradient(180deg, #2563eb 0%, #E8C97A 100%)",
+        background: "linear-gradient(180deg, #2563eb 0%, #60a5fa 100%)",
         transition: "width 0.3s ease",
       }} />
 
       {/* Step number */}
       <div style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "3.5rem", fontWeight: 700,
-        color: "rgba(201,168,76,0.15)",
+        color: "rgba(37, 99, 235,0.15)",
         lineHeight: 1, flexShrink: 0,
         minWidth: "64px",
         transition: "color 0.3s ease",
-        ...(hovered ? { color: "rgba(201,168,76,0.25)" } : {}),
+        ...(hovered ? { color: "rgba(37, 99, 235,0.25)" } : {}),
       }}>
         {phase.step}
       </div>
 
       <div style={{ flex: 1 }}>
         <h3 style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "1.15rem", fontWeight: 700,
-          color: "#1A120A", margin: "0 0 0.5rem", lineHeight: 1.3,
+          color: "#0f172a", margin: "0 0 0.5rem", lineHeight: 1.3,
         }}>{phase.title}</h3>
         <p style={{
-          fontFamily: "'Jost', sans-serif",
-          fontSize: "0.85rem", color: "#7A6040",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          fontSize: "0.85rem", color: "#475569",
           lineHeight: 1.8, margin: 0, fontWeight: 300,
         }}>{phase.description}</p>
       </div>
@@ -799,13 +799,13 @@ function StatCard({ value, label, index }) {
       style={{
         padding: "2.5rem 2rem",
         textAlign: "center",
-        background: hovered ? "rgba(201,168,76,0.08)" : "rgba(255,255,255,0.02)",
+        background: hovered ? "rgba(37, 99, 235,0.08)" : "rgba(255,255,255,0.02)",
         transition: "background 0.3s ease",
         cursor: "default",
       }}
     >
       <div style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "clamp(2rem, 4vw, 3rem)",
         fontWeight: 700, color: "#2563eb",
         lineHeight: 1, marginBottom: "0.5rem",
@@ -813,7 +813,7 @@ function StatCard({ value, label, index }) {
         transform: hovered ? "scale(1.05)" : "scale(1)",
       }}>{value}</div>
       <div style={{
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "0.72rem", color: "rgba(232,217,192,0.5)",
         letterSpacing: "0.12em", textTransform: "uppercase",
         fontWeight: 400,

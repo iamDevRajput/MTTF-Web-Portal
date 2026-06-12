@@ -7,7 +7,7 @@ function MTTFContact() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.25; }
         }
@@ -47,8 +47,8 @@ function MTTFContact() {
           text-decoration: none;
         }
         .contact-btn:hover {
-          background: #B8965A;
-          border-color: #B8965A;
+          background: #1d4ed8;
+          border-color: #1d4ed8;
           transform: translateY(-2px);
           box-shadow: 0 12px 28px rgba(37, 99, 235,0.3);
         }
@@ -56,7 +56,7 @@ function MTTFContact() {
 
       <div style={{
         minHeight: '100vh',
-        background: 'linear-gradient(158deg, #f8fafc 0%, #EDE5CC 55%, #E4D5A8 100%)',
+        background: 'linear-gradient(158deg, #f8fafc 0%, #f1f5f9 55%, #e2e8f0 100%)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -142,7 +142,7 @@ function MTTFContact() {
           maxWidth: '560px',
           width: '100%',
           textAlign: 'center',
-          boxShadow: '0 24px 60px rgba(139,109,56,0.1), 0 4px 16px rgba(139,109,56,0.06)',
+          boxShadow: '0 24px 60px rgba(37, 99, 235,0.1), 0 4px 16px rgba(37, 99, 235,0.06)',
           animation: 'fadeUp 0.9s ease both',
           overflow: 'hidden',
         }}>
@@ -189,7 +189,7 @@ function MTTFContact() {
 
           {/* Title */}
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
             fontWeight: 700, letterSpacing: '-0.02em',
             color: '#0f172a', margin: '0 0 0.25rem', lineHeight: 1.1,
@@ -197,12 +197,12 @@ function MTTFContact() {
             Contact
           </h2>
           <h2 style={{
-            fontFamily: "'Plus Jakarta Sans', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
             fontWeight: 700, letterSpacing: '-0.02em',
             margin: '0 0 1.25rem', lineHeight: 1.1,
             fontStyle: 'italic',
-            background: 'linear-gradient(135deg, #2563eb 0%, #8B6D38 40%, #60a5fa 100%)',
+            background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 40%, #60a5fa 100%)',
             backgroundSize: '200% auto',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
             animation: 'shimmer 4s linear infinite',

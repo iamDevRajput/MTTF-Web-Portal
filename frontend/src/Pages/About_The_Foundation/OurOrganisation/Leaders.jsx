@@ -78,7 +78,7 @@ const Leaders = () => {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%,100% { opacity:1;    }
           50%      { opacity:0.25; }
         }
@@ -118,7 +118,7 @@ const Leaders = () => {
           transition:width 0.45s cubic-bezier(0.23,1,0.32,1); z-index:2;
         }
         .leader-card:hover::before { width:100%; }
-        .leader-card:hover { border-color:#2563eb; box-shadow:0 24px 52px rgba(37, 99, 235,0.14); background:#FEFCF7; }
+        .leader-card:hover { border-color:#2563eb; box-shadow:0 24px 52px rgba(37, 99, 235,0.14); background:#ffffff; }
 
         .social-btn {
           width:34px; height:34px; border-radius:50%;
@@ -189,10 +189,10 @@ const Leaders = () => {
               <span className="eyebrow-line" />
             </div>
 
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
               Our
             </h1>
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#8B6D38 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#1d4ed8 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
               Leaders
             </h1>
 
@@ -244,7 +244,7 @@ const Leaders = () => {
                   <div style={{ width:'40px', height:'40px', background:'#F5EFD8', border:'1px solid #E8D89A', borderRadius:'4px', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 0.85rem', color:'#2563eb' }}>
                     <Icon size={18} />
                   </div>
-                  <div style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'2.4rem', fontWeight:700, color:'#2563eb', letterSpacing:'-0.03em', lineHeight:1, marginBottom:'0.35rem' }}>
+                  <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'2.4rem', fontWeight:700, color:'#2563eb', letterSpacing:'-0.03em', lineHeight:1, marginBottom:'0.35rem' }}>
                     {stat.value}
                   </div>
                   <div style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.68rem', color:'#9C8B6E', letterSpacing:'0.14em', textTransform:'uppercase', fontWeight:500 }}>
@@ -276,7 +276,7 @@ function LeaderCard({ leader }) {
       {/* Clipped corner */}
       <div style={{ position:'absolute', top:0, right:0, width:20, height:20, background:hovered?'#2563eb':'#E8DFC4', clipPath:'polygon(100% 0,0 0,100% 100%)', transition:'background 0.3s', zIndex:2 }} />
       {/* Card number */}
-      <div style={{ position:'absolute', top:'1.1rem', left:'1.4rem', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.68rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600, zIndex:2 }}>
+      <div style={{ position:'absolute', top:'1.1rem', left:'1.4rem', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.68rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600, zIndex:2 }}>
         {leader.num}
       </div>
 
@@ -302,10 +302,10 @@ function LeaderCard({ leader }) {
 
           {/* Name block */}
           <div style={{ flex:1, minWidth:'160px', paddingTop:'0.5rem' }}>
-            <h3 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.35rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.25rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
+            <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.35rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.25rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
               {leader.name}
             </h3>
-            <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.95rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.35rem', letterSpacing:'0.02em' }}>
+            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.95rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.35rem', letterSpacing:'0.02em' }}>
               {leader.role}
             </p>
             <div style={{ display:'flex', alignItems:'center', gap:'0.4rem', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.75rem', color:'#9C8B6E', fontStyle:'italic', fontWeight:300 }}>
@@ -338,7 +338,7 @@ function LeaderCard({ leader }) {
               style={{ display:'flex', alignItems:'center', gap:'0.6rem', marginBottom:'0.4rem' }}
             >
               <span style={{ width:5, height:5, borderRadius:'50%', background:'#2563eb', flexShrink:0, display:'inline-block' }} />
-              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.8rem', color:'#7A6040', fontWeight:300, lineHeight:1.5 }}>{c}</span>
+              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.8rem', color:'#475569', fontWeight:300, lineHeight:1.5 }}>{c}</span>
             </motion.div>
           ))}
         </div>

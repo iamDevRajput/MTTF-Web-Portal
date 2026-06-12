@@ -164,7 +164,7 @@ export default function ConferenceSupportServices() {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.25; }
         }
@@ -194,7 +194,7 @@ export default function ConferenceSupportServices() {
           border-color: #2563eb;
           transform: translateY(-5px);
           box-shadow: 0 20px 44px rgba(37, 99, 235,0.12);
-          background: #FEFCF7;
+          background: #ffffff;
         }
 
         .type-card {
@@ -210,7 +210,7 @@ export default function ConferenceSupportServices() {
           border-color: #2563eb;
           transform: translateY(-4px);
           box-shadow: 0 16px 36px rgba(37, 99, 235,0.1);
-          background: #FEFCF7;
+          background: #ffffff;
         }
 
         .stat-box {
@@ -245,7 +245,7 @@ export default function ConferenceSupportServices() {
           border: 1px solid #2563eb; border-radius: 2px;
           cursor: pointer; transition: all 0.35s ease; text-decoration: none;
         }
-        .btn-gold:hover { background: #B8965A; border-color: #B8965A; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37, 99, 235,0.28); }
+        .btn-gold:hover { background: #1d4ed8; border-color: #1d4ed8; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37, 99, 235,0.28); }
 
         .btn-dark {
           display: inline-flex; align-items: center; gap: 0.5rem;
@@ -287,7 +287,7 @@ export default function ConferenceSupportServices() {
                 color: '#2563eb', textDecoration: 'none', letterSpacing: '0.06em',
                 transition: 'color 0.2s',
               }}
-              onMouseEnter={e => e.currentTarget.style.color = '#8B6D38'}
+              onMouseEnter={e => e.currentTarget.style.color = '#1d4ed8'}
               onMouseLeave={e => e.currentTarget.style.color = '#2563eb'}
             >
               <ArrowLeft size={15} />
@@ -333,13 +333,13 @@ export default function ConferenceSupportServices() {
               borderRadius:'2px', padding:'0.4rem 1.2rem', marginBottom:'1.75rem',
             }}>
               <span style={{ width:5, height:5, borderRadius:'50%', background:'#2563eb', display:'inline-block', animation:'pulseGold 2s ease infinite' }} />
-              <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.65rem', color:'#8B6D38', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500 }}>
+              <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.65rem', color:'#1d4ed8', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500 }}>
                 Section 3 · Conference Services
               </span>
             </div>
 
             <h1 style={{
-              fontFamily:"'Plus Jakarta Sans', serif",
+              fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize:'clamp(2.2rem, 5.5vw, 4.5rem)',
               fontWeight:900, lineHeight:1.05, letterSpacing:'-0.02em',
               color:'#0f172a', marginBottom:'0.6rem',
@@ -347,11 +347,11 @@ export default function ConferenceSupportServices() {
               National & International
             </h1>
             <h1 style={{
-              fontFamily:"'Plus Jakarta Sans', serif",
+              fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize:'clamp(2.2rem, 5.5vw, 4.5rem)',
               fontWeight:900, lineHeight:1.05, letterSpacing:'-0.02em',
               marginBottom:'1.25rem', fontStyle:'italic',
-              background:'linear-gradient(135deg, #2563eb 0%, #8B6D38 40%, #60a5fa 100%)',
+              background:'linear-gradient(135deg, #2563eb 0%, #1d4ed8 40%, #60a5fa 100%)',
               backgroundSize:'200% auto',
               WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',
               animation:'shimmer 4s linear infinite',
@@ -359,7 +359,7 @@ export default function ConferenceSupportServices() {
               Conference Support
             </h1>
 
-            <p style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.25rem', fontStyle:'italic', color:'#6B5C3E', maxWidth:'600px', margin:'0 auto 0.75rem', lineHeight:1.7, fontWeight:500 }}>
+            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.25rem', fontStyle:'italic', color:'#6B5C3E', maxWidth:'600px', margin:'0 auto 0.75rem', lineHeight:1.7, fontWeight:500 }}>
               Empowering Conferences Across Borders
             </p>
 
@@ -368,7 +368,7 @@ export default function ConferenceSupportServices() {
               From initial planning to post-conference publications, we provide everything
               you need to host successful national and international conferences.
             </p>
-            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.88rem', color:'#8B7048', maxWidth:'720px', margin:'0 auto 3rem', lineHeight:1.8, fontWeight:300 }}>
+            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.88rem', color:'#475569', maxWidth:'720px', margin:'0 auto 3rem', lineHeight:1.8, fontWeight:300 }}>
               Connect with leading experts in Science, Technology, Engineering, and Mathematics.
               Our distinguished team brings decades of combined experience to help you achieve
               your research, academic, and industry objectives.
@@ -385,7 +385,7 @@ export default function ConferenceSupportServices() {
                   flex:'1 1 120px', padding:'1.1rem 0.75rem', textAlign:'center',
                   borderRight: i < 3 ? '1px solid rgba(37, 99, 235,0.15)' : 'none',
                 }}>
-                  <div style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.8rem', fontWeight:700, color:'#2563eb', lineHeight:1 }}>{v}</div>
+                  <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.8rem', fontWeight:700, color:'#2563eb', lineHeight:1 }}>{v}</div>
                   <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.58rem', color:'rgba(90,65,40,0.45)', letterSpacing:'0.14em', textTransform:'uppercase', marginTop:'0.25rem', fontWeight:500 }}>{l}</div>
                 </div>
               ))}
@@ -400,12 +400,12 @@ export default function ConferenceSupportServices() {
           <div style={{ maxWidth:'1200px', margin:'0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />Our Services<span className="eyebrow-line" /></div>
             <h2 style={{
-              fontFamily:"'Plus Jakarta Sans', serif", fontSize:'clamp(1.8rem,3vw,2.8rem)',
+              fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)',
               fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem',
               letterSpacing:'-0.02em',
             }}>
               Conference Support{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Services</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Services</span>
             </h2>
 
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(320px, 1fr))', gap:'1.5rem' }}>
@@ -423,12 +423,12 @@ export default function ConferenceSupportServices() {
           <div style={{ maxWidth:'1200px', margin:'0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />What We Support<span className="eyebrow-line" /></div>
             <h2 style={{
-              fontFamily:"'Plus Jakarta Sans', serif", fontSize:'clamp(1.8rem,3vw,2.8rem)',
+              fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)',
               fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem',
               letterSpacing:'-0.02em',
             }}>
               Types of Conferences{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>We Support</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>We Support</span>
             </h2>
 
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(240px, 1fr))', gap:'1.25rem' }}>
@@ -443,7 +443,7 @@ export default function ConferenceSupportServices() {
                   }}>
                     {type.icon}
                   </div>
-                  <h3 style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.2rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem' }}>{type.title}</h3>
+                  <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.2rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem' }}>{type.title}</h3>
                   <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.82rem', color:'#6B5C3E', lineHeight:1.75, margin:'0 0 1rem', fontWeight:300 }}>{type.description}</p>
                   <span style={{
                     display:'inline-block', padding:'0.25rem 0.75rem',
@@ -468,7 +468,7 @@ export default function ConferenceSupportServices() {
                 Planning Guide
                 <span style={{ display:'inline-block', width:22, height:1, background:'#2563eb' }} />
               </div>
-              <h2 style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#E8D9C0', letterSpacing:'-0.02em', margin:0 }}>
+              <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#E8D9C0', letterSpacing:'-0.02em', margin:0 }}>
                 Conference Organizing{' '}
                 <span style={{ fontStyle:'italic', color:'#2563eb' }}>Timeline</span>
               </h2>
@@ -486,13 +486,13 @@ export default function ConferenceSupportServices() {
         <section style={{ padding:'5rem 2rem', background:'#f8fafc' }}>
           <div style={{ maxWidth:'1000px', margin:'0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />Track Record<span className="eyebrow-line" /></div>
-            <h2 style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em' }}>
-              Our{' '}<span style={{ fontStyle:'italic', color:'#8B6D38' }}>Proven Impact</span>
+            <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em' }}>
+              Our{' '}<span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Proven Impact</span>
             </h2>
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(200px, 1fr))', gap:'1.25rem' }}>
               {[['50+','Conferences Organized'],['20+','Countries Represented'],['15K+','Total Participants'],['95%','Success Rate']].map(([val, label], i) => (
                 <div className="stat-box" key={label} style={{ animationDelay:`${i*0.08}s`, animation:'fadeUp 0.6s ease both' }}>
-                  <div style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'2.8rem', fontWeight:700, color:'#2563eb', letterSpacing:'-0.03em', lineHeight:1, marginBottom:'0.4rem' }}>{val}</div>
+                  <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'2.8rem', fontWeight:700, color:'#2563eb', letterSpacing:'-0.03em', lineHeight:1, marginBottom:'0.4rem' }}>{val}</div>
                   <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.72rem', color:'#6B5C3E', letterSpacing:'0.1em', textTransform:'uppercase', fontWeight:500 }}>{label}</div>
                 </div>
               ))}
@@ -526,7 +526,7 @@ export default function ConferenceSupportServices() {
                 <span style={{ display:'inline-block', width:22, height:1, background:'#2563eb' }} />
               </div>
 
-              <h2 style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
+              <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
                 Ready to Organize Your{' '}
                 <span style={{ fontStyle:'italic', background:'linear-gradient(135deg, #2563eb, #60a5fa)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>
                   Conference?
@@ -571,7 +571,7 @@ function ServiceCard({ svc, index }) {
 
       {/* Number + icon row */}
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'1.25rem' }}>
-        <span style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'0.7rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600 }}>{svc.num}</span>
+        <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.7rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600 }}>{svc.num}</span>
         <div style={{
           width:'44px', height:'44px', background: hovered ? '#FDF5E0' : '#F5EFD8',
           border:'1px solid #E8D89A', borderRadius:'4px',
@@ -582,10 +582,10 @@ function ServiceCard({ svc, index }) {
         </div>
       </div>
 
-      <h3 style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.3rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem', letterSpacing:'-0.01em', lineHeight:1.25 }}>
+      <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.3rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem', letterSpacing:'-0.01em', lineHeight:1.25 }}>
         {svc.title}
       </h3>
-      <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.82rem', color:'#8B7048', lineHeight:1.7, margin:'0 0 1rem', fontWeight:300 }}>
+      <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.82rem', color:'#475569', lineHeight:1.7, margin:'0 0 1rem', fontWeight:300 }}>
         {svc.description}
       </p>
 
@@ -621,13 +621,13 @@ function TimelineRow({ stage, index, total }) {
     >
       {/* Phase label */}
       <div style={{ flexShrink:0, width:'160px', paddingTop:'0.1rem' }}>
-        <span style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'0.72rem', color: hovered ? '#60a5fa' : '#2563eb', letterSpacing:'0.1em', fontWeight:600, textTransform:'uppercase', transition:'color 0.3s' }}>
+        <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.72rem', color: hovered ? '#60a5fa' : '#2563eb', letterSpacing:'0.1em', fontWeight:600, textTransform:'uppercase', transition:'color 0.3s' }}>
           {stage.phase}
         </span>
       </div>
 
       <div style={{ flex:1 }}>
-        <h3 style={{ fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.1rem', fontWeight:700, color:'#E8D9C0', margin:'0 0 0.85rem', letterSpacing:'-0.01em' }}>
+        <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.1rem', fontWeight:700, color:'#E8D9C0', margin:'0 0 0.85rem', letterSpacing:'-0.01em' }}>
           {stage.title}
         </h3>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill, minmax(200px, 1fr))', gap:'0.5rem' }}>

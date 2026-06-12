@@ -8,7 +8,7 @@ const styles = `
   :root {
     --mttf-primary: #2563eb;
     --mttf-primary-light: #60a5fa;
-    --gold-pale: rgba(37, 99, 235,0.10);
+    --mttf-primary-pale: rgba(37, 99, 235,0.10);
     --mttf-bg-alt: #f8fafc;
     --mttf-border-light: #f1f5f9;
     --charcoal: #0f172a;
@@ -19,7 +19,7 @@ const styles = `
 
   /* ── Page shell ── */
   .lux-contact-page {
-    background: var(--cream);
+    background: var(--mttf-bg-alt);
     font-family: 'Plus Jakarta Sans', sans-serif;
     padding-top: 100px;
     min-height: 100vh;
@@ -48,7 +48,7 @@ const styles = `
     right: 48px;
     top: 50%;
     transform: translateY(-50%);
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 280px;
     font-weight: 600;
     color: rgba(37, 99, 235,0.04);
@@ -87,10 +87,10 @@ const styles = `
   }
 
   .lux-contact-headline {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(48px, 6vw, 76px);
     font-weight: 400;
-    color: var(--cream);
+    color: var(--mttf-bg-alt);
     line-height: 1.05;
     letter-spacing: -0.01em;
     margin-bottom: 20px;
@@ -98,7 +98,7 @@ const styles = `
 
   .lux-contact-headline em {
     font-style: italic;
-    color: var(--gold-light);
+    color: var(--mttf-primary-light);
     display: block;
   }
 
@@ -152,7 +152,7 @@ const styles = `
   }
 
   .lux-info-card:hover {
-    background: var(--cream);
+    background: var(--mttf-bg-alt);
   }
 
   .lux-info-card:hover::before {
@@ -167,13 +167,13 @@ const styles = `
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: var(--cream);
+    background: var(--mttf-bg-alt);
     transition: border-color 0.25s ease, background 0.25s ease;
   }
 
   .lux-info-card:hover .lux-info-icon {
     border-color: var(--mttf-primary);
-    background: var(--gold-pale);
+    background: var(--mttf-primary-pale);
   }
 
   .lux-info-label {
@@ -188,7 +188,7 @@ const styles = `
   }
 
   .lux-info-title {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 19px;
     font-weight: 500;
     color: var(--charcoal);
@@ -238,7 +238,7 @@ const styles = `
 
   .lux-map-placeholder {
     height: 200px;
-    background: var(--beige);
+    background: var(--mttf-border-light);
     border: 1px solid var(--divider);
     display: flex;
     align-items: center;
@@ -291,10 +291,10 @@ const styles = `
   }
 
   .lux-map-tag-city {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
     font-weight: 500;
-    color: var(--cream);
+    color: var(--mttf-bg-alt);
     letter-spacing: 0.05em;
   }
 
@@ -324,7 +324,7 @@ const styles = `
   }
 
   .lux-form-heading {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 34px;
     font-weight: 400;
     color: var(--charcoal);
@@ -384,7 +384,7 @@ const styles = `
   .lux-inquiry-btn:hover,
   .lux-inquiry-btn.active {
     border-color: var(--mttf-primary);
-    background: var(--gold-pale);
+    background: var(--mttf-primary-pale);
   }
 
   .lux-inquiry-btn:hover::after,
@@ -419,7 +419,7 @@ const styles = `
     width: 100%;
     padding: 14px 18px;
     border: 1px solid rgba(28,26,23,0.14);
-    background: var(--cream);
+    background: var(--mttf-bg-alt);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
     font-weight: 300;
@@ -456,7 +456,7 @@ const styles = `
     gap: 10px;
     padding: 15px 32px;
     background: var(--charcoal);
-    color: var(--gold-light);
+    color: var(--mttf-primary-light);
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     font-weight: 500;
@@ -496,7 +496,7 @@ const styles = `
   }
 
   .lux-trust-item {
-    background: var(--cream);
+    background: var(--mttf-bg-alt);
     padding: 18px 12px;
     text-align: center;
     display: flex;
@@ -558,7 +558,7 @@ const styles = `
   }
 
   .lux-mascot-bubble-title {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: var(--charcoal);

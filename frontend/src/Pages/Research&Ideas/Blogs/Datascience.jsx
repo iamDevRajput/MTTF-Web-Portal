@@ -90,7 +90,7 @@ function HexGrid() {
         i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
       }
       ctx.closePath();
-      ctx.strokeStyle = `rgba(201,168,76,${opacity})`;
+      ctx.strokeStyle = `rgba(37, 99, 235,${opacity})`;
       ctx.lineWidth = 0.5;
       ctx.stroke();
     }
@@ -137,8 +137,8 @@ function Card({ section, index }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "#FEFCF7" : "#FAF8F2",
-        border: `1px solid ${hovered ? "#2563eb" : "#E8E0CC"}`,
+        background: hovered ? "#ffffff" : "#ffffff",
+        border: `1px solid ${hovered ? "#2563eb" : "#e2e8f0"}`,
         borderRadius: "4px",
         padding: "2.25rem",
         position: "relative",
@@ -147,8 +147,8 @@ function Card({ section, index }) {
         transition: "all 0.4s cubic-bezier(0.23,1,0.32,1)",
         transform: hovered ? "translateY(-6px) scale(1.005)" : "translateY(0) scale(1)",
         boxShadow: hovered
-          ? "0 24px 48px rgba(139,109,56,0.14), 0 2px 8px rgba(139,109,56,0.08)"
-          : "0 2px 12px rgba(139,109,56,0.04)",
+          ? "0 24px 48px rgba(37, 99, 235,0.14), 0 2px 8px rgba(37, 99, 235,0.08)"
+          : "0 2px 12px rgba(37, 99, 235,0.04)",
         animationDelay: `${index * 0.09}s`,
         animation: "cardIn 0.65s cubic-bezier(0.23,1,0.32,1) both",
       }}
@@ -161,7 +161,7 @@ function Card({ section, index }) {
           left: 0,
           width: hovered ? "100%" : "0%",
           height: "2px",
-          background: "linear-gradient(90deg, #2563eb, #E8C96A, transparent)",
+          background: "linear-gradient(90deg, #2563eb, #60a5fa, transparent)",
           transition: "width 0.45s cubic-bezier(0.23,1,0.32,1)",
         }}
       />
@@ -199,9 +199,9 @@ function Card({ section, index }) {
           position: "absolute",
           top: "1.1rem",
           right: "1.5rem",
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "0.72rem",
-          color: hovered ? "#8B6D38" : "#C4B08A",
+          color: hovered ? "#1d4ed8" : "#94a3b8",
           letterSpacing: "0.1em",
           fontWeight: 600,
           transition: "color 0.3s",
@@ -225,7 +225,7 @@ function Card({ section, index }) {
           marginBottom: "1.25rem",
           transition: "all 0.3s ease",
           transform: hovered ? "rotate(6deg) scale(1.08)" : "rotate(0deg) scale(1)",
-          boxShadow: hovered ? "0 4px 16px rgba(201,168,76,0.2)" : "none",
+          boxShadow: hovered ? "0 4px 16px rgba(37, 99, 235,0.2)" : "none",
         }}
       >
         {section.icon}
@@ -251,10 +251,10 @@ function Card({ section, index }) {
       {/* Title */}
       <h3
         style={{
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "1.45rem",
           fontWeight: 700,
-          color: "#1C1208",
+          color: "#0f172a",
           margin: "0 0 0.9rem",
           letterSpacing: "-0.01em",
           lineHeight: 1.2,
@@ -297,14 +297,14 @@ export default function App() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,700;0,900;1,600;1,700&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ background: "#F7F3EA", color: "#1C1208" }}
+      style={{ background: "#f8fafc", color: "#0f172a" }}
     >
       <style>{`
         @keyframes cardIn {
@@ -315,7 +315,7 @@ export default function App() {
           from { opacity: 0; transform: translateY(-14px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.25; }
         }
@@ -329,7 +329,7 @@ export default function App() {
         }
 
         ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #F7F3EA; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 2px; }
 
         .luxury-cta {
@@ -337,14 +337,14 @@ export default function App() {
           align-items: center;
           gap: 0.5rem;
           padding: 0.75rem 2rem;
-          background: #1C1208;
-          color: #F7F3EA;
+          background: #0f172a;
+          color: #f8fafc;
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 0.75rem;
           font-weight: 500;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          border: 1px solid #1C1208;
+          border: 1px solid #0f172a;
           border-radius: 2px;
           cursor: pointer;
           transition: all 0.35s ease;
@@ -355,7 +355,7 @@ export default function App() {
           border-color: #2563eb;
           color: #fff;
           transform: translateY(-2px);
-          box-shadow: 0 10px 24px rgba(201,168,76,0.28);
+          box-shadow: 0 10px 24px rgba(37, 99, 235,0.28);
         }
 
         .metric-cell {
@@ -387,7 +387,7 @@ export default function App() {
           right: 0,
           height: "1px",
           background:
-            "linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent)",
+            "linear-gradient(90deg, transparent, rgba(37, 99, 235,0.35), transparent)",
           animation: "scanGold 8s linear infinite",
           zIndex: 10,
           pointerEvents: "none",
@@ -408,7 +408,7 @@ export default function App() {
             padding: "7rem 2rem 5rem",
             textAlign: "center",
             background:
-              "linear-gradient(158deg, #F7F3EA 0%, #EDE5CC 55%, #E4D5A8 100%)",
+              "linear-gradient(158deg, #f8fafc 0%, #f1f5f9 55%, #e2e8f0 100%)",
             borderBottom: "1px solid #D8CBA8",
           }}
         >
@@ -424,7 +424,7 @@ export default function App() {
               width: "700px",
               height: "420px",
               background:
-                "radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%)",
+                "radial-gradient(ellipse, rgba(37, 99, 235,0.1) 0%, transparent 70%)",
               pointerEvents: "none",
             }}
           />
@@ -455,8 +455,8 @@ export default function App() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.65rem",
-                background: "rgba(201,168,76,0.1)",
-                border: "1px solid rgba(201,168,76,0.3)",
+                background: "rgba(37, 99, 235,0.1)",
+                border: "1px solid rgba(37, 99, 235,0.3)",
                 borderRadius: "2px",
                 padding: "0.4rem 1.2rem",
                 marginBottom: "2rem",
@@ -476,7 +476,7 @@ export default function App() {
                 style={{
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "0.65rem",
-                  color: "#8B6D38",
+                  color: "#1d4ed8",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
                   fontWeight: 500,
@@ -488,20 +488,20 @@ export default function App() {
 
             <h1
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(2.4rem, 6.5vw, 5rem)",
                 fontWeight: 900,
                 lineHeight: 1.0,
                 letterSpacing: "-0.025em",
                 marginBottom: "1.25rem",
-                color: "#1C1208",
+                color: "#0f172a",
               }}
             >
               Why{" "}
               <span
                 style={{
                   background:
-                    "linear-gradient(135deg, #2563eb 0%, #8B6D38 40%, #E8C96A 100%)",
+                    "linear-gradient(135deg, #2563eb 0%, #1d4ed8 40%, #60a5fa 100%)",
                   backgroundSize: "200% auto",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -516,7 +516,7 @@ export default function App() {
                 style={{
                   fontStyle: "italic",
                   fontWeight: 700,
-                  color: "#C4B08A",
+                  color: "#94a3b8",
                   fontSize: "clamp(1.5rem, 4vw, 2.9rem)",
                 }}
               >
@@ -584,7 +584,7 @@ export default function App() {
             <div className="metric-cell" key={label}>
               <div
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "2rem",
                   fontWeight: 700,
                   color: "#2563eb",
@@ -660,7 +660,7 @@ export default function App() {
           </div>
           <p
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "1.25rem",
               color: "#3D2E14",
               lineHeight: 1.75,
@@ -724,17 +724,17 @@ export default function App() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
                 fontWeight: 700,
-                color: "#1C1208",
+                color: "#0f172a",
                 margin: 0,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.15,
               }}
             >
               Why It Matters,{" "}
-              <span style={{ fontStyle: "italic", color: "#8B6D38" }}>
+              <span style={{ fontStyle: "italic", color: "#1d4ed8" }}>
                 Precisely Defined
               </span>
             </h2>

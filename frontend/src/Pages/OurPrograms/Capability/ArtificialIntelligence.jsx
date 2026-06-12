@@ -72,27 +72,27 @@ function ArtificialIntelligence() {
         .ai-page * { box-sizing: border-box; }
 
         .ai-page {
-          --cream: #FAF7F2;
-          --beige: #F0EBE1;
-          --warm-white: #FDFBF8;
-          --accent-yellow: #D4A843;
-          --accent-yellow-light: #F5E6C0;
-          --text-dark: #1A1614;
+          --mttf-bg-alt: #f8fafc;
+          --mttf-border-light: #F0EBE1;
+          --mttf-bg: #ffffff;
+          --mttf-primary: #D4A843;
+          --mttf-primary-light: #F5E6C0;
+          --mttf-text: #0f172a;
           --text-mid: #4A3F35;
           --text-light: #8A7A6E;
           --border: #E8E0D4;
           font-family: 'Plus Jakarta Sans', sans-serif;
-          background: var(--cream);
+          background: var(--mttf-bg-alt);
           min-height: 100vh;
         }
 
         .ai-page h1, .ai-page h2, .ai-page h3 {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         /* Hero */
         .ai-hero {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           min-height: 70vh;
           display: flex;
           align-items: center;
@@ -121,7 +121,7 @@ function ArtificialIntelligence() {
           left: 0; right: 0;
           bottom: 0;
           height: 1px;
-          background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
+          background: linear-gradient(90deg, transparent, var(--mttf-primary), transparent);
         }
 
         .ai-hero-content {
@@ -141,14 +141,14 @@ function ArtificialIntelligence() {
           font-size: 11px;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 500;
         }
 
         .ai-hero-badge span.dot {
           width: 5px; height: 5px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           border-radius: 50%;
           display: inline-block;
         }
@@ -156,7 +156,7 @@ function ArtificialIntelligence() {
         .ai-hero h1 {
           font-size: clamp(52px, 8vw, 96px);
           font-weight: 300;
-          color: #FAF7F2;
+          color: #f8fafc;
           line-height: 1.0;
           margin: 0 0 24px;
           letter-spacing: -1px;
@@ -164,7 +164,7 @@ function ArtificialIntelligence() {
 
         .ai-hero h1 em {
           font-style: italic;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .ai-hero p {
@@ -180,8 +180,8 @@ function ArtificialIntelligence() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: var(--accent-yellow);
-          color: var(--text-dark);
+          background: var(--mttf-primary);
+          color: var(--mttf-text);
           padding: 14px 32px;
           font-size: 13px;
           font-weight: 500;
@@ -225,7 +225,7 @@ function ArtificialIntelligence() {
           font-size: 10px;
           letter-spacing: 3px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-weight: 500;
           margin-bottom: 16px;
           display: block;
@@ -234,26 +234,26 @@ function ArtificialIntelligence() {
         .ai-section-title {
           font-size: clamp(36px, 5vw, 60px);
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           line-height: 1.1;
           margin: 0 0 20px;
         }
 
         .ai-section-title em {
           font-style: italic;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .ai-divider {
           width: 60px;
           height: 1px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           margin: 0 0 40px;
         }
 
         /* Overview */
         .ai-overview {
-          background: var(--warm-white);
+          background: var(--mttf-bg);
           border: 1px solid var(--border);
           border-radius: 4px;
           padding: 64px;
@@ -283,10 +283,10 @@ function ArtificialIntelligence() {
         }
 
         .ai-overview-stat .num {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 52px;
           font-weight: 300;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           display: block;
           line-height: 1;
           margin-bottom: 8px;
@@ -322,7 +322,7 @@ function ArtificialIntelligence() {
         }
 
         .ai-area-card {
-          background: var(--warm-white);
+          background: var(--mttf-bg);
           padding: 48px;
           position: relative;
           overflow: hidden;
@@ -331,7 +331,7 @@ function ArtificialIntelligence() {
         }
 
         .ai-area-card:hover {
-          background: var(--text-dark);
+          background: var(--mttf-text);
         }
 
         .ai-area-card::after {
@@ -339,7 +339,7 @@ function ArtificialIntelligence() {
           position: absolute;
           bottom: 0; left: 48px; right: 48px;
           height: 1px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.4s ease;
@@ -350,7 +350,7 @@ function ArtificialIntelligence() {
         }
 
         .ai-area-num {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 72px;
           font-weight: 300;
           color: var(--border);
@@ -366,7 +366,7 @@ function ArtificialIntelligence() {
 
         .ai-area-icon {
           width: 48px; height: 48px;
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border-radius: 2px;
           display: flex;
           align-items: center;
@@ -381,18 +381,18 @@ function ArtificialIntelligence() {
 
         .ai-area-icon svg {
           width: 22px; height: 22px;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .ai-area-card h3 {
           font-size: 24px;
           font-weight: 400;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0 0 12px;
           transition: color 0.3s ease;
         }
 
-        .ai-area-card:hover h3 { color: var(--cream); }
+        .ai-area-card:hover h3 { color: var(--mttf-bg-alt); }
 
         .ai-area-card p {
           font-size: 14px;
@@ -413,7 +413,7 @@ function ArtificialIntelligence() {
           font-size: 11px;
           letter-spacing: 2px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           opacity: 0;
           transform: translateX(-8px);
           transition: all 0.3s ease;
@@ -427,7 +427,7 @@ function ArtificialIntelligence() {
 
         /* Research */
         .ai-research {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           padding: 80px;
           border-radius: 4px;
           position: relative;
@@ -447,9 +447,9 @@ function ArtificialIntelligence() {
           pointer-events: none;
         }
 
-        .ai-research .ai-label { color: var(--accent-yellow); }
+        .ai-research .ai-label { color: var(--mttf-primary); }
 
-        .ai-research .ai-section-title { color: var(--cream); }
+        .ai-research .ai-section-title { color: var(--mttf-bg-alt); }
 
         .ai-research-grid {
           display: grid;
@@ -486,7 +486,7 @@ function ArtificialIntelligence() {
         .ai-research-item h4 {
           font-size: 20px;
           font-weight: 400;
-          color: var(--cream);
+          color: var(--mttf-bg-alt);
           margin: 0 0 10px;
         }
 
@@ -500,7 +500,7 @@ function ArtificialIntelligence() {
 
         /* CTA */
         .ai-cta {
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border: 1px solid rgba(212,168,67,0.3);
           border-radius: 4px;
           padding: 80px;
@@ -524,7 +524,7 @@ function ArtificialIntelligence() {
         .ai-cta h2 {
           font-size: clamp(36px, 5vw, 60px);
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0 0 16px;
           position: relative;
         }
@@ -667,7 +667,7 @@ function ArtificialIntelligence() {
         >
           <div className="ai-research">
             <span className="ai-label">Pushing Boundaries</span>
-            <h2 className="ai-section-title" style={{ color: 'var(--cream)' }}>
+            <h2 className="ai-section-title" style={{ color: 'var(--mttf-bg-alt)' }}>
               Research & <em>Innovation</em>
             </h2>
             <p style={{ color: 'rgba(250,247,242,0.55)', fontSize: 15, lineHeight: 1.8, maxWidth: 560, fontWeight: 300, marginTop: 8 }}>

@@ -139,7 +139,7 @@ const Executives = () => {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%,100% { opacity:1;    }
           50%      { opacity:0.25; }
         }
@@ -179,7 +179,7 @@ const Executives = () => {
           transition:width 0.45s cubic-bezier(0.23,1,0.32,1); z-index:2;
         }
         .exec-card:hover::before { width:100%; }
-        .exec-card:hover { border-color:#2563eb; box-shadow:0 24px 52px rgba(37, 99, 235,0.14); background:#FEFCF7; }
+        .exec-card:hover { border-color:#2563eb; box-shadow:0 24px 52px rgba(37, 99, 235,0.14); background:#ffffff; }
 
         .social-btn {
           width:34px; height:34px; border-radius:50%;
@@ -237,10 +237,10 @@ const Executives = () => {
               <span className="eyebrow-line" />
             </div>
 
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
               Executive
             </h1>
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#8B6D38 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#1d4ed8 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
               Members
             </h1>
 
@@ -325,10 +325,10 @@ const Executives = () => {
                           <div style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.62rem', letterSpacing:'0.2em', color:'#2563eb', textTransform:'uppercase', fontWeight:500, marginBottom:'0.4rem' }}>
                             {selectedExecutive.department}
                           </div>
-                          <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.5rem,3vw,2.2rem)', fontWeight:700, color:'#0f172a', margin:'0 0 0.3rem', letterSpacing:'-0.02em' }}>
+                          <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.5rem,3vw,2.2rem)', fontWeight:700, color:'#0f172a', margin:'0 0 0.3rem', letterSpacing:'-0.02em' }}>
                             {selectedExecutive.name}
                           </h2>
-                          <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.25rem', letterSpacing:'0.02em' }}>
+                          <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.25rem', letterSpacing:'0.02em' }}>
                             {selectedExecutive.role}
                           </p>
                           <div style={{ display:'flex', alignItems:'center', gap:'0.4rem', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.75rem', color:'#9C8B6E', fontStyle:'italic', fontWeight:300, marginBottom:'1rem' }}>
@@ -423,9 +423,9 @@ const Executives = () => {
                       {/* Close */}
                       <button
                         onClick={() => setSelectedExecutive(null)}
-                        style={{ width:'100%', padding:'0.8rem', background:'transparent', color:'#8B6D38', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.72rem', fontWeight:500, letterSpacing:'0.14em', textTransform:'uppercase', border:'1px solid #D8CBA8', borderRadius:'2px', cursor:'pointer', transition:'all 0.3s ease' }}
+                        style={{ width:'100%', padding:'0.8rem', background:'transparent', color:'#1d4ed8', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.72rem', fontWeight:500, letterSpacing:'0.14em', textTransform:'uppercase', border:'1px solid #D8CBA8', borderRadius:'2px', cursor:'pointer', transition:'all 0.3s ease' }}
                         onMouseEnter={e => { e.currentTarget.style.borderColor = '#2563eb'; e.currentTarget.style.color = '#2563eb'; }}
-                        onMouseLeave={e => { e.currentTarget.style.borderColor = '#D8CBA8'; e.currentTarget.style.color = '#8B6D38'; }}
+                        onMouseLeave={e => { e.currentTarget.style.borderColor = '#D8CBA8'; e.currentTarget.style.color = '#1d4ed8'; }}
                       >
                         Close
                       </button>
@@ -458,7 +458,7 @@ function ExecCard({ exec }) {
       {/* Clipped corner */}
       <div style={{ position:'absolute', top:0, right:0, width:20, height:20, background:hovered ? '#2563eb' : '#E8DFC4', clipPath:'polygon(100% 0,0 0,100% 100%)', transition:'background 0.3s', zIndex:2 }} />
       {/* Card number */}
-      <div style={{ position:'absolute', top:'1.1rem', left:'1.4rem', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.68rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600, zIndex:2 }}>
+      <div style={{ position:'absolute', top:'1.1rem', left:'1.4rem', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.68rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600, zIndex:2 }}>
         {exec.num}
       </div>
 
@@ -484,10 +484,10 @@ function ExecCard({ exec }) {
 
           {/* Name block */}
           <div style={{ flex:1, minWidth:'160px', paddingTop:'0.5rem' }}>
-            <h3 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.35rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.25rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
+            <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.35rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.25rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
               {exec.name}
             </h3>
-            <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.95rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.35rem', letterSpacing:'0.02em' }}>
+            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.95rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.35rem', letterSpacing:'0.02em' }}>
               {exec.role}
             </p>
             <div style={{ display:'flex', alignItems:'center', gap:'0.4rem', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.75rem', color:'#9C8B6E', fontStyle:'italic', fontWeight:300 }}>
@@ -520,7 +520,7 @@ function ExecCard({ exec }) {
               style={{ display:'flex', alignItems:'center', gap:'0.6rem', marginBottom:'0.4rem' }}
             >
               <span style={{ width:5, height:5, borderRadius:'50%', background:'#2563eb', flexShrink:0, display:'inline-block' }} />
-              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.8rem', color:'#7A6040', fontWeight:300, lineHeight:1.5 }}>{resp}</span>
+              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.8rem', color:'#475569', fontWeight:300, lineHeight:1.5 }}>{resp}</span>
             </motion.div>
           ))}
         </div>

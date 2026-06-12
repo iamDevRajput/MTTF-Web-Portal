@@ -90,27 +90,27 @@ function Bioinformatics() {
         .bio-page * { box-sizing: border-box; }
 
         .bio-page {
-          --cream: #FAF7F2;
-          --beige: #F0EBE1;
-          --warm-white: #FDFBF8;
-          --accent-yellow: #D4A843;
-          --accent-yellow-light: #F5E6C0;
-          --text-dark: #1A1614;
+          --mttf-bg-alt: #f8fafc;
+          --mttf-border-light: #F0EBE1;
+          --mttf-bg: #ffffff;
+          --mttf-primary: #D4A843;
+          --mttf-primary-light: #F5E6C0;
+          --mttf-text: #0f172a;
           --text-mid: #4A3F35;
           --text-light: #8A7A6E;
           --border: #E8E0D4;
           font-family: 'Plus Jakarta Sans', sans-serif;
-          background: var(--cream);
+          background: var(--mttf-bg-alt);
           min-height: 100vh;
         }
 
         .bio-page h1, .bio-page h2, .bio-page h3, .bio-page h4 {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         /* Hero */
         .bio-hero {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           min-height: 65vh;
           display: flex;
           align-items: center;
@@ -130,7 +130,7 @@ function Bioinformatics() {
           position: absolute;
           left: 0; right: 0; bottom: 0;
           height: 1px;
-          background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
+          background: linear-gradient(90deg, transparent, var(--mttf-primary), transparent);
         }
 
         /* Back button */
@@ -148,7 +148,7 @@ function Bioinformatics() {
           margin-bottom: 40px;
         }
 
-        .bio-back:hover { color: var(--accent-yellow); }
+        .bio-back:hover { color: var(--mttf-primary); }
         .bio-back svg { width: 14px; height: 14px; }
 
         .bio-hero-badge {
@@ -162,14 +162,14 @@ function Bioinformatics() {
           font-size: 11px;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 500;
         }
 
         .bio-hero-badge span.dot {
           width: 5px; height: 5px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           border-radius: 50%;
           display: inline-block;
         }
@@ -177,7 +177,7 @@ function Bioinformatics() {
         .bio-hero h1 {
           font-size: clamp(48px, 7vw, 88px);
           font-weight: 300;
-          color: #FAF7F2;
+          color: #f8fafc;
           line-height: 1.0;
           margin: 0 0 24px;
           letter-spacing: -1px;
@@ -185,7 +185,7 @@ function Bioinformatics() {
 
         .bio-hero h1 em {
           font-style: italic;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .bio-hero p {
@@ -201,8 +201,8 @@ function Bioinformatics() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: var(--accent-yellow);
-          color: var(--text-dark);
+          background: var(--mttf-primary);
+          color: var(--mttf-text);
           padding: 14px 32px;
           font-size: 13px;
           font-weight: 500;
@@ -237,7 +237,7 @@ function Bioinformatics() {
           font-size: 10px;
           letter-spacing: 3px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-weight: 500;
           margin-bottom: 16px;
           display: block;
@@ -247,26 +247,26 @@ function Bioinformatics() {
         .bio-section-title {
           font-size: clamp(32px, 4.5vw, 56px);
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           line-height: 1.1;
           margin: 0 0 20px;
         }
 
         .bio-section-title em {
           font-style: italic;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .bio-divider {
           width: 60px;
           height: 1px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           margin: 0 0 48px;
         }
 
         /* Overview */
         .bio-overview {
-          background: var(--warm-white);
+          background: var(--mttf-bg);
           border: 1px solid var(--border);
           border-radius: 4px;
           padding: 64px;
@@ -296,17 +296,17 @@ function Bioinformatics() {
         }
 
         .bio-quote {
-          border-left: 2px solid var(--accent-yellow);
+          border-left: 2px solid var(--mttf-primary);
           padding: 20px 24px;
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border-radius: 0 2px 2px 0;
         }
 
         .bio-quote p {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 20px;
           font-style: italic;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0;
           line-height: 1.5;
           font-weight: 400;
@@ -328,7 +328,7 @@ function Bioinformatics() {
         }
 
         .bio-area-card {
-          background: var(--warm-white);
+          background: var(--mttf-bg);
           padding: 48px;
           position: relative;
           overflow: hidden;
@@ -336,14 +336,14 @@ function Bioinformatics() {
           cursor: pointer;
         }
 
-        .bio-area-card:hover { background: var(--text-dark); }
+        .bio-area-card:hover { background: var(--mttf-text); }
 
         .bio-area-card::after {
           content: '';
           position: absolute;
           bottom: 0; left: 48px; right: 48px;
           height: 1px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.4s ease;
@@ -352,7 +352,7 @@ function Bioinformatics() {
         .bio-area-card:hover::after { transform: scaleX(1); }
 
         .bio-area-num {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 64px;
           font-weight: 300;
           color: var(--border);
@@ -366,7 +366,7 @@ function Bioinformatics() {
 
         .bio-area-icon {
           width: 48px; height: 48px;
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border-radius: 2px;
           display: flex;
           align-items: center;
@@ -376,17 +376,17 @@ function Bioinformatics() {
         }
 
         .bio-area-card:hover .bio-area-icon { background: rgba(212,168,67,0.2); }
-        .bio-area-icon svg { width: 22px; height: 22px; color: var(--accent-yellow); }
+        .bio-area-icon svg { width: 22px; height: 22px; color: var(--mttf-primary); }
 
         .bio-area-card h3 {
           font-size: 22px;
           font-weight: 400;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0 0 12px;
           transition: color 0.3s ease;
         }
 
-        .bio-area-card:hover h3 { color: var(--cream); }
+        .bio-area-card:hover h3 { color: var(--mttf-bg-alt); }
 
         .bio-area-card p {
           font-size: 14px;
@@ -407,7 +407,7 @@ function Bioinformatics() {
           font-size: 11px;
           letter-spacing: 2px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           opacity: 0;
           transform: translateX(-8px);
           transition: all 0.3s ease;
@@ -419,7 +419,7 @@ function Bioinformatics() {
 
         /* Applications */
         .bio-apps {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           padding: 72px 64px;
           border-radius: 4px;
           position: relative;
@@ -471,7 +471,7 @@ function Bioinformatics() {
         .bio-app-item h4 {
           font-size: 20px;
           font-weight: 400;
-          color: var(--cream);
+          color: var(--mttf-bg-alt);
           margin: 0 0 10px;
         }
 
@@ -485,7 +485,7 @@ function Bioinformatics() {
 
         /* CTA */
         .bio-cta {
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border: 1px solid rgba(212,168,67,0.3);
           border-radius: 4px;
           padding: 80px;
@@ -509,7 +509,7 @@ function Bioinformatics() {
         .bio-cta h2 {
           font-size: clamp(32px, 4.5vw, 56px);
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0 0 16px;
           position: relative;
         }
@@ -634,8 +634,8 @@ function Bioinformatics() {
           style={{ opacity: isVisible[2] ? 1 : 0, transform: isVisible[2] ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease 0.2s' }}
         >
           <div className="bio-apps">
-            <span className="bio-label" style={{ color: 'var(--accent-yellow)' }}>Impact</span>
-            <h2 className="bio-section-title" style={{ color: 'var(--cream)' }}>
+            <span className="bio-label" style={{ color: 'var(--mttf-primary)' }}>Impact</span>
+            <h2 className="bio-section-title" style={{ color: 'var(--mttf-bg-alt)' }}>
               Real-World <em>Applications</em>
             </h2>
             <p style={{ color: 'rgba(250,247,242,0.5)', fontSize: 14, lineHeight: 1.9, maxWidth: 500, fontWeight: 300 }}>

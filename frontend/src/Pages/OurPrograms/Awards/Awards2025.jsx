@@ -27,7 +27,7 @@ function Awards2025() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
@@ -36,11 +36,11 @@ function Awards2025() {
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
-      background: "#FBF6EC",
-      color: "#1A120A",
+      background: "#f8fafc",
+      color: "#0f172a",
     }}>
       <style>{`
-        @keyframes goldShimmer {
+        @keyframes accentShimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
@@ -61,7 +61,7 @@ function Awards2025() {
           to   { opacity: 1; transform: translateY(0); }
         }
         ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #FBF6EC; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 1px; }
       `}</style>
 
@@ -82,16 +82,16 @@ function Awards2025() {
             padding: "7rem 2rem 5rem",
             textAlign: "center",
             overflow: "hidden",
-            background: "#FBF6EC",
-            borderBottom: "1px solid rgba(139,112,72,0.1)",
+            background: "#f8fafc",
+            borderBottom: "1px solid rgba(100, 116, 139,0.1)",
           }}
         >
           {/* Subtle grid */}
           <div style={{
             position: "absolute", inset: 0, pointerEvents: "none",
             backgroundImage: `
-              linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px)
+              linear-gradient(rgba(37, 99, 235,0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(37, 99, 235,0.05) 1px, transparent 1px)
             `,
             backgroundSize: "72px 72px",
           }} />
@@ -101,7 +101,7 @@ function Awards2025() {
             position: "absolute", pointerEvents: "none",
             top: "50%", left: "50%",
             width: "680px", height: "480px",
-            background: "radial-gradient(ellipse, rgba(201,168,76,0.1) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(37, 99, 235,0.1) 0%, transparent 70%)",
             transform: "translate(-50%, -50%)",
           }} />
 
@@ -110,7 +110,7 @@ function Awards2025() {
             position: "absolute", pointerEvents: "none",
             top: "50%", left: "50%",
             width: "440px", height: "440px",
-            border: "1px solid rgba(201,168,76,0.08)",
+            border: "1px solid rgba(37, 99, 235,0.08)",
             borderRadius: "50%",
             animation: "rotateSlow 42s linear infinite",
           }} />
@@ -118,7 +118,7 @@ function Awards2025() {
             position: "absolute", pointerEvents: "none",
             top: "50%", left: "50%",
             width: "620px", height: "620px",
-            border: "1px dashed rgba(201,168,76,0.05)",
+            border: "1px dashed rgba(37, 99, 235,0.05)",
             borderRadius: "50%",
             animation: "rotateSlow 68s linear infinite reverse",
           }} />
@@ -153,15 +153,15 @@ function Awards2025() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.7rem",
-              border: "1px solid rgba(201,168,76,0.28)",
+              border: "1px solid rgba(37, 99, 235,0.28)",
               padding: "0.45rem 1.3rem",
               marginBottom: "2.25rem",
-              background: "rgba(201,168,76,0.05)",
+              background: "rgba(37, 99, 235,0.05)",
               borderRadius: "1px",
             }}>
               <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#2563eb", flexShrink: 0 }} />
               <span style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.62rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
@@ -175,18 +175,18 @@ function Awards2025() {
 
             {/* Headline */}
             <h1 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(2.8rem, 7.5vw, 6rem)",
               fontWeight: 700,
               lineHeight: 1.02,
               letterSpacing: "-0.025em",
-              color: "#1A120A",
+              color: "#0f172a",
               marginBottom: "0.5rem",
             }}>
               MTTF{" "}
               <span style={{
                 fontStyle: "italic",
-                background: "linear-gradient(120deg, #2563eb 0%, #E8C97A 38%, #B8965A 72%, #2563eb 100%)",
+                background: "linear-gradient(120deg, #2563eb 0%, #60a5fa 38%, #1d4ed8 72%, #2563eb 100%)",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -199,7 +199,7 @@ function Awards2025() {
 
             {/* Subheading */}
             <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1rem, 2.2vw, 1.3rem)",
               fontStyle: "italic",
               color: "rgba(90,65,40,0.55)",
@@ -216,8 +216,8 @@ function Awards2025() {
             <div style={{
               display: "inline-flex",
               flexWrap: "wrap",
-              border: "1px solid rgba(201,168,76,0.2)",
-              background: "rgba(201,168,76,0.03)",
+              border: "1px solid rgba(37, 99, 235,0.2)",
+              background: "rgba(37, 99, 235,0.03)",
               borderRadius: "2px",
             }}>
               {[
@@ -228,17 +228,17 @@ function Awards2025() {
                 <div key={label} style={{
                   padding: "1rem 1.5rem",
                   textAlign: "center",
-                  borderRight: i < 2 ? "1px solid rgba(201,168,76,0.15)" : "none",
+                  borderRight: i < 2 ? "1px solid rgba(37, 99, 235,0.15)" : "none",
                 }}>
                   <div style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "1.7rem",
                     fontWeight: 700,
                     color: "#2563eb",
                     lineHeight: 1,
                   }}>{val}</div>
                   <div style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "0.55rem",
                     color: "rgba(90,65,40,0.38)",
                     letterSpacing: "0.16em",
@@ -254,13 +254,13 @@ function Awards2025() {
 
         {/* ── INTRO STRIP ── */}
         <div style={{
-          borderBottom: "1px solid rgba(139,112,72,0.1)",
-          background: "rgba(201,168,76,0.03)",
+          borderBottom: "1px solid rgba(100, 116, 139,0.1)",
+          background: "rgba(37, 99, 235,0.03)",
           padding: "3rem 2rem",
           textAlign: "center",
         }}>
           <p style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1rem, 2.3vw, 1.4rem)",
             fontStyle: "italic",
             color: "rgba(90,65,40,0.58)",
@@ -285,21 +285,21 @@ function Awards2025() {
             flexWrap: "wrap",
           }}>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
               fontWeight: 700,
-              color: "#1A120A",
+              color: "#0f172a",
               letterSpacing: "-0.02em",
               margin: 0,
               flexShrink: 0,
             }}>
               2025 Award Categories
             </h2>
-            <div style={{ flex: 1, height: "1px", background: "rgba(139,112,72,0.15)", minWidth: "24px" }} />
+            <div style={{ flex: 1, height: "1px", background: "rgba(100, 116, 139,0.15)", minWidth: "24px" }} />
             <div style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.6rem",
-              color: "rgba(201,168,76,0.65)",
+              color: "rgba(37, 99, 235,0.65)",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               fontWeight: 500,
@@ -316,8 +316,8 @@ function Awards2025() {
               display: "grid",
               gap: "1px",
               gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-              background: "rgba(139,112,72,0.1)",
-              border: "1px solid rgba(139,112,72,0.1)",
+              background: "rgba(100, 116, 139,0.1)",
+              border: "1px solid rgba(100, 116, 139,0.1)",
               borderRadius: "2px",
               overflow: "hidden",
             }}
@@ -326,7 +326,7 @@ function Awards2025() {
               <div
                 key={award.id}
                 style={{
-                  background: "#FBF6EC",
+                  background: "#f8fafc",
                   opacity: gridVisible ? 1 : 0,
                   transform: gridVisible ? "translateY(0)" : "translateY(24px)",
                   transition: `opacity 0.65s ease ${i * 0.07}s, transform 0.65s ease ${i * 0.07}s`,
@@ -347,7 +347,7 @@ function Awards2025() {
             flexWrap: "wrap",
           }}>
             <button style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.72rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -360,27 +360,27 @@ function Awards2025() {
               fontWeight: 500,
               transition: "background 0.3s ease, transform 0.3s ease",
             }}
-              onMouseEnter={e => { e.target.style.background = "#B8965A"; e.target.style.transform = "translateY(-2px)"; }}
+              onMouseEnter={e => { e.target.style.background = "#1d4ed8"; e.target.style.transform = "translateY(-2px)"; }}
               onMouseLeave={e => { e.target.style.background = "#2563eb"; e.target.style.transform = "translateY(0)"; }}
             >
               Apply Now
             </button>
             <button style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.72rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: "#2563eb",
               background: "transparent",
-              border: "1px solid rgba(201,168,76,0.4)",
+              border: "1px solid rgba(37, 99, 235,0.4)",
               padding: "0.9rem 2.4rem",
               cursor: "pointer",
               borderRadius: "1px",
               fontWeight: 400,
               transition: "border-color 0.3s ease, background 0.3s ease",
             }}
-              onMouseEnter={e => { e.target.style.borderColor = "rgba(201,168,76,0.8)"; e.target.style.background = "rgba(201,168,76,0.06)"; }}
-              onMouseLeave={e => { e.target.style.borderColor = "rgba(201,168,76,0.4)"; e.target.style.background = "transparent"; }}
+              onMouseEnter={e => { e.target.style.borderColor = "rgba(37, 99, 235,0.8)"; e.target.style.background = "rgba(37, 99, 235,0.06)"; }}
+              onMouseLeave={e => { e.target.style.borderColor = "rgba(37, 99, 235,0.4)"; e.target.style.background = "transparent"; }}
             >
               Learn More
             </button>
@@ -389,13 +389,13 @@ function Awards2025() {
 
         {/* ── CLOSING BANNER ── */}
         <section style={{
-          background: "#1A120A",
-          borderTop: "1px solid rgba(201,168,76,0.15)",
+          background: "#0f172a",
+          borderTop: "1px solid rgba(37, 99, 235,0.15)",
           padding: "4rem 2rem",
           textAlign: "center",
         }}>
           <div style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "0.65rem",
             color: "#2563eb",
             letterSpacing: "0.28em",
@@ -406,7 +406,7 @@ function Awards2025() {
             MathTech Thinking Foundation
           </div>
           <p style={{
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1.1rem, 3vw, 1.75rem)",
             fontWeight: 700,
             color: "rgba(232,217,192,0.85)",
@@ -422,15 +422,15 @@ function Awards2025() {
             alignItems: "center",
             gap: "0.75rem",
           }}>
-            <div style={{ width: "36px", height: "1px", background: "rgba(201,168,76,0.4)" }} />
+            <div style={{ width: "36px", height: "1px", background: "rgba(37, 99, 235,0.4)" }} />
             <span style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.65rem",
-              color: "rgba(201,168,76,0.5)",
+              color: "rgba(37, 99, 235,0.5)",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
             }}>Awards · 2025</span>
-            <div style={{ width: "36px", height: "1px", background: "rgba(201,168,76,0.4)" }} />
+            <div style={{ width: "36px", height: "1px", background: "rgba(37, 99, 235,0.4)" }} />
           </div>
         </section>
 

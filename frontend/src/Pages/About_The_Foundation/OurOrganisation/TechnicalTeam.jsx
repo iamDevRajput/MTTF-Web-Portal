@@ -136,7 +136,7 @@ function MemberCard({ member, index }) {
         <div style={{
           position: "absolute",
           top: "1.25rem", left: "1.25rem",
-          fontFamily: "'Plus Jakarta Sans', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "0.68rem", color: "#2563eb",
           letterSpacing: "0.15em", fontWeight: 600,
           zIndex: 1,
@@ -182,7 +182,7 @@ function MemberCard({ member, index }) {
         {/* Name + role */}
         <div style={{ textAlign: "center" }}>
           <h3 style={{
-            fontFamily: "'Plus Jakarta Sans', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "1.25rem", fontWeight: 700,
             color: "#0f172a", margin: "0 0 0.25rem",
             letterSpacing: "-0.01em",
@@ -210,7 +210,7 @@ function MemberCard({ member, index }) {
         {/* Bio */}
         <p style={{
           fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: "0.82rem", color: "#7A6040",
+          fontSize: "0.82rem", color: "#475569",
           lineHeight: 1.78, margin: 0, fontWeight: 300,
           textAlign: "center",
         }}>{member.bio}</p>
@@ -321,14 +321,14 @@ const TechnicalTeam = () => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#0f172a" }}>
       <style>{`
-        @keyframes goldShimmer {
+        @keyframes accentShimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
@@ -447,7 +447,7 @@ const TechnicalTeam = () => {
 
             {/* Headline */}
             <h1 style={{
-              fontFamily: "'Plus Jakarta Sans', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
               fontWeight: 700, lineHeight: 1.02,
               letterSpacing: "-0.025em", color: "#0f172a",
@@ -466,7 +466,7 @@ const TechnicalTeam = () => {
             </h1>
 
             <p style={{
-              fontFamily: "'Plus Jakarta Sans', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1rem, 2.2vw, 1.3rem)",
               fontStyle: "italic", color: "rgba(90,65,40,0.52)",
               maxWidth: "560px", margin: "1.25rem auto 2.5rem",
@@ -488,7 +488,7 @@ const TechnicalTeam = () => {
                   borderRight: i < arr.length - 1 ? "1px solid rgba(37, 99, 235,0.15)" : "none",
                 }}>
                   <div style={{
-                    fontFamily: "'Plus Jakarta Sans', serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "1.55rem", fontWeight: 700,
                     color: "#2563eb", lineHeight: 1,
                   }}>{value}</div>
@@ -511,7 +511,7 @@ const TechnicalTeam = () => {
           padding: "3rem 2rem", textAlign: "center",
         }}>
           <p style={{
-            fontFamily: "'Plus Jakarta Sans', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1rem, 2.3vw, 1.4rem)",
             fontStyle: "italic", color: "rgba(90,65,40,0.58)",
             maxWidth: "780px", margin: "0 auto", lineHeight: 1.75,
@@ -529,7 +529,7 @@ const TechnicalTeam = () => {
               gap: "1.25rem", marginBottom: "3rem", flexWrap: "wrap",
             }}>
               <h2 style={{
-                fontFamily: "'Plus Jakarta Sans', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
                 fontWeight: 700, color: "#0f172a",
                 letterSpacing: "-0.02em", margin: 0, flexShrink: 0,
@@ -586,7 +586,7 @@ const TechnicalTeam = () => {
                 }}>Join the Team</div>
 
                 <h2 style={{
-                  fontFamily: "'Plus Jakarta Sans', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
                   fontWeight: 700, color: "#E8D9C0",
                   letterSpacing: "-0.02em", margin: "0 0 1rem", lineHeight: 1.2,

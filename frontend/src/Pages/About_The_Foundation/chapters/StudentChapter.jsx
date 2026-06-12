@@ -136,7 +136,7 @@ function AdvantageCard({ item, index }) {
 
       <div
         style={{
-          fontFamily: "'DM Mono', monospace",
+          fontFamily: "'Plus Jakarta Sans', monospace",
           fontSize: "0.58rem",
           color: item.accent,
           letterSpacing: "0.2em",
@@ -148,7 +148,7 @@ function AdvantageCard({ item, index }) {
 
       <h3
         style={{
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "1.2rem",
           fontWeight: 600,
           color: "#F0EDE8",
@@ -226,7 +226,7 @@ function ChapterCard() {
           position: "absolute",
           right: "-1rem",
           bottom: "-1rem",
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "9rem",
           fontWeight: 700,
           color: "rgba(200,169,110,0.04)",
@@ -261,7 +261,7 @@ function ChapterCard() {
           />
           <span
             style={{
-              fontFamily: "'DM Mono', monospace",
+              fontFamily: "'Plus Jakarta Sans', monospace",
               fontSize: "0.6rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -274,7 +274,7 @@ function ChapterCard() {
 
         <h3
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
             fontWeight: 600,
             color: "#F0EDE8",
@@ -333,7 +333,7 @@ function ChapterCard() {
             <div key={label}>
               <div
                 style={{
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "'Plus Jakarta Sans', monospace",
                   fontSize: "0.55rem",
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
@@ -345,7 +345,7 @@ function ChapterCard() {
               </div>
               <div
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "1rem",
                   fontWeight: 600,
                   color: "rgba(240,237,232,0.75)",
@@ -368,7 +368,7 @@ export default function StudentChapter() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
@@ -474,7 +474,7 @@ export default function StudentChapter() {
               <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#C8A96E" }} />
               <span
                 style={{
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "'Plus Jakarta Sans', monospace",
                   fontSize: "0.6rem",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",
@@ -488,7 +488,7 @@ export default function StudentChapter() {
 
             <h1
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(3rem, 8vw, 6.5rem)",
                 fontWeight: 600,
                 lineHeight: 1.1,
@@ -555,7 +555,7 @@ export default function StudentChapter() {
                 >
                   <div
                     style={{
-                      fontFamily: "'Cormorant Garamond', serif",
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
                       fontSize: "2rem",
                       fontWeight: 600,
                       color: "#C8A96E",
@@ -565,7 +565,7 @@ export default function StudentChapter() {
                   </div>
                   <div
                     style={{
-                      fontFamily: "'DM Mono', monospace",
+                      fontFamily: "'Plus Jakarta Sans', monospace",
                       fontSize: "0.55rem",
                       color: "rgba(240,237,232,0.25)",
                       letterSpacing: "0.15em",
@@ -593,7 +593,7 @@ export default function StudentChapter() {
         >
           <p
             style={{
-              fontFamily: "'Cormorant Garamond', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
               fontStyle: "italic",
               color: "rgba(240,237,232,0.55)",
@@ -621,7 +621,7 @@ export default function StudentChapter() {
           >
             <h2
               style={{
-                fontFamily: "'Cormorant Garamond', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 fontWeight: 600,
                 color: "#F0EDE8",
@@ -634,7 +634,7 @@ export default function StudentChapter() {
             <div style={{ flex: 1, height: "1px", background: "rgba(200,169,110,0.15)" }} />
             <div
               style={{
-                fontFamily: "'DM Mono', monospace",
+                fontFamily: "'Plus Jakarta Sans', monospace",
                 fontSize: "0.6rem",
                 color: "rgba(200,169,110,0.5)",
                 letterSpacing: "0.15em",
@@ -673,7 +673,7 @@ export default function StudentChapter() {
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <div
                 style={{
-                  fontFamily: "'DM Mono', monospace",
+                  fontFamily: "'Plus Jakarta Sans', monospace",
                   fontSize: "0.6rem",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",
@@ -686,7 +686,7 @@ export default function StudentChapter() {
               </div>
               <h2
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "clamp(2rem, 5vw, 3.5rem)",
                   fontWeight: 600,
                   color: "#F0EDE8",

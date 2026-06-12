@@ -204,13 +204,13 @@ const Mentors = () => {
           transition: width 0.45s cubic-bezier(0.23,1,0.32,1); z-index: 2;
         }
         .mentor-card:hover::before { width: 100%; }
-        .mentor-card:hover { border-color: #2563eb; box-shadow: 0 24px 52px rgba(37, 99, 235,0.14); background: #FEFCF7; }
+        .mentor-card:hover { border-color: #2563eb; box-shadow: 0 24px 52px rgba(37, 99, 235,0.14); background: #ffffff; }
 
         .tag {
           display: inline-block; padding: 0.25rem 0.7rem;
           border: 1px solid rgba(37, 99, 235,0.35); border-radius: 1px;
           font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem;
-          color: #8B6D38; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+          color: #1d4ed8; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
           background: transparent; transition: all 0.3s ease;
         }
         .mentor-card:hover .tag { background: rgba(37, 99, 235,0.08); border-color: rgba(37, 99, 235,0.6); }
@@ -268,10 +268,10 @@ const Mentors = () => {
               <span className="eyebrow-line" />
             </div>
 
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
               Our
             </h1>
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#8B6D38 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.6rem,6vw,5.5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#1d4ed8 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
               Mentors
             </h1>
 
@@ -348,10 +348,10 @@ const Mentors = () => {
 
                         <div style={{ flex:1, minWidth:'200px' }}>
                           <div style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.62rem', letterSpacing:'0.2em', color:'#2563eb', textTransform:'uppercase', fontWeight:500, marginBottom:'0.4rem' }}>MTTF Mentor</div>
-                          <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.5rem,3vw,2.2rem)', fontWeight:700, color:'#0f172a', margin:'0 0 0.3rem', letterSpacing:'-0.02em' }}>
+                          <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.5rem,3vw,2.2rem)', fontWeight:700, color:'#0f172a', margin:'0 0 0.3rem', letterSpacing:'-0.02em' }}>
                             {selectedMentor.name}
                           </h2>
-                          <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.25rem', letterSpacing:'0.02em' }}>
+                          <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.25rem', letterSpacing:'0.02em' }}>
                             {selectedMentor.specialization}
                           </p>
                           <div style={{ height:'1px', background:'linear-gradient(90deg,#2563eb40,transparent)', margin:'0.75rem 0' }} />
@@ -364,7 +364,7 @@ const Mentors = () => {
                       {/* Quote */}
                       <div style={{ background:'rgba(37, 99, 235,0.06)', border:'1px solid rgba(37, 99, 235,0.2)', borderRadius:'2px', padding:'1.25rem 1.5rem' }}>
                         <MessageCircle size={14} color="#2563eb" style={{ marginBottom:'0.5rem' }} />
-                        <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.05rem', fontStyle:'italic', color:'#5C4A32', lineHeight:1.7, margin:0, fontWeight:500 }}>
+                        <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.05rem', fontStyle:'italic', color:'#5C4A32', lineHeight:1.7, margin:0, fontWeight:500 }}>
                           "{selectedMentor.quote}"
                         </p>
                       </div>
@@ -422,9 +422,9 @@ const Mentors = () => {
                       {/* Close */}
                       <button
                         onClick={() => setSelectedMentor(null)}
-                        style={{ width:'100%', padding:'0.8rem', background:'transparent', color:'#8B6D38', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.72rem', fontWeight:500, letterSpacing:'0.14em', textTransform:'uppercase', border:'1px solid #D8CBA8', borderRadius:'2px', cursor:'pointer', transition:'all 0.3s ease' }}
+                        style={{ width:'100%', padding:'0.8rem', background:'transparent', color:'#1d4ed8', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.72rem', fontWeight:500, letterSpacing:'0.14em', textTransform:'uppercase', border:'1px solid #D8CBA8', borderRadius:'2px', cursor:'pointer', transition:'all 0.3s ease' }}
                         onMouseEnter={e => { e.currentTarget.style.borderColor='#2563eb'; e.currentTarget.style.color='#2563eb'; }}
-                        onMouseLeave={e => { e.currentTarget.style.borderColor='#D8CBA8'; e.currentTarget.style.color='#8B6D38'; }}
+                        onMouseLeave={e => { e.currentTarget.style.borderColor='#D8CBA8'; e.currentTarget.style.color='#1d4ed8'; }}
                       >
                         Close
                       </button>
@@ -460,7 +460,7 @@ const Mentors = () => {
                 <span style={{ display:'inline-block', width:20, height:1, background:'#2563eb' }} />
               </div>
 
-              <h3 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.6rem,3vw,2.4rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
+              <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.6rem,3vw,2.4rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
                 Become a{' '}
                 <span style={{ fontStyle:'italic', background:'linear-gradient(135deg,#2563eb,#60a5fa)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>
                   Mentor
@@ -504,7 +504,7 @@ function MentorCard({ mentor }) {
       {/* Clipped corner */}
       <div style={{ position:'absolute', top:0, right:0, width:20, height:20, background:hovered?'#2563eb':'#E8DFC4', clipPath:'polygon(100% 0,0 0,100% 100%)', transition:'background 0.3s', zIndex:2 }} />
       {/* Number */}
-      <div style={{ position:'absolute', top:'1.1rem', left:'1.4rem', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.68rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600, zIndex:2 }}>
+      <div style={{ position:'absolute', top:'1.1rem', left:'1.4rem', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.68rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600, zIndex:2 }}>
         {mentor.num}
       </div>
 
@@ -527,10 +527,10 @@ function MentorCard({ mentor }) {
 
           {/* Name block */}
           <div style={{ flex:1, minWidth:'160px', paddingTop:'0.5rem' }}>
-            <h3 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.35rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.25rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
+            <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.35rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.25rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
               {mentor.name}
             </h3>
-            <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.95rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.35rem', letterSpacing:'0.02em' }}>
+            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.95rem', fontWeight:600, color:'#2563eb', margin:'0 0 0.35rem', letterSpacing:'0.02em' }}>
               {mentor.specialization}
             </p>
             <div style={{ display:'flex', alignItems:'center', gap:'0.4rem', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.75rem', color:'#9C8B6E', fontStyle:'italic', fontWeight:300 }}>

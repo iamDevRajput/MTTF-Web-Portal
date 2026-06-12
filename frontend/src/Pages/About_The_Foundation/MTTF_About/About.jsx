@@ -18,7 +18,7 @@ function About() {
           0%   { background-position: -200% center; }
           100% { background-position: 200% center; }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.3; }
         }
@@ -130,7 +130,7 @@ function About() {
           border-color: #2563eb;
           transform: translateY(-6px);
           box-shadow: 0 24px 48px rgba(37, 99, 235,0.13);
-          background: #FEFCF7;
+          background: #ffffff;
         }
 
         .value-card {
@@ -156,7 +156,7 @@ function About() {
           border-color: #2563eb;
           transform: translateY(-5px);
           box-shadow: 0 20px 40px rgba(37, 99, 235,0.12);
-          background: #FEFCF7;
+          background: #ffffff;
         }
 
         .what-card {
@@ -173,7 +173,7 @@ function About() {
           border-color: #2563eb;
           transform: translateY(-6px);
           box-shadow: 0 24px 48px rgba(37, 99, 235,0.13);
-          background: #FEFCF7;
+          background: #ffffff;
         }
 
         .stat-item { text-align: center; padding: 1.5rem 2rem; position: relative; }
@@ -236,14 +236,14 @@ function About() {
               }} />
               <span style={{
                 fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.65rem',
-                color:'#8B6D38', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500,
+                color:'#1d4ed8', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500,
               }}>
                 🏛️ About MTTF
               </span>
             </div>
 
             <h1 style={{
-              fontFamily:"'Plus Jakarta Sans', serif",
+              fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize:'clamp(2.6rem, 6.5vw, 5.2rem)',
               fontWeight:900, lineHeight:1.05, letterSpacing:'-0.02em',
               color:'#0f172a', marginBottom:'0.5rem',
@@ -251,11 +251,11 @@ function About() {
               MathTech Thinking
             </h1>
             <h1 style={{
-              fontFamily:"'Plus Jakarta Sans', serif",
+              fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize:'clamp(2.6rem, 6.5vw, 5.2rem)',
               fontWeight:900, lineHeight:1.05, letterSpacing:'-0.02em',
               marginBottom:'1.5rem',
-              background:'linear-gradient(135deg, #2563eb 0%, #8B6D38 40%, #60a5fa 100%)',
+              background:'linear-gradient(135deg, #2563eb 0%, #1d4ed8 40%, #60a5fa 100%)',
               backgroundSize:'200% auto',
               WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',
               animation:'shimmer 4s linear infinite',
@@ -286,13 +286,13 @@ function About() {
             <span className="eyebrow-line" />
           </div>
           <h2 style={{
-            fontFamily:"'Plus Jakarta Sans', serif",
+            fontFamily:"'Plus Jakarta Sans', sans-serif",
             fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700,
             color:'#0f172a', textAlign:'center', marginBottom:'3rem',
             letterSpacing:'-0.02em',
           }}>
             Mission &{' '}
-            <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Vision</span>
+            <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Vision</span>
           </h2>
 
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))', gap:'1.5rem' }}>
@@ -316,7 +316,7 @@ function About() {
                 Our Mission
               </div>
               <h3 style={{
-                fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.6rem',
+                fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.6rem',
                 fontWeight:700, color:'#0f172a', margin:'0 0 1rem',
               }}>
                 Transform Ideas Into Reality
@@ -349,7 +349,7 @@ function About() {
                 Our Vision
               </div>
               <h3 style={{
-                fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.6rem',
+                fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.6rem',
                 fontWeight:700, color:'#0f172a', margin:'0 0 1rem',
               }}>
                 A Global Hub of Excellence
@@ -376,13 +376,13 @@ function About() {
               <span className="eyebrow-line" />
             </div>
             <h2 style={{
-              fontFamily:"'Plus Jakarta Sans', serif",
+              fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700,
               color:'#0f172a', textAlign:'center', marginBottom:'3rem',
               letterSpacing:'-0.02em',
             }}>
               Core{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Values</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Values</span>
             </h2>
 
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))', gap:'1.25rem' }}>
@@ -445,7 +445,7 @@ function About() {
                     {v.icon}
                   </div>
                   <h3 style={{
-                    fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.25rem',
+                    fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.25rem',
                     fontWeight:700, color:'#0f172a', marginBottom:'0.5rem',
                   }}>
                     {v.label}
@@ -474,13 +474,13 @@ function About() {
             <span className="eyebrow-line" />
           </div>
           <h2 style={{
-            fontFamily:"'Plus Jakarta Sans', serif",
+            fontFamily:"'Plus Jakarta Sans', sans-serif",
             fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700,
             color:'#0f172a', textAlign:'center', marginBottom:'3rem',
             letterSpacing:'-0.02em',
           }}>
             What We{' '}
-            <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Do</span>
+            <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Do</span>
           </h2>
 
           <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:'1.5rem' }}>
@@ -525,7 +525,7 @@ function About() {
                   display:'flex', alignItems:'center', gap:'0.75rem', marginBottom:'1.25rem',
                 }}>
                   <span style={{
-                    fontFamily:"'Plus Jakarta Sans', serif", fontSize:'0.75rem',
+                    fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.75rem',
                     fontWeight:700, color:'#2563eb', letterSpacing:'0.1em',
                   }}>
                     {item.num}
@@ -540,7 +540,7 @@ function About() {
                   </div>
                 </div>
                 <h3 style={{
-                  fontFamily:"'Plus Jakarta Sans', serif", fontSize:'1.4rem',
+                  fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.4rem',
                   fontWeight:700, color:'#0f172a', margin:'0 0 0.75rem',
                   letterSpacing:'-0.01em',
                 }}>
@@ -571,13 +571,13 @@ function About() {
               <span className="eyebrow-line" />
             </div>
             <h2 style={{
-              fontFamily:"'Plus Jakarta Sans', serif",
+              fontFamily:"'Plus Jakarta Sans', sans-serif",
               fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700,
               color:'#0f172a', textAlign:'center', marginBottom:'3.5rem',
               letterSpacing:'-0.02em',
             }}>
               Numbers That{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Speak</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Speak</span>
             </h2>
 
             <div style={{
@@ -599,7 +599,7 @@ function About() {
               ].map(([val, label]) => (
                 <div className="stat-item" key={label}>
                   <div style={{
-                    fontFamily:"'Plus Jakarta Sans', serif", fontSize:'3rem',
+                    fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'3rem',
                     fontWeight:700, color:'#2563eb', letterSpacing:'-0.03em', lineHeight:1,
                     marginBottom:'0.4rem',
                   }}>
@@ -656,7 +656,7 @@ function About() {
               </div>
 
               <h2 style={{
-                fontFamily:"'Plus Jakarta Sans', serif",
+                fontFamily:"'Plus Jakarta Sans', sans-serif",
                 fontSize:'clamp(1.8rem,3.5vw,3rem)', fontWeight:700,
                 color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1.25rem',
               }}>

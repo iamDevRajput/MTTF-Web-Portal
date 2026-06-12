@@ -30,13 +30,13 @@ function AwardCard({ award }) {
         position: "relative",
         overflow: "hidden",
         borderRadius: "2px",
-        border: `1px solid ${hovered ? "rgba(201,168,76,0.4)" : "rgba(139,112,72,0.15)"}`,
-        background: hovered ? "rgba(201,168,76,0.03)" : "#FBF6EC",
+        border: `1px solid ${hovered ? "rgba(37, 99, 235,0.4)" : "rgba(100, 116, 139,0.15)"}`,
+        background: hovered ? "rgba(37, 99, 235,0.03)" : "#f8fafc",
         padding: "0",                          // ← removed top padding; image handles it
         cursor: "default",
         transition: "border-color 0.35s ease, background 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease",
         transform: hovered ? "translateY(-4px)" : "translateY(0)",
-        boxShadow: hovered ? "0 16px 40px rgba(139,112,72,0.1)" : "none",
+        boxShadow: hovered ? "0 16px 40px rgba(100, 116, 139,0.1)" : "none",
         display: "flex",
         flexDirection: "column",
         gap: "0",
@@ -47,7 +47,7 @@ function AwardCard({ award }) {
         position: "absolute",
         left: 0, top: 0, bottom: 0,
         width: hovered ? "3px" : "2px",
-        background: "linear-gradient(180deg, #2563eb 0%, #E8C97A 100%)",
+        background: "linear-gradient(180deg, #2563eb 0%, #60a5fa 100%)",
         transition: "width 0.3s ease",
         zIndex: 2,
       }} />
@@ -104,8 +104,8 @@ function AwardCard({ award }) {
             justifyContent: "center",
             width: "44px", height: "44px",
             flexShrink: 0,
-            background: hovered ? "rgba(201,168,76,0.12)" : "rgba(201,168,76,0.06)",
-            border: `1px solid ${hovered ? "rgba(201,168,76,0.4)" : "rgba(201,168,76,0.18)"}`,
+            background: hovered ? "rgba(37, 99, 235,0.12)" : "rgba(37, 99, 235,0.06)",
+            border: `1px solid ${hovered ? "rgba(37, 99, 235,0.4)" : "rgba(37, 99, 235,0.18)"}`,
             borderRadius: "2px",
             transition: "background 0.3s ease, border-color 0.3s ease",
             color: "#2563eb",
@@ -117,23 +117,23 @@ function AwardCard({ award }) {
           <div style={{ display: "flex", alignItems: "center", gap: "0.4rem" }}>
             {award.year && (
               <span style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.58rem",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#8B7048",
+                color: "#475569",
                 padding: "0.2rem 0.6rem",
-                border: "1px solid rgba(139,112,72,0.2)",
+                border: "1px solid rgba(100, 116, 139,0.2)",
                 borderRadius: "1px",
                 fontWeight: 400,
-                background: "rgba(139,112,72,0.04)",
+                background: "rgba(100, 116, 139,0.04)",
               }}>
                 {award.year}
               </span>
             )}
             {award.status && (
               <span style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.58rem",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
@@ -142,11 +142,11 @@ function AwardCard({ award }) {
                 fontWeight: 500,
                 border: award.status === "Open"
                   ? "1px solid rgba(134,183,120,0.5)"
-                  : "1px solid rgba(139,112,72,0.2)",
+                  : "1px solid rgba(100, 116, 139,0.2)",
                 background: award.status === "Open"
                   ? "rgba(134,183,120,0.08)"
-                  : "rgba(139,112,72,0.04)",
-                color: award.status === "Open" ? "#6B9E5E" : "#8B7048",
+                  : "rgba(100, 116, 139,0.04)",
+                color: award.status === "Open" ? "#6B9E5E" : "#475569",
               }}>
                 {award.status}
               </span>
@@ -156,10 +156,10 @@ function AwardCard({ award }) {
 
         {/* Title */}
         <h3 style={{
-          fontFamily: "'Playfair Display', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "1.08rem",
           fontWeight: 700,
-          color: "#1A120A",
+          color: "#0f172a",
           lineHeight: 1.3,
           letterSpacing: "-0.01em",
           margin: "0 0 0.6rem",
@@ -170,7 +170,7 @@ function AwardCard({ award }) {
         {/* Divider */}
         <div style={{
           height: "1px",
-          background: "rgba(201,168,76,0.18)",
+          background: "rgba(37, 99, 235,0.18)",
           width: hovered ? "100%" : "40%",
           transition: "width 0.45s ease",
           marginBottom: "0.85rem",
@@ -178,9 +178,9 @@ function AwardCard({ award }) {
 
         {/* Description */}
         <p style={{
-          fontFamily: "'Jost', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "0.82rem",
-          color: "#7A6040",
+          color: "#475569",
           lineHeight: 1.8,
           margin: "0 0 1rem",
           fontWeight: 300,
@@ -209,9 +209,9 @@ function AwardCard({ award }) {
                   marginTop: "0.45rem",
                 }} />
                 <span style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "0.78rem",
-                  color: "#8B7048",
+                  color: "#475569",
                   lineHeight: 1.7,
                   fontWeight: 300,
                 }}>{item}</span>
@@ -226,7 +226,7 @@ function AwardCard({ award }) {
           alignItems: "center",
           gap: "0.5rem",
           paddingTop: "0.9rem",
-          borderTop: "1px solid rgba(139,112,72,0.1)",
+          borderTop: "1px solid rgba(100, 116, 139,0.1)",
           marginTop: "auto",
         }}>
           <span style={{
@@ -237,9 +237,9 @@ function AwardCard({ award }) {
             flexShrink: 0,
           }} />
           <span style={{
-            fontFamily: "'Jost', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "0.72rem",
-            color: "#8B7048",
+            color: "#475569",
             letterSpacing: "0.04em",
             fontWeight: 400,
           }}>

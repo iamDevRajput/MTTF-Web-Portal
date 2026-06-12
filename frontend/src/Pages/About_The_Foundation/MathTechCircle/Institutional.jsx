@@ -157,8 +157,8 @@ function BenefitCard({ benefit, index }) {
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(32px)",
         transition: `opacity 0.7s ease ${index * 0.08}s, transform 0.7s ease ${index * 0.08}s, background 0.35s ease, border-color 0.35s ease`,
-        background: hovered ? "rgba(201,168,76,0.04)" : "#FBF6EC",
-        border: `1px solid ${hovered ? "rgba(201,168,76,0.35)" : "rgba(139,112,72,0.12)"}`,
+        background: hovered ? "rgba(37, 99, 235,0.04)" : "#f8fafc",
+        border: `1px solid ${hovered ? "rgba(37, 99, 235,0.35)" : "rgba(100, 116, 139,0.12)"}`,
         borderRadius: "2px",
         padding: "2rem 2rem 2rem 2.25rem",
         position: "relative",
@@ -171,7 +171,7 @@ function BenefitCard({ benefit, index }) {
         position: "absolute",
         left: 0, top: 0, bottom: 0,
         width: hovered ? "3px" : "2px",
-        background: "linear-gradient(180deg, #2563eb 0%, #E8C97A 100%)",
+        background: "linear-gradient(180deg, #2563eb 0%, #60a5fa 100%)",
         transition: "width 0.3s ease",
       }} />
 
@@ -180,9 +180,9 @@ function BenefitCard({ benefit, index }) {
         position: "absolute",
         right: "1rem", top: "50%",
         transform: "translateY(-50%)",
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "5rem", fontWeight: 700,
-        color: "rgba(201,168,76,0.06)",
+        color: "rgba(37, 99, 235,0.06)",
         lineHeight: 1, userSelect: "none", pointerEvents: "none",
       }}>
         {benefit.id}
@@ -190,7 +190,7 @@ function BenefitCard({ benefit, index }) {
 
       {/* ID */}
       <div style={{
-        fontFamily: "'Cormorant Garamond', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "0.65rem",
         color: "#2563eb",
         letterSpacing: "0.2em",
@@ -202,10 +202,10 @@ function BenefitCard({ benefit, index }) {
 
       {/* Category */}
       <h3 style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.15rem",
         fontWeight: 700,
-        color: "#1A120A",
+        color: "#0f172a",
         margin: "0 0 0.75rem",
         letterSpacing: "-0.01em",
         lineHeight: 1.2,
@@ -216,7 +216,7 @@ function BenefitCard({ benefit, index }) {
       {/* Divider */}
       <div style={{
         height: "1px",
-        background: "rgba(201,168,76,0.2)",
+        background: "rgba(37, 99, 235,0.2)",
         width: hovered ? "100%" : "36%",
         transition: "width 0.4s ease",
         marginBottom: "1.25rem",
@@ -239,7 +239,7 @@ function BenefitCard({ benefit, index }) {
                 flexShrink: 0,
               }} />
               <span style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.88rem",
                 fontWeight: 700,
                 color: "#2563eb",
@@ -249,9 +249,9 @@ function BenefitCard({ benefit, index }) {
               </span>
             </div>
             <p style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.8rem",
-              color: "#7A6040",
+              color: "#475569",
               lineHeight: 1.8,
               margin: 0,
               paddingLeft: "0.75rem",
@@ -283,16 +283,16 @@ function PricingCard({ plan, index }) {
           : "translateY(32px)",
         transition: `opacity 0.7s ease ${index * 0.12}s, transform 0.7s ease ${index * 0.12}s, border-color 0.3s ease, box-shadow 0.3s ease`,
         position: "relative",
-        background: plan.featured ? "#1A120A" : "#FBF6EC",
+        background: plan.featured ? "#0f172a" : "#f8fafc",
         border: plan.featured
-          ? "1px solid rgba(201,168,76,0.4)"
-          : `1px solid ${hovered ? "rgba(201,168,76,0.3)" : "rgba(139,112,72,0.15)"}`,
+          ? "1px solid rgba(37, 99, 235,0.4)"
+          : `1px solid ${hovered ? "rgba(37, 99, 235,0.3)" : "rgba(100, 116, 139,0.15)"}`,
         borderRadius: "2px",
         padding: "2.5rem 2rem",
         overflow: "hidden",
         boxShadow: plan.featured
           ? "0 20px 50px rgba(26,18,10,0.18)"
-          : hovered ? "0 12px 32px rgba(139,112,72,0.1)" : "none",
+          : hovered ? "0 12px 32px rgba(100, 116, 139,0.1)" : "none",
         cursor: "default",
         flexShrink: 0,
         flex: plan.featured ? "0 0 calc(34% - 1rem)" : "0 0 calc(28% - 1rem)",
@@ -304,20 +304,20 @@ function PricingCard({ plan, index }) {
         top: 0, left: 0, right: 0,
         height: plan.featured ? "2px" : "1px",
         background: plan.featured
-          ? "linear-gradient(90deg, transparent, #2563eb, #E8C97A, #2563eb, transparent)"
-          : "rgba(139,112,72,0.15)",
+          ? "linear-gradient(90deg, transparent, #2563eb, #60a5fa, #2563eb, transparent)"
+          : "rgba(100, 116, 139,0.15)",
       }} />
 
       {/* Tag */}
       <div style={{
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "0.6rem",
         letterSpacing: "0.2em",
         textTransform: "uppercase",
-        color: plan.featured ? "#2563eb" : "#8B7048",
+        color: plan.featured ? "#2563eb" : "#475569",
         marginBottom: "1.5rem",
         padding: "0.25rem 0.65rem",
-        border: `1px solid ${plan.featured ? "rgba(201,168,76,0.35)" : "rgba(139,112,72,0.2)"}`,
+        border: `1px solid ${plan.featured ? "rgba(37, 99, 235,0.35)" : "rgba(100, 116, 139,0.2)"}`,
         display: "inline-block",
         borderRadius: "1px",
         fontWeight: 500,
@@ -326,10 +326,10 @@ function PricingCard({ plan, index }) {
       </div>
 
       <div style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "2rem",
         fontWeight: 700,
-        color: plan.featured ? "#E8D9C0" : "#1A120A",
+        color: plan.featured ? "#E8D9C0" : "#0f172a",
         marginBottom: "0.25rem",
         letterSpacing: "-0.02em",
       }}>
@@ -337,7 +337,7 @@ function PricingCard({ plan, index }) {
       </div>
 
       <div style={{
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "0.78rem",
         color: plan.featured ? "rgba(232,217,192,0.4)" : "rgba(90,65,40,0.45)",
         marginBottom: "1.75rem",
@@ -349,12 +349,12 @@ function PricingCard({ plan, index }) {
 
       <div style={{
         height: "1px",
-        background: plan.featured ? "rgba(201,168,76,0.2)" : "rgba(139,112,72,0.12)",
+        background: plan.featured ? "rgba(37, 99, 235,0.2)" : "rgba(100, 116, 139,0.12)",
         marginBottom: "1.5rem",
       }} />
 
       <div style={{
-        fontFamily: "'Jost', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "0.6rem",
         color: plan.featured ? "rgba(232,217,192,0.35)" : "rgba(90,65,40,0.4)",
         letterSpacing: "0.18em",
@@ -366,7 +366,7 @@ function PricingCard({ plan, index }) {
       </div>
 
       <div style={{
-        fontFamily: "'Playfair Display', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.9rem",
         fontWeight: 700,
         color: "#2563eb",
@@ -386,14 +386,14 @@ export default function Institutional() {
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap";
+    link.href = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#FBF6EC", color: "#1A120A" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#0f172a" }}>
       <style>{`
-        @keyframes goldShimmer {
+        @keyframes accentShimmer {
           0% { background-position: -200% center; }
           100% { background-position: 200% center; }
         }
@@ -406,7 +406,7 @@ export default function Institutional() {
           to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         ::-webkit-scrollbar { width: 3px; }
-        ::-webkit-scrollbar-track { background: #FBF6EC; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 1px; }
       `}</style>
 
@@ -427,16 +427,16 @@ export default function Institutional() {
             padding: "6rem 2rem",
             textAlign: "center",
             overflow: "hidden",
-            background: "#FBF6EC",
-            borderBottom: "1px solid rgba(139,112,72,0.1)",
+            background: "#f8fafc",
+            borderBottom: "1px solid rgba(100, 116, 139,0.1)",
           }}
         >
           {/* Subtle grid */}
           <div style={{
             position: "absolute", inset: 0,
             backgroundImage: `
-              linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px)
+              linear-gradient(rgba(37, 99, 235,0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(37, 99, 235,0.05) 1px, transparent 1px)
             `,
             backgroundSize: "72px 72px",
             pointerEvents: "none",
@@ -448,7 +448,7 @@ export default function Institutional() {
             top: "50%", left: "50%",
             transform: "translate(-50%,-50%)",
             width: "700px", height: "500px",
-            background: "radial-gradient(ellipse, rgba(201,168,76,0.09) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse, rgba(37, 99, 235,0.09) 0%, transparent 70%)",
             pointerEvents: "none",
           }} />
 
@@ -457,7 +457,7 @@ export default function Institutional() {
             position: "absolute",
             top: "50%", left: "50%",
             width: "420px", height: "420px",
-            border: "1px solid rgba(201,168,76,0.08)",
+            border: "1px solid rgba(37, 99, 235,0.08)",
             borderRadius: "50%",
             animation: "rotateSlow 40s linear infinite",
             pointerEvents: "none",
@@ -466,7 +466,7 @@ export default function Institutional() {
             position: "absolute",
             top: "50%", left: "50%",
             width: "600px", height: "600px",
-            border: "1px dashed rgba(201,168,76,0.05)",
+            border: "1px dashed rgba(37, 99, 235,0.05)",
             borderRadius: "50%",
             animation: "rotateSlow 65s linear infinite reverse",
             pointerEvents: "none",
@@ -503,15 +503,15 @@ export default function Institutional() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.75rem",
-              border: "1px solid rgba(201,168,76,0.25)",
+              border: "1px solid rgba(37, 99, 235,0.25)",
               padding: "0.45rem 1.3rem",
               marginBottom: "2.5rem",
-              background: "rgba(201,168,76,0.05)",
+              background: "rgba(37, 99, 235,0.05)",
               borderRadius: "1px",
             }}>
               <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#2563eb", flexShrink: 0 }} />
               <span style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.62rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
@@ -525,19 +525,19 @@ export default function Institutional() {
 
             {/* Headline */}
             <h1 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(3rem, 8vw, 6.5rem)",
               fontWeight: 700,
               lineHeight: 1,
               letterSpacing: "-0.025em",
               marginBottom: "0.5rem",
-              color: "#1A120A",
+              color: "#0f172a",
             }}>
               Institutional
               <br />
               <span style={{
                 fontStyle: "italic",
-                background: "linear-gradient(120deg, #2563eb 0%, #E8C97A 40%, #B8965A 75%, #2563eb 100%)",
+                background: "linear-gradient(120deg, #2563eb 0%, #60a5fa 40%, #1d4ed8 75%, #2563eb 100%)",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -549,7 +549,7 @@ export default function Institutional() {
             </h1>
 
             <p style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "1rem",
               color: "rgba(90,65,40,0.55)",
               maxWidth: "540px",
@@ -567,8 +567,8 @@ export default function Institutional() {
               display: "flex",
               justifyContent: "center",
               flexWrap: "wrap",
-              border: "1px solid rgba(201,168,76,0.2)",
-              background: "rgba(201,168,76,0.03)",
+              border: "1px solid rgba(37, 99, 235,0.2)",
+              background: "rgba(37, 99, 235,0.03)",
               maxWidth: "560px",
               margin: "0 auto",
               borderRadius: "2px",
@@ -578,17 +578,17 @@ export default function Institutional() {
                   flex: "1 1 140px",
                   padding: "1.25rem 1rem",
                   textAlign: "center",
-                  borderRight: i < 2 ? "1px solid rgba(201,168,76,0.15)" : "none",
+                  borderRight: i < 2 ? "1px solid rgba(37, 99, 235,0.15)" : "none",
                 }}>
                   <div style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "2rem",
                     fontWeight: 700,
                     color: "#2563eb",
                     lineHeight: 1,
                   }}>{val}</div>
                   <div style={{
-                    fontFamily: "'Jost', sans-serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "0.58rem",
                     color: "rgba(90,65,40,0.35)",
                     letterSpacing: "0.15em",
@@ -603,7 +603,7 @@ export default function Institutional() {
             {/* CTA */}
             <button style={{
               marginTop: "2.5rem",
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.72rem",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -616,7 +616,7 @@ export default function Institutional() {
               transition: "all 0.3s ease",
               fontWeight: 500,
             }}
-              onMouseEnter={e => { e.target.style.background = "#B8965A"; e.target.style.transform = "translateY(-2px)"; }}
+              onMouseEnter={e => { e.target.style.background = "#1d4ed8"; e.target.style.transform = "translateY(-2px)"; }}
               onMouseLeave={e => { e.target.style.background = "#2563eb"; e.target.style.transform = "translateY(0)"; }}
             >
               Contact Now
@@ -626,14 +626,14 @@ export default function Institutional() {
 
         {/* ── INTRO STRIP ── */}
         <section style={{
-          borderTop: "1px solid rgba(139,112,72,0.1)",
-          borderBottom: "1px solid rgba(139,112,72,0.1)",
-          background: "rgba(201,168,76,0.03)",
+          borderTop: "1px solid rgba(100, 116, 139,0.1)",
+          borderBottom: "1px solid rgba(100, 116, 139,0.1)",
+          background: "rgba(37, 99, 235,0.03)",
           padding: "3.5rem 2rem",
           textAlign: "center",
         }}>
           <p style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
             fontStyle: "italic",
             color: "rgba(90,65,40,0.6)",
@@ -658,21 +658,21 @@ export default function Institutional() {
             flexWrap: "wrap",
           }}>
             <h2 style={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1.8rem, 4.5vw, 3rem)",
               fontWeight: 700,
-              color: "#1A120A",
+              color: "#0f172a",
               letterSpacing: "-0.025em",
               margin: 0,
               flexShrink: 0,
             }}>
               Member Benefits
             </h2>
-            <div style={{ flex: 1, height: "1px", background: "rgba(139,112,72,0.15)", minWidth: "30px" }} />
+            <div style={{ flex: 1, height: "1px", background: "rgba(100, 116, 139,0.15)", minWidth: "30px" }} />
             <div style={{
-              fontFamily: "'Jost', sans-serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.62rem",
-              color: "rgba(201,168,76,0.6)",
+              color: "rgba(37, 99, 235,0.6)",
               letterSpacing: "0.18em",
               textTransform: "uppercase",
               flexShrink: 0,
@@ -687,13 +687,13 @@ export default function Institutional() {
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
             gap: "1px",
-            background: "rgba(139,112,72,0.1)",
-            border: "1px solid rgba(139,112,72,0.1)",
+            background: "rgba(100, 116, 139,0.1)",
+            border: "1px solid rgba(100, 116, 139,0.1)",
             borderRadius: "2px",
             overflow: "hidden",
           }}>
             {benefits.map((benefit, i) => (
-              <div key={benefit.id} style={{ background: "#FBF6EC" }}>
+              <div key={benefit.id} style={{ background: "#f8fafc" }}>
                 <BenefitCard benefit={benefit} index={i} />
               </div>
             ))}
@@ -702,15 +702,15 @@ export default function Institutional() {
 
         {/* ── PRICING ── */}
         <section style={{
-          background: "#1A120A",
-          borderTop: "1px solid rgba(201,168,76,0.15)",
+          background: "#0f172a",
+          borderTop: "1px solid rgba(37, 99, 235,0.15)",
           padding: "5rem 2rem",
         }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
             {/* Header */}
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <div style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.62rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
@@ -721,7 +721,7 @@ export default function Institutional() {
                 Annual Fee Structure
               </div>
               <h2 style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.8rem, 4.5vw, 3rem)",
                 fontWeight: 700,
                 color: "#E8D9C0",
@@ -731,7 +731,7 @@ export default function Institutional() {
                 Institutional Membership Fee
               </h2>
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.9rem",
                 color: "rgba(232,217,192,0.4)",
                 maxWidth: "520px",
@@ -761,13 +761,13 @@ export default function Institutional() {
             <div style={{
               marginTop: "3rem",
               padding: "2rem 2.5rem",
-              border: "1px solid rgba(201,168,76,0.15)",
-              background: "rgba(201,168,76,0.03)",
+              border: "1px solid rgba(37, 99, 235,0.15)",
+              background: "rgba(37, 99, 235,0.03)",
               borderRadius: "2px",
               textAlign: "center",
             }}>
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.85rem",
                 color: "rgba(232,217,192,0.4)",
                 lineHeight: 1.85,

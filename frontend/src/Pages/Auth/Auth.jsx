@@ -163,7 +163,7 @@ export default function Auth() {
         }
 
         .auth-title {
-          font-family: 'Plus Jakarta Sans', serif; font-size: 30px;
+          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px;
           font-weight: 500; color: #1a1610; text-align: center;
           line-height: 1.15; margin-bottom: 28px;
         }
@@ -220,7 +220,7 @@ export default function Auth() {
         .mem-type-card.selected { border-color: #b9943c; background: rgba(185,148,60,0.07); }
 
         .mem-type-name {
-          font-family: 'Plus Jakarta Sans', serif; font-size: 17px;
+          font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px;
           font-weight: 600; color: #1a1610; display: block; margin-bottom: 3px;
         }
         .mem-type-desc { font-size: 11px; color: #8a7a5a; letter-spacing: 0.5px; }

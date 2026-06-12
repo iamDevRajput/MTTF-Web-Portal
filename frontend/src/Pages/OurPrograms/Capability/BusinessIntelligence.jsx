@@ -82,26 +82,26 @@ function BusinessIntelligence() {
         .bi-page * { box-sizing: border-box; }
 
         .bi-page {
-          --cream: #FAF7F2;
-          --warm-white: #FDFBF8;
-          --accent-yellow: #D4A843;
-          --accent-yellow-light: #F5E6C0;
-          --text-dark: #1A1614;
+          --mttf-bg-alt: #f8fafc;
+          --mttf-bg: #ffffff;
+          --mttf-primary: #D4A843;
+          --mttf-primary-light: #F5E6C0;
+          --mttf-text: #0f172a;
           --text-mid: #4A3F35;
           --text-light: #8A7A6E;
           --border: #E8E0D4;
           font-family: 'Plus Jakarta Sans', sans-serif;
-          background: var(--cream);
+          background: var(--mttf-bg-alt);
           min-height: 100vh;
         }
 
         .bi-page h1, .bi-page h2, .bi-page h3, .bi-page h4 {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         /* Hero */
         .bi-hero {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           min-height: 65vh;
           display: flex;
           align-items: center;
@@ -121,7 +121,7 @@ function BusinessIntelligence() {
           position: absolute;
           left: 0; right: 0; bottom: 0;
           height: 1px;
-          background: linear-gradient(90deg, transparent, var(--accent-yellow), transparent);
+          background: linear-gradient(90deg, transparent, var(--mttf-primary), transparent);
         }
 
         .bi-back {
@@ -139,7 +139,7 @@ function BusinessIntelligence() {
           font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .bi-back:hover { color: var(--accent-yellow); }
+        .bi-back:hover { color: var(--mttf-primary); }
         .bi-back svg { width: 14px; height: 14px; }
 
         .bi-hero-badge {
@@ -153,14 +153,14 @@ function BusinessIntelligence() {
           font-size: 11px;
           letter-spacing: 2.5px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-weight: 500;
         }
 
         .bi-hero-badge .dot {
           width: 5px; height: 5px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           border-radius: 50%;
           display: inline-block;
         }
@@ -168,7 +168,7 @@ function BusinessIntelligence() {
         .bi-hero h1 {
           font-size: clamp(44px, 7vw, 88px);
           font-weight: 300;
-          color: #FAF7F2;
+          color: #f8fafc;
           line-height: 1.0;
           margin: 0 0 24px;
           letter-spacing: -1px;
@@ -177,7 +177,7 @@ function BusinessIntelligence() {
 
         .bi-hero h1 em {
           font-style: italic;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .bi-hero p {
@@ -193,8 +193,8 @@ function BusinessIntelligence() {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          background: var(--accent-yellow);
-          color: var(--text-dark);
+          background: var(--mttf-primary);
+          color: var(--mttf-text);
           padding: 14px 32px;
           font-size: 13px;
           font-weight: 500;
@@ -229,7 +229,7 @@ function BusinessIntelligence() {
           font-size: 10px;
           letter-spacing: 3px;
           text-transform: uppercase;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-weight: 500;
           margin-bottom: 16px;
           display: block;
@@ -239,20 +239,20 @@ function BusinessIntelligence() {
         .bi-section-title {
           font-size: clamp(32px, 4.5vw, 56px);
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           line-height: 1.1;
           margin: 0 0 20px;
         }
 
         .bi-section-title em {
           font-style: italic;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
         }
 
         .bi-divider {
           width: 60px;
           height: 1px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           margin: 0 0 48px;
         }
 
@@ -263,7 +263,7 @@ function BusinessIntelligence() {
           border: 1px solid var(--border);
           border-radius: 4px;
           overflow: hidden;
-          background: var(--warm-white);
+          background: var(--mttf-bg);
         }
 
         @media (max-width: 768px) {
@@ -279,19 +279,19 @@ function BusinessIntelligence() {
         }
 
         .bi-metric:last-child { border-right: none; }
-        .bi-metric:hover { background: var(--accent-yellow-light); }
+        .bi-metric:hover { background: var(--mttf-primary-light); }
 
         .bi-metric-icon {
           width: 36px; height: 36px;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           margin: 0 auto 12px;
         }
 
         .bi-metric .val {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 40px;
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           display: block;
           line-height: 1;
           margin-bottom: 6px;
@@ -321,7 +321,7 @@ function BusinessIntelligence() {
         }
 
         .bi-overview-text {
-          background: var(--warm-white);
+          background: var(--mttf-bg);
           padding: 56px;
         }
 
@@ -334,7 +334,7 @@ function BusinessIntelligence() {
         }
 
         .bi-overview-chart {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           padding: 56px;
           display: flex;
           flex-direction: column;
@@ -368,14 +368,14 @@ function BusinessIntelligence() {
 
         .bi-chart-bar-fill {
           height: 100%;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           border-radius: 3px;
           transition: width 1.2s ease;
         }
 
         .bi-chart-bar-val {
           font-size: 12px;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           font-weight: 500;
           width: 36px;
           flex-shrink: 0;
@@ -386,7 +386,7 @@ function BusinessIntelligence() {
           border: 1px solid var(--border);
           border-radius: 4px;
           overflow: hidden;
-          background: var(--warm-white);
+          background: var(--mttf-bg);
         }
 
         .bi-service-item {
@@ -409,7 +409,7 @@ function BusinessIntelligence() {
           position: absolute;
           left: 0; top: 0; bottom: 0;
           width: 3px;
-          background: var(--accent-yellow);
+          background: var(--mttf-primary);
           transform: scaleY(0);
           transition: transform 0.3s ease;
         }
@@ -418,7 +418,7 @@ function BusinessIntelligence() {
         .bi-service-item:hover::before { transform: scaleY(1); }
 
         .bi-service-num {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 40px;
           font-weight: 300;
           color: var(--border);
@@ -426,11 +426,11 @@ function BusinessIntelligence() {
           transition: color 0.3s ease;
         }
 
-        .bi-service-item:hover .bi-service-num { color: var(--accent-yellow); }
+        .bi-service-item:hover .bi-service-num { color: var(--mttf-primary); }
 
         .bi-service-icon {
           width: 44px; height: 44px;
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border-radius: 2px;
           display: flex;
           align-items: center;
@@ -439,9 +439,9 @@ function BusinessIntelligence() {
           transition: background 0.3s ease;
         }
 
-        .bi-service-item:hover .bi-service-icon { background: var(--accent-yellow); }
-        .bi-service-item:hover .bi-service-icon svg { color: var(--text-dark); }
-        .bi-service-icon svg { width: 20px; height: 20px; color: var(--accent-yellow); transition: color 0.3s ease; }
+        .bi-service-item:hover .bi-service-icon { background: var(--mttf-primary); }
+        .bi-service-item:hover .bi-service-icon svg { color: var(--mttf-text); }
+        .bi-service-icon svg { width: 20px; height: 20px; color: var(--mttf-primary); transition: color 0.3s ease; }
 
         .bi-service-body {
           display: flex;
@@ -453,7 +453,7 @@ function BusinessIntelligence() {
         .bi-service-text h3 {
           font-size: 22px;
           font-weight: 400;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0 0 6px;
         }
 
@@ -472,10 +472,10 @@ function BusinessIntelligence() {
         }
 
         .bi-service-stat .val {
-          font-family: 'Plus Jakarta Sans', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 36px;
           font-weight: 300;
-          color: var(--accent-yellow);
+          color: var(--mttf-primary);
           display: block;
           line-height: 1;
         }
@@ -495,7 +495,7 @@ function BusinessIntelligence() {
 
         /* Use cases */
         .bi-usecases {
-          background: var(--text-dark);
+          background: var(--mttf-text);
           padding: 72px 64px;
           border-radius: 4px;
           position: relative;
@@ -534,7 +534,7 @@ function BusinessIntelligence() {
         .bi-usecase-item h4 {
           font-size: 20px;
           font-weight: 400;
-          color: var(--cream);
+          color: var(--mttf-bg-alt);
           margin: 0 0 10px;
         }
 
@@ -548,7 +548,7 @@ function BusinessIntelligence() {
 
         /* CTA */
         .bi-cta {
-          background: var(--accent-yellow-light);
+          background: var(--mttf-primary-light);
           border: 1px solid rgba(212,168,67,0.3);
           border-radius: 4px;
           padding: 80px;
@@ -571,7 +571,7 @@ function BusinessIntelligence() {
         .bi-cta h2 {
           font-size: clamp(32px, 4.5vw, 52px);
           font-weight: 300;
-          color: var(--text-dark);
+          color: var(--mttf-text);
           margin: 0 0 16px;
           position: relative;
         }
@@ -735,8 +735,8 @@ function BusinessIntelligence() {
           style={{ opacity: isVisible[3] ? 1 : 0, transform: isVisible[3] ? 'translateY(0)' : 'translateY(30px)', transition: 'all 0.8s ease 0.2s' }}
         >
           <div className="bi-usecases">
-            <span className="bi-label" style={{ color: 'var(--accent-yellow)' }}>Applications</span>
-            <h2 className="bi-section-title" style={{ color: 'var(--cream)' }}>
+            <span className="bi-label" style={{ color: 'var(--mttf-primary)' }}>Applications</span>
+            <h2 className="bi-section-title" style={{ color: 'var(--mttf-bg-alt)' }}>
               Real-World <em>Applications</em>
             </h2>
             <p style={{ color: 'rgba(250,247,242,0.5)', fontSize: 14, lineHeight: 1.9, maxWidth: 480, fontWeight: 300 }}>

@@ -96,7 +96,7 @@ function ParticleCanvas() {
         if (p.y > canvas.height) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201,168,76,${p.opacity})`;
+        ctx.fillStyle = `rgba(37, 99, 235,${p.opacity})`;
         ctx.fill();
       });
       particles.forEach((a, i) => {
@@ -106,7 +106,7 @@ function ParticleCanvas() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(201,168,76,${0.06 * (1 - dist / 110)})`;
+            ctx.strokeStyle = `rgba(37, 99, 235,${0.06 * (1 - dist / 110)})`;
             ctx.lineWidth = 0.4;
             ctx.stroke();
           }
@@ -141,8 +141,8 @@ function Card({ section, index }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        background: hovered ? "#FEFCF7" : "#FAF8F2",
-        border: `1px solid ${hovered ? "#2563eb" : "#E8E0CC"}`,
+        background: hovered ? "#ffffff" : "#ffffff",
+        border: `1px solid ${hovered ? "#2563eb" : "#e2e8f0"}`,
         borderRadius: "4px",
         padding: "2.25rem",
         position: "relative",
@@ -151,8 +151,8 @@ function Card({ section, index }) {
         transition: "all 0.4s cubic-bezier(0.23,1,0.32,1)",
         transform: hovered ? "translateY(-6px)" : "translateY(0)",
         boxShadow: hovered
-          ? "0 24px 48px rgba(139,109,56,0.14), 0 2px 8px rgba(139,109,56,0.08)"
-          : "0 2px 12px rgba(139,109,56,0.05)",
+          ? "0 24px 48px rgba(37, 99, 235,0.14), 0 2px 8px rgba(37, 99, 235,0.08)"
+          : "0 2px 12px rgba(37, 99, 235,0.05)",
         animationDelay: `${index * 0.08}s`,
         animation: "fadeSlideIn 0.6s ease both",
       }}
@@ -165,7 +165,7 @@ function Card({ section, index }) {
           left: 0,
           width: hovered ? "100%" : "0%",
           height: "2px",
-          background: "linear-gradient(90deg, #2563eb, #E8C96A)",
+          background: "linear-gradient(90deg, #2563eb, #60a5fa)",
           transition: "width 0.45s cubic-bezier(0.23,1,0.32,1)",
         }}
       />
@@ -186,7 +186,7 @@ function Card({ section, index }) {
       {/* Number label */}
       <div
         style={{
-          fontFamily: "'Cormorant Garamond', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "0.7rem",
           fontWeight: 600,
           color: "#2563eb",
@@ -248,10 +248,10 @@ function Card({ section, index }) {
         </span>
         <h3
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "1.45rem",
             fontWeight: 700,
-            color: "#1C1208",
+            color: "#0f172a",
             margin: 0,
             letterSpacing: "-0.01em",
             lineHeight: 1.2,
@@ -268,7 +268,7 @@ function Card({ section, index }) {
           height: "1px",
           background: hovered
             ? "linear-gradient(90deg, #2563eb40, transparent)"
-            : "#E8E0CC",
+            : "#e2e8f0",
           marginBottom: "1rem",
           transition: "background 0.3s ease",
         }}
@@ -295,21 +295,21 @@ export default function App() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@700;900&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
     <div
       className="min-h-screen flex flex-col"
-      style={{ background: "#F7F3EA", color: "#1C1208" }}
+      style={{ background: "#f8fafc", color: "#0f172a" }}
     >
       <style>{`
         @keyframes fadeSlideIn {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.3; }
         }
@@ -323,7 +323,7 @@ export default function App() {
         }
 
         ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-track { background: #F7F3EA; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #2563eb; border-radius: 2px; }
 
         .luxury-btn {
@@ -331,14 +331,14 @@ export default function App() {
           align-items: center;
           gap: 0.5rem;
           padding: 0.75rem 2rem;
-          background: #1C1208;
-          color: #F7F3EA;
+          background: #0f172a;
+          color: #f8fafc;
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 0.8rem;
           font-weight: 500;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          border: 1px solid #1C1208;
+          border: 1px solid #0f172a;
           border-radius: 2px;
           cursor: pointer;
           transition: all 0.3s ease;
@@ -349,7 +349,7 @@ export default function App() {
           border-color: #2563eb;
           color: #fff;
           transform: translateY(-1px);
-          box-shadow: 0 8px 20px rgba(201,168,76,0.3);
+          box-shadow: 0 8px 20px rgba(37, 99, 235,0.3);
         }
 
         .stat-item {
@@ -384,7 +384,7 @@ export default function App() {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            background: "linear-gradient(160deg, #F7F3EA 0%, #EDE5CC 60%, #E5D8AD 100%)",
+            background: "linear-gradient(160deg, #f8fafc 0%, #f1f5f9 60%, #E5D8AD 100%)",
           }}
         >
           <ParticleCanvas />
@@ -463,8 +463,8 @@ export default function App() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.75rem",
-                background: "rgba(201,168,76,0.1)",
-                border: "1px solid rgba(201,168,76,0.3)",
+                background: "rgba(37, 99, 235,0.1)",
+                border: "1px solid rgba(37, 99, 235,0.3)",
                 borderRadius: "2px",
                 padding: "0.4rem 1.25rem",
                 marginBottom: "2rem",
@@ -485,7 +485,7 @@ export default function App() {
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "0.68rem",
                   letterSpacing: "0.22em",
-                  color: "#8B6D38",
+                  color: "#1d4ed8",
                   textTransform: "uppercase",
                   fontWeight: 500,
                 }}
@@ -506,20 +506,20 @@ export default function App() {
 
             <h1
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(2.6rem, 6.5vw, 5.2rem)",
                 fontWeight: 900,
                 lineHeight: 1.05,
                 letterSpacing: "-0.02em",
                 marginBottom: "1.5rem",
-                color: "#1C1208",
+                color: "#0f172a",
               }}
             >
               Computing at the
               <br />
               <span
                 style={{
-                  background: "linear-gradient(135deg, #2563eb 0%, #8B6D38 40%, #E8C96A 100%)",
+                  background: "linear-gradient(135deg, #2563eb 0%, #1d4ed8 40%, #60a5fa 100%)",
                   backgroundSize: "200% auto",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
@@ -579,7 +579,7 @@ export default function App() {
             <div className="stat-item" key={label}>
               <div
                 style={{
-                  fontFamily: "'Cormorant Garamond', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "2rem",
                   fontWeight: 700,
                   color: "#2563eb",
@@ -640,17 +640,17 @@ export default function App() {
             </div>
             <h2
               style={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.8rem, 3vw, 2.8rem)",
                 fontWeight: 700,
-                color: "#1C1208",
+                color: "#0f172a",
                 margin: 0,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.15,
               }}
             >
               Seven Pillars of AI<br />
-              <span style={{ fontStyle: "italic", color: "#8B6D38" }}>Computing Excellence</span>
+              <span style={{ fontStyle: "italic", color: "#1d4ed8" }}>Computing Excellence</span>
             </h2>
           </div>
           <p

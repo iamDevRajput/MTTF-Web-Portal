@@ -210,10 +210,10 @@ function SectionHeader({ eyebrow, title, subtitle, center = true }) {
         }}>{eyebrow}</div>
       )}
       <h2 style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
         fontWeight: 700,
-        color: "#1A120A",
+        color: "#0f172a",
         letterSpacing: "-0.02em",
         margin: "0 0 0.85rem",
         lineHeight: 1.2,
@@ -252,14 +252,14 @@ export default function ExpertConsultancyServices() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#1A120A" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#0f172a" }}>
       <style>{`
-        @keyframes goldShimmer {
+        @keyframes accentShimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
@@ -409,12 +409,12 @@ export default function ExpertConsultancyServices() {
 
             {/* Headline */}
             <h1 style={{
-              fontFamily: "'Plus Jakarta Sans', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(2.5rem, 6.5vw, 5.2rem)",
               fontWeight: 700,
               lineHeight: 1.04,
               letterSpacing: "-0.025em",
-              color: "#1A120A",
+              color: "#0f172a",
               margin: "0 0 0.5rem",
             }}>
               Expert Consultancy
@@ -433,7 +433,7 @@ export default function ExpertConsultancyServices() {
             </h1>
 
             <p style={{
-              fontFamily: "'Plus Jakarta Sans', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1.1rem, 2.2vw, 1.5rem)",
               fontStyle: "italic",
               color: "rgba(90,65,40,0.5)",
@@ -471,7 +471,7 @@ export default function ExpertConsultancyServices() {
                   borderRight: i < arr.length - 1 ? "1px solid rgba(37, 99, 235,0.15)" : "none",
                 }}>
                   <div style={{
-                    fontFamily: "'Plus Jakarta Sans', serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "1.7rem",
                     fontWeight: 700,
                     color: "#2563eb",
@@ -501,7 +501,7 @@ export default function ExpertConsultancyServices() {
           borderBottom: "1px solid rgba(100, 116, 139,0.1)",
         }}>
           <p style={{
-            fontFamily: "'Plus Jakarta Sans', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1rem, 2.3vw, 1.4rem)",
             fontStyle: "italic",
             color: "rgba(90,65,40,0.58)",
@@ -593,7 +593,7 @@ export default function ExpertConsultancyServices() {
 
         {/* ── WHAT YOU GAIN ── */}
         <section style={{
-          background: "#1A120A",
+          background: "#0f172a",
           borderTop: "1px solid rgba(37, 99, 235,0.15)",
           padding: "5rem 2rem",
         }}>
@@ -610,7 +610,7 @@ export default function ExpertConsultancyServices() {
                   fontWeight: 500,
                 }}>Benefits</div>
                 <h2 style={{
-                  fontFamily: "'Plus Jakarta Sans', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
                   fontWeight: 700,
                   color: "#E8D9C0",
@@ -728,10 +728,10 @@ export default function ExpertConsultancyServices() {
               }}>Get Started</div>
 
               <h2 style={{
-                fontFamily: "'Plus Jakarta Sans', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
                 fontWeight: 700,
-                color: "#1A120A",
+                color: "#0f172a",
                 letterSpacing: "-0.02em",
                 margin: "0 0 0.85rem",
                 lineHeight: 1.2,
@@ -838,7 +838,7 @@ function ExpertiseCard({ area, index }) {
       <div style={{
         position: "absolute", right: "1rem", top: "50%",
         transform: "translateY(-50%)",
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "4.5rem", fontWeight: 700,
         color: "rgba(37, 99, 235,0.06)", lineHeight: 1,
         userSelect: "none", pointerEvents: "none",
@@ -861,9 +861,9 @@ function ExpertiseCard({ area, index }) {
       </div>
 
       <h3 style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.08rem", fontWeight: 700,
-        color: "#1A120A", margin: "0 0 0.6rem",
+        color: "#0f172a", margin: "0 0 0.6rem",
         letterSpacing: "-0.01em", lineHeight: 1.3,
       }}>{area.title}</h3>
 
@@ -879,7 +879,7 @@ function ExpertiseCard({ area, index }) {
             <ChevronRight size={13} style={{ color: "#2563eb", flexShrink: 0, marginTop: "0.2rem" }} />
             <span style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: "0.8rem", color: "#7A6040",
+              fontSize: "0.8rem", color: "#475569",
               lineHeight: 1.6, fontWeight: 300,
             }}>{point}</span>
           </li>
@@ -916,9 +916,9 @@ function ServiceCard({ service }) {
       <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
         <Award size={16} style={{ color: "#2563eb", flexShrink: 0 }} />
         <h3 style={{
-          fontFamily: "'Plus Jakarta Sans', serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: "1rem", fontWeight: 700,
-          color: "#1A120A", margin: 0, letterSpacing: "-0.01em",
+          color: "#0f172a", margin: 0, letterSpacing: "-0.01em",
         }}>{service.title}</h3>
       </div>
 
@@ -928,7 +928,7 @@ function ServiceCard({ service }) {
             <CheckCircle2 size={12} style={{ color: "#6B9E5E", flexShrink: 0, marginTop: "0.2rem" }} />
             <span style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: "0.78rem", color: "#7A6040",
+              fontSize: "0.78rem", color: "#475569",
               lineHeight: 1.6, fontWeight: 300,
             }}>{point}</span>
           </li>
@@ -957,7 +957,7 @@ function ProcessCard({ step, index, isLast }) {
       {/* Step number badge */}
       <div style={{
         position: "absolute", top: "1rem", right: "1rem",
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "2.5rem", fontWeight: 700,
         color: "rgba(37, 99, 235,0.1)", lineHeight: 1,
         userSelect: "none",
@@ -977,9 +977,9 @@ function ProcessCard({ step, index, isLast }) {
       </div>
 
       <h3 style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1rem", fontWeight: 700,
-        color: "#1A120A", margin: "0 0 0.5rem", lineHeight: 1.3,
+        color: "#0f172a", margin: "0 0 0.5rem", lineHeight: 1.3,
       }}>{step.title}</h3>
       <p style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -1070,9 +1070,9 @@ function AudienceCard({ audience }) {
       </div>
 
       <h3 style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.15rem", fontWeight: 700,
-        color: "#1A120A", margin: "0 0 1rem",
+        color: "#0f172a", margin: "0 0 1rem",
       }}>{audience.title}</h3>
 
       <div style={{ height: "1px", background: "rgba(37, 99, 235,0.18)", marginBottom: "1rem", width: hovered ? "60%" : "36%", margin: "0 auto 1rem", transition: "width 0.4s ease" }} />
@@ -1081,7 +1081,7 @@ function AudienceCard({ audience }) {
         {audience.points.map((point, i) => (
           <li key={i} style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
             <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#2563eb", flexShrink: 0 }} />
-            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "0.8rem", color: "#7A6040", fontWeight: 300 }}>{point}</span>
+            <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "0.8rem", color: "#475569", fontWeight: 300 }}>{point}</span>
           </li>
         ))}
       </ul>
@@ -1130,9 +1130,9 @@ function ProjectCard({ project }) {
       }}>{project.category}</div>
 
       <h3 style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1rem", fontWeight: 700,
-        color: "#1A120A", margin: 0,
+        color: "#0f172a", margin: 0,
         lineHeight: 1.35, letterSpacing: "-0.01em",
       }}>{project.title}</h3>
 

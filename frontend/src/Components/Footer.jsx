@@ -5,10 +5,10 @@ const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
   :root {
-    --mttf-primary: #2563eb;
-    --mttf-primary-light: #60a5fa;
-    --mttf-primary-pale: rgba(37, 99, 235, 0.08);
-    --mttf-bg-alt: #f8fafc;
+    --gold: #2563eb;
+    --gold-light: #60a5fa;
+    --gold-pale: rgba(37, 99, 235, 0.08);
+    --cream: #f8fafc;
     --charcoal: #0b1329;
     --mid: #94a3b8;
     --divider: rgba(37, 99, 235, 0.1);
@@ -36,7 +36,7 @@ const styles = `
   /* Top gold accent line */
   .lux-footer-topline {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--mttf-primary) 30%, var(--mttf-primary) 70%, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
     opacity: 0.35;
   }
 
@@ -62,14 +62,14 @@ const styles = `
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(32px, 3.5vw, 48px);
     font-weight: 800;
-    color: var(--mttf-bg-alt);
+    color: var(--cream);
     line-height: 1.1;
     letter-spacing: -0.02em;
   }
 
   .lux-footer-cta-heading em {
     font-style: normal;
-    color: var(--mttf-primary-light);
+    color: var(--gold-light);
   }
 
   .lux-cta-btn {
@@ -78,7 +78,7 @@ const styles = `
     align-items: center;
     gap: 10px;
     padding: 14px 32px;
-    background: var(--mttf-primary);
+    background: var(--gold);
     color: #ffffff;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
@@ -99,7 +99,7 @@ const styles = `
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--mttf-primary-light);
+    background: var(--gold-light);
     transform: translateX(-101%);
     transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
   }
@@ -130,7 +130,7 @@ const styles = `
   .lux-footer-logo-mark {
     width: 44px;
     height: 44px;
-    border: 1.5px solid var(--mttf-primary);
+    border: 1.5px solid var(--gold);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +143,7 @@ const styles = `
     content: '';
     position: absolute;
     inset: 4px;
-    background: var(--mttf-primary);
+    background: var(--gold);
     opacity: 0.08;
     border-radius: 3px;
   }
@@ -152,7 +152,7 @@ const styles = `
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 20px;
     font-weight: 800;
-    color: var(--mttf-bg-alt);
+    color: var(--cream);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     display: block;
@@ -162,7 +162,7 @@ const styles = `
   .lux-footer-brand-sub {
     font-size: 9px;
     font-weight: 500;
-    color: var(--mttf-primary-light);
+    color: var(--gold-light);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     display: block;
@@ -183,7 +183,7 @@ const styles = `
     font-weight: 600;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--mttf-primary-light);
+    color: var(--gold-light);
     margin-bottom: 28px;
     display: flex;
     align-items: center;
@@ -194,7 +194,7 @@ const styles = `
     content: '';
     flex: 1;
     height: 1px;
-    background: var(--mttf-primary);
+    background: var(--gold);
     opacity: 0.2;
   }
 
@@ -223,7 +223,7 @@ const styles = `
   .lux-footer-links a::before {
     content: '—';
     font-size: 10px;
-    color: var(--mttf-primary-light);
+    color: var(--gold-light);
     opacity: 0;
     width: 0;
     overflow: hidden;
@@ -231,7 +231,7 @@ const styles = `
   }
 
   .lux-footer-links a:hover {
-    color: var(--mttf-bg-alt);
+    color: var(--cream);
     gap: 8px;
   }
 
@@ -259,7 +259,7 @@ const styles = `
   }
 
   .lux-footer-contact-item:hover {
-    color: var(--mttf-primary-light);
+    color: var(--gold-light);
   }
 
   /* Social icons */
@@ -287,9 +287,9 @@ const styles = `
   }
 
   .lux-social-btn:hover {
-    border-color: var(--mttf-primary);
-    color: var(--mttf-bg-alt);
-    background: var(--mttf-primary-pale);
+    border-color: var(--gold);
+    color: var(--cream);
+    background: var(--gold-pale);
   }
 
   /* ── Bottom bar ── */
@@ -327,7 +327,7 @@ const styles = `
 
   .lux-footer-legal a:first-child { padding-left: 0; }
   .lux-footer-legal a:last-child { padding-right: 0; border-right: none; }
-  .lux-footer-legal a:hover { color: var(--mttf-primary-light); }
+  .lux-footer-legal a:hover { color: var(--gold-light); }
 
   /* Responsive */
   @media (max-width: 1024px) {

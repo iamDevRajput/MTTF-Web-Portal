@@ -136,7 +136,7 @@ function ServiceCard({ service, index }) {
       {/* Ghost number */}
       <div style={{
         position: "absolute", right: "1.25rem", bottom: "1.25rem",
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "5rem", fontWeight: 700,
         color: "rgba(37, 99, 235,0.06)", lineHeight: 1,
         userSelect: "none", pointerEvents: "none",
@@ -160,9 +160,9 @@ function ServiceCard({ service, index }) {
 
       {/* Title */}
       <h3 style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "1.2rem", fontWeight: 700,
-        color: "#1A120A", margin: "0 0 0.5rem",
+        color: "#0f172a", margin: "0 0 0.5rem",
         letterSpacing: "-0.01em", lineHeight: 1.25,
       }}>{service.title}</h3>
 
@@ -176,7 +176,7 @@ function ServiceCard({ service, index }) {
       {/* Description */}
       <p style={{
         fontFamily: "'Plus Jakarta Sans', sans-serif",
-        fontSize: "0.85rem", color: "#7A6040",
+        fontSize: "0.85rem", color: "#475569",
         lineHeight: 1.8, margin: "0 0 1.25rem",
         fontWeight: 300,
       }}>{service.description}</p>
@@ -241,7 +241,7 @@ function StatCard({ value, label, index }) {
       }}
     >
       <div style={{
-        fontFamily: "'Plus Jakarta Sans', serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: "clamp(2rem, 4vw, 3rem)",
         fontWeight: 700, color: "#2563eb", lineHeight: 1,
         marginBottom: "0.5rem",
@@ -265,14 +265,14 @@ export default function ConsultancyServices() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#1A120A" }}>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", background: "#f8fafc", color: "#0f172a" }}>
       <style>{`
-        @keyframes goldShimmer {
+        @keyframes accentShimmer {
           0%   { background-position: -200% center; }
           100% { background-position:  200% center; }
         }
@@ -381,10 +381,10 @@ export default function ConsultancyServices() {
 
             {/* Headline */}
             <h1 style={{
-              fontFamily: "'Plus Jakarta Sans', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(2.5rem, 7vw, 5.5rem)",
               fontWeight: 700, lineHeight: 1.02,
-              letterSpacing: "-0.025em", color: "#1A120A",
+              letterSpacing: "-0.025em", color: "#0f172a",
               margin: "0 0 0.5rem",
             }}>
               Consultancy{" "}
@@ -400,7 +400,7 @@ export default function ConsultancyServices() {
             </h1>
 
             <p style={{
-              fontFamily: "'Plus Jakarta Sans', serif",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1rem, 2.2vw, 1.35rem)",
               fontStyle: "italic", color: "rgba(90,65,40,0.52)",
               maxWidth: "580px", margin: "1.25rem auto 2.5rem",
@@ -422,7 +422,7 @@ export default function ConsultancyServices() {
                   borderRight: i < arr.length - 1 ? "1px solid rgba(37, 99, 235,0.15)" : "none",
                 }}>
                   <div style={{
-                    fontFamily: "'Plus Jakarta Sans', serif",
+                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                     fontSize: "1.55rem", fontWeight: 700,
                     color: "#2563eb", lineHeight: 1,
                   }}>{value}</div>
@@ -445,7 +445,7 @@ export default function ConsultancyServices() {
           padding: "3rem 2rem", textAlign: "center",
         }}>
           <p style={{
-            fontFamily: "'Plus Jakarta Sans', serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: "clamp(1rem, 2.3vw, 1.4rem)",
             fontStyle: "italic", color: "rgba(90,65,40,0.58)",
             maxWidth: "780px", margin: "0 auto", lineHeight: 1.75,
@@ -463,9 +463,9 @@ export default function ConsultancyServices() {
               gap: "1.25rem", marginBottom: "3rem", flexWrap: "wrap",
             }}>
               <h2 style={{
-                fontFamily: "'Plus Jakarta Sans', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.5rem, 3vw, 2.2rem)",
-                fontWeight: 700, color: "#1A120A",
+                fontWeight: 700, color: "#0f172a",
                 letterSpacing: "-0.02em", margin: 0, flexShrink: 0,
               }}>Our Services</h2>
               <div style={{ flex: 1, height: "1px", background: "rgba(100, 116, 139,0.15)", minWidth: "24px" }} />
@@ -491,7 +491,7 @@ export default function ConsultancyServices() {
 
         {/* ── WHY CHOOSE US ── */}
         <section style={{
-          background: "#1A120A",
+          background: "#0f172a",
           borderTop: "1px solid rgba(37, 99, 235,0.15)",
           padding: "5rem 2rem",
         }}>
@@ -505,7 +505,7 @@ export default function ConsultancyServices() {
                   marginBottom: "0.75rem", fontWeight: 500,
                 }}>Why MTTF</div>
                 <h2 style={{
-                  fontFamily: "'Plus Jakarta Sans', serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)",
                   fontWeight: 700, color: "#E8D9C0",
                   letterSpacing: "-0.02em", margin: "0 0 0.85rem", lineHeight: 1.2,
@@ -561,9 +561,9 @@ export default function ConsultancyServices() {
               }}>Get Started</div>
 
               <h2 style={{
-                fontFamily: "'Plus Jakarta Sans', serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "clamp(1.6rem, 3.5vw, 2.4rem)",
-                fontWeight: 700, color: "#1A120A",
+                fontWeight: 700, color: "#0f172a",
                 letterSpacing: "-0.02em", margin: "0 0 0.85rem", lineHeight: 1.2,
               }}>
                 Ready to Get Started?

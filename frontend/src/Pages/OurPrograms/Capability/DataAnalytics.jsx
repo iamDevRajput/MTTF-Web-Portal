@@ -12,7 +12,7 @@ function DataAnalytics() {
   useEffect(() => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,600&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap';
     document.head.appendChild(link);
   }, []);
 
@@ -90,7 +90,7 @@ function DataAnalytics() {
           from { opacity: 0; transform: translateY(22px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.25; }
         }
@@ -129,7 +129,7 @@ function DataAnalytics() {
           transition: width 0.45s cubic-bezier(0.23,1,0.32,1);
         }
         .cap-card:hover::before { width: 100%; }
-        .cap-card:hover { border-color: #2563eb; transform: translateY(-5px); box-shadow: 0 20px 44px rgba(37, 99, 235,0.12); background: #FEFCF7; }
+        .cap-card:hover { border-color: #2563eb; transform: translateY(-5px); box-shadow: 0 20px 44px rgba(37, 99, 235,0.12); background: #ffffff; }
 
         .ind-card {
           background: #ffffff; border: 1px solid #e2e8f0; border-radius: 4px;
@@ -160,7 +160,7 @@ function DataAnalytics() {
           border: 1px solid #2563eb; border-radius: 2px;
           cursor: pointer; transition: all 0.35s ease; text-decoration: none;
         }
-        .btn-gold:hover { background: #B8965A; border-color: #B8965A; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37, 99, 235,0.28); }
+        .btn-gold:hover { background: #1d4ed8; border-color: #1d4ed8; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37, 99, 235,0.28); }
 
         ::-webkit-scrollbar { width: 3px; }
         ::-webkit-scrollbar-track { background: #f8fafc; }
@@ -180,7 +180,7 @@ function DataAnalytics() {
               color: '#2563eb', textDecoration: 'none', letterSpacing: '0.06em',
               transition: 'color 0.2s',
             }}
-            onMouseEnter={e => e.currentTarget.style.color = '#8B6D38'}
+            onMouseEnter={e => e.currentTarget.style.color = '#1d4ed8'}
             onMouseLeave={e => e.currentTarget.style.color = '#2563eb'}
           >
             <ArrowLeft size={14} />
@@ -245,19 +245,19 @@ function DataAnalytics() {
               borderRadius: '2px', padding: '0.4rem 1.2rem', marginBottom: '1.75rem',
             }}>
               <span style={{ width:5, height:5, borderRadius:'50%', background:'#2563eb', display:'inline-block', animation:'pulseGold 2s ease infinite' }} />
-              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.65rem', color:'#8B6D38', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500 }}>
+              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.65rem', color:'#1d4ed8', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500 }}>
                 Analytics & Intelligence
               </span>
             </div>
 
             {/* Headline */}
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.4rem,6vw,5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.4rem,6vw,5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
               Data
             </h1>
             <h1 style={{
-              fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.4rem,6vw,5rem)',
+              fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.4rem,6vw,5rem)',
               fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic',
-              background:'linear-gradient(135deg,#2563eb 0%,#8B6D38 40%,#60a5fa 100%)', backgroundSize:'200% auto',
+              background:'linear-gradient(135deg,#2563eb 0%,#1d4ed8 40%,#60a5fa 100%)', backgroundSize:'200% auto',
               WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite',
             }}>
               Analytics
@@ -277,7 +277,7 @@ function DataAnalytics() {
                 return (
                   <div className="stat-pill" key={i} style={{ flex: '1 1 130px' }}>
                     <Icon size={16} color="#2563eb" style={{ margin: '0 auto 0.4rem', display: 'block' }} />
-                    <div style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.6rem', fontWeight:700, color:'#2563eb', lineHeight:1 }}>{m.value}</div>
+                    <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.6rem', fontWeight:700, color:'#2563eb', lineHeight:1 }}>{m.value}</div>
                     <div style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.6rem', color:'#9C8B6E', letterSpacing:'0.14em', textTransform:'uppercase', marginTop:'0.25rem', fontWeight:500 }}>{m.label}</div>
                   </div>
                 );
@@ -296,9 +296,9 @@ function DataAnalytics() {
                 <span className="eyebrow-line" />
                 Overview
               </div>
-              <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700, color:'#0f172a', letterSpacing:'-0.02em', margin:'0 0 1.5rem', lineHeight:1.15 }}>
+              <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700, color:'#0f172a', letterSpacing:'-0.02em', margin:'0 0 1.5rem', lineHeight:1.15 }}>
                 The Analytics{' '}
-                <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Journey</span>
+                <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Journey</span>
               </h2>
               <p style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.9rem', color:'#6B5C3E', lineHeight:1.8, marginBottom:'0.75rem', fontWeight:300 }}>
                 From raw data to strategic insights, our comprehensive analytics approach helps organizations make data-driven decisions.
@@ -337,7 +337,7 @@ function DataAnalytics() {
               </svg>
               <div style={{ display:'flex', justifyContent:'space-between', marginTop:'0.5rem' }}>
                 {['Q1','Q2','Q3','Q4','Q5','Q6','Q7'].map(q => (
-                  <span key={q} style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.6rem', color:'#C4B08A', letterSpacing:'0.08em' }}>{q}</span>
+                  <span key={q} style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.6rem', color:'#94a3b8', letterSpacing:'0.08em' }}>{q}</span>
                 ))}
               </div>
             </div>
@@ -354,11 +354,11 @@ function DataAnalytics() {
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />Capabilities<span className="eyebrow-line" /></div>
             <h2 style={{
-              fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700,
+              fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700,
               color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em',
             }}>
               Our Analytics{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Capabilities</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Capabilities</span>
             </h2>
 
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:'1.5rem' }}>
@@ -375,9 +375,9 @@ function DataAnalytics() {
         <section style={{ background: '#FEFCF5', padding: '5rem 2rem' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />Applications<span className="eyebrow-line" /></div>
-            <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em' }}>
+            <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em' }}>
               Industry{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Applications</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Applications</span>
             </h2>
 
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(260px,1fr))', gap:'1.5rem' }}>
@@ -389,7 +389,7 @@ function DataAnalytics() {
                     <div style={{ width:'44px', height:'44px', background:'#F5EFD8', border:'1px solid #E8D89A', borderRadius:'4px', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'1rem', color:'#2563eb' }}>
                       <Icon size={20} />
                     </div>
-                    <h4 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.25rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem' }}>{ind.name}</h4>
+                    <h4 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.25rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem' }}>{ind.name}</h4>
                     <div style={{ height:'1px', background:'#EDE4CC', marginBottom:'0.75rem' }} />
                     <p style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.85rem', color:'#6B5C3E', lineHeight:1.75, margin:0, fontWeight:300 }}>{ind.impact}</p>
                   </div>
@@ -423,7 +423,7 @@ function DataAnalytics() {
                 <span style={{ display:'inline-block', width:22, height:1, background:'#2563eb' }} />
               </div>
 
-              <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
+              <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
                 Unlock the Power of{' '}
                 <span style={{ fontStyle:'italic', background:'linear-gradient(135deg,#2563eb,#60a5fa)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>
                   Your Data
@@ -471,7 +471,7 @@ function CapabilityCard({ cap, index, animated, visible }) {
       {/* Header row */}
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'1.25rem' }}>
         <div style={{ display:'flex', alignItems:'center', gap:'0.75rem' }}>
-          <span style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.7rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600 }}>{cap.num}</span>
+          <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.7rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600 }}>{cap.num}</span>
           <div style={{
             width:'44px', height:'44px', background: hovered ? '#FDF5E0' : '#F5EFD8',
             border:'1px solid #E8D89A', borderRadius:'4px',
@@ -494,13 +494,13 @@ function CapabilityCard({ cap, index, animated, visible }) {
               style={{ transition:'stroke-dashoffset 1.2s ease-out' }}
             />
           </svg>
-          <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.75rem', fontWeight:700, color:'#2563eb' }}>
+          <div style={{ position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.75rem', fontWeight:700, color:'#2563eb' }}>
             {cap.percentage}%
           </div>
         </div>
       </div>
 
-      <h3 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.3rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
+      <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.3rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
         {cap.title}
       </h3>
 
@@ -515,7 +515,7 @@ function CapabilityCard({ cap, index, animated, visible }) {
       <div style={{ display:'flex', alignItems:'flex-end', gap:'3px', height:'28px' }}>
         {[65,80,45,90,55,75,85,60].map((h, idx) => (
           <div key={idx} style={{
-            flex:1, background: hovered ? 'linear-gradient(180deg,#2563eb,#E8C97A)' : 'linear-gradient(180deg,#D8CBA8,#EDE4CC)',
+            flex:1, background: hovered ? 'linear-gradient(180deg,#2563eb,#60a5fa)' : 'linear-gradient(180deg,#D8CBA8,#EDE4CC)',
             borderRadius:'2px 2px 0 0',
             height: animated ? `${h}%` : '0%',
             transition: `height 0.8s ease ${idx*0.06}s, background 0.3s`,

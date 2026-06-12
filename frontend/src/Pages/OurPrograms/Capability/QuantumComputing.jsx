@@ -13,7 +13,7 @@ function QuantumComputing() {
   useEffect(() => {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,600&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap';
     document.head.appendChild(link);
   }, []);
 
@@ -109,7 +109,7 @@ function QuantumComputing() {
           from { opacity: 0; transform: translateY(22px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulseGold {
+        @keyframes pulseAccent {
           0%,100% { opacity: 1; }
           50%      { opacity: 0.25; }
         }
@@ -160,7 +160,7 @@ function QuantumComputing() {
         .research-card:hover::before { width: 100%; }
         .research-card:hover {
           border-color: #2563eb; transform: translateY(-5px);
-          box-shadow: 0 20px 44px rgba(37, 99, 235,0.12); background: #FEFCF7;
+          box-shadow: 0 20px 44px rgba(37, 99, 235,0.12); background: #ffffff;
         }
 
         .impact-card {
@@ -192,7 +192,7 @@ function QuantumComputing() {
           border:1px solid #2563eb; border-radius:2px;
           cursor:pointer; transition:all 0.35s ease; text-decoration:none;
         }
-        .btn-gold:hover { background:#B8965A; border-color:#B8965A; transform:translateY(-2px); box-shadow:0 10px 24px rgba(37, 99, 235,0.28); }
+        .btn-gold:hover { background:#1d4ed8; border-color:#1d4ed8; transform:translateY(-2px); box-shadow:0 10px 24px rgba(37, 99, 235,0.28); }
 
         ::-webkit-scrollbar { width:3px; }
         ::-webkit-scrollbar-track { background:#f8fafc; }
@@ -207,7 +207,7 @@ function QuantumComputing() {
           <Link
             to="/programs/capability"
             style={{ display:'inline-flex', alignItems:'center', gap:'0.5rem', fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.78rem', color:'#2563eb', textDecoration:'none', letterSpacing:'0.06em', transition:'color 0.2s' }}
-            onMouseEnter={e => e.currentTarget.style.color='#8B6D38'}
+            onMouseEnter={e => e.currentTarget.style.color='#1d4ed8'}
             onMouseLeave={e => e.currentTarget.style.color='#2563eb'}
           >
             <ArrowLeft size={14} />
@@ -254,15 +254,15 @@ function QuantumComputing() {
             {/* Badge */}
             <div style={{ display:'inline-flex', alignItems:'center', gap:'0.65rem', background:'rgba(37, 99, 235,0.1)', border:'1px solid rgba(37, 99, 235,0.3)', borderRadius:'2px', padding:'0.4rem 1.2rem', marginBottom:'1.75rem' }}>
               <span style={{ width:5, height:5, borderRadius:'50%', background:'#2563eb', display:'inline-block', animation:'pulseGold 2s ease infinite' }} />
-              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.65rem', color:'#8B6D38', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500 }}>
+              <span style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.65rem', color:'#1d4ed8', letterSpacing:'0.22em', textTransform:'uppercase', fontWeight:500 }}>
                 Quantum Computing
               </span>
             </div>
 
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.4rem,6vw,5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.4rem,6vw,5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', color:'#0f172a', marginBottom:'0.4rem' }}>
               Frontier of
             </h1>
-            <h1 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(2.4rem,6vw,5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#8B6D38 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
+            <h1 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(2.4rem,6vw,5rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'-0.025em', marginBottom:'1.25rem', fontStyle:'italic', background:'linear-gradient(135deg,#2563eb 0%,#1d4ed8 40%,#60a5fa 100%)', backgroundSize:'200% auto', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', animation:'shimmer 4s linear infinite' }}>
               Quantum Computing
             </h1>
 
@@ -278,7 +278,7 @@ function QuantumComputing() {
                 return (
                   <div className="stat-pill" key={i}>
                     <Icon size={16} color="#2563eb" style={{ margin:'0 auto 0.4rem', display:'block' }} />
-                    <div style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.6rem', fontWeight:700, color:'#2563eb', lineHeight:1 }}>{s.value}</div>
+                    <div style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.6rem', fontWeight:700, color:'#2563eb', lineHeight:1 }}>{s.value}</div>
                     <div style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.6rem', color:'#9C8B6E', letterSpacing:'0.14em', textTransform:'uppercase', marginTop:'0.25rem', fontWeight:500 }}>{s.label}</div>
                   </div>
                 );
@@ -300,9 +300,9 @@ function QuantumComputing() {
                 <span className="eyebrow-line" />
                 Overview
               </div>
-              <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700, color:'#0f172a', letterSpacing:'-0.02em', margin:'0 0 1.5rem', lineHeight:1.15 }}>
+              <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.6rem)', fontWeight:700, color:'#0f172a', letterSpacing:'-0.02em', margin:'0 0 1.5rem', lineHeight:1.15 }}>
                 The Quantum{' '}
-                <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Revolution</span>
+                <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Revolution</span>
               </h2>
               <p style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.9rem', color:'#6B5C3E', lineHeight:1.8, marginBottom:'0.85rem', fontWeight:300 }}>
                 Our Quantum Computing program is at the forefront of one of the most exciting technological
@@ -333,8 +333,8 @@ function QuantumComputing() {
                 <div style={{ position:'absolute', top:'50%', left:'50%', width:'10px', height:'10px', borderRadius:'50%', background:'#2563eb', transform:'translate(-50%,-50%)', animation:'pulseGold 2s ease-in-out infinite', boxShadow:'0 0 14px rgba(37, 99, 235,0.5)' }} />
 
                 {/* Axis labels */}
-                <div style={{ position:'absolute', top:'-1.5rem', left:'50%', transform:'translateX(-50%)', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.85rem', color:'#2563eb', fontWeight:600 }}>|0⟩</div>
-                <div style={{ position:'absolute', bottom:'-1.5rem', left:'50%', transform:'translateX(-50%)', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.85rem', color:'#8B6D38', fontWeight:600 }}>|1⟩</div>
+                <div style={{ position:'absolute', top:'-1.5rem', left:'50%', transform:'translateX(-50%)', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.85rem', color:'#2563eb', fontWeight:600 }}>|0⟩</div>
+                <div style={{ position:'absolute', bottom:'-1.5rem', left:'50%', transform:'translateX(-50%)', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.85rem', color:'#1d4ed8', fontWeight:600 }}>|1⟩</div>
 
                 {/* Orbiting dots */}
                 <div style={{ position:'absolute', inset:0, animation:'orbitSlow 8s linear infinite' }}>
@@ -346,7 +346,7 @@ function QuantumComputing() {
               </div>
 
               {/* Quantum notation */}
-              <div style={{ position:'absolute', top:'1rem', right:'1.25rem', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.82rem', color:'#2563eb', fontWeight:600, letterSpacing:'0.05em' }}>
+              <div style={{ position:'absolute', top:'1rem', right:'1.25rem', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.82rem', color:'#2563eb', fontWeight:600, letterSpacing:'0.05em' }}>
                 |ψ⟩ = α|0⟩ + β|1⟩
               </div>
             </div>
@@ -362,9 +362,9 @@ function QuantumComputing() {
         >
           <div style={{ maxWidth:'1200px', margin:'0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />Research<span className="eyebrow-line" /></div>
-            <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em' }}>
+            <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'3rem', letterSpacing:'-0.02em' }}>
               Research{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Areas</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Areas</span>
             </h2>
 
             <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(280px,1fr))', gap:'1.5rem' }}>
@@ -381,11 +381,11 @@ function QuantumComputing() {
         <section style={{ background:'#FEFCF5', padding:'5rem 2rem' }}>
           <div style={{ maxWidth:'1100px', margin:'0 auto' }}>
             <div className="eyebrow"><span className="eyebrow-line" />Applications<span className="eyebrow-line" /></div>
-            <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'1.5rem', letterSpacing:'-0.02em' }}>
+            <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3vw,2.8rem)', fontWeight:700, color:'#0f172a', textAlign:'center', marginBottom:'1.5rem', letterSpacing:'-0.02em' }}>
               Future{' '}
-              <span style={{ fontStyle:'italic', color:'#8B6D38' }}>Impact</span>
+              <span style={{ fontStyle:'italic', color:'#1d4ed8' }}>Impact</span>
             </h2>
-            <p style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.15rem', fontStyle:'italic', color:'#6B5C3E', maxWidth:'700px', margin:'0 auto 3rem', textAlign:'center', lineHeight:1.75, fontWeight:500 }}>
+            <p style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.15rem', fontStyle:'italic', color:'#6B5C3E', maxWidth:'700px', margin:'0 auto 3rem', textAlign:'center', lineHeight:1.75, fontWeight:500 }}>
               Quantum computing promises to revolutionize industries from pharmaceuticals to finance,
               offering exponential speedups for specific computational problems and enabling entirely new types of calculations.
             </p>
@@ -407,7 +407,7 @@ function QuantumComputing() {
                     <div style={{ width:'44px', height:'44px', background:'#F5EFD8', border:'1px solid #E8D89A', borderRadius:'4px', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'1rem', color:'#2563eb' }}>
                       <Icon size={20} />
                     </div>
-                    <h4 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.25rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.4rem' }}>{impact.title}</h4>
+                    <h4 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.25rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.4rem' }}>{impact.title}</h4>
                     <div style={{ height:'1px', background:'#EDE4CC', marginBottom:'0.75rem' }} />
                     <p style={{ fontFamily:"'Plus Jakarta Sans',sans-serif", fontSize:'0.85rem', color:'#6B5C3E', lineHeight:1.75, margin:0, fontWeight:300 }}>{impact.desc}</p>
                   </div>
@@ -433,7 +433,7 @@ function QuantumComputing() {
 
               {/* Floating quantum symbols */}
               {['|ψ⟩','⟨φ|','∑'].map((sym,i) => (
-                <div key={i} style={{ position:'absolute', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'2.5rem', color:'rgba(37, 99, 235,0.08)', fontWeight:700, animation:`floatDot ${3+i}s ease-in-out infinite`, animationDelay:`${i*0.5}s`, top: i===2?'1.5rem':'auto', bottom: i<2?'1.5rem':'auto', left: i===0?'2rem':'auto', right: i===1?'2rem': i===2?'3rem':'auto', pointerEvents:'none' }}>
+                <div key={i} style={{ position:'absolute', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'2.5rem', color:'rgba(37, 99, 235,0.08)', fontWeight:700, animation:`floatDot ${3+i}s ease-in-out infinite`, animationDelay:`${i*0.5}s`, top: i===2?'1.5rem':'auto', bottom: i<2?'1.5rem':'auto', left: i===0?'2rem':'auto', right: i===1?'2rem': i===2?'3rem':'auto', pointerEvents:'none' }}>
                   {sym}
                 </div>
               ))}
@@ -444,7 +444,7 @@ function QuantumComputing() {
                 <span style={{ display:'inline-block', width:22, height:1, background:'#2563eb' }} />
               </div>
 
-              <h2 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
+              <h2 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'clamp(1.8rem,3.5vw,2.8rem)', fontWeight:700, color:'#f8fafc', letterSpacing:'-0.02em', margin:'0 0 1rem' }}>
                 Pioneer{' '}
                 <span style={{ fontStyle:'italic', background:'linear-gradient(135deg,#2563eb,#60a5fa)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent' }}>
                   Quantum Computing
@@ -485,25 +485,25 @@ function ResearchCard({ area, index, visible }) {
       <div style={{ position:'absolute', top:0, right:0, width:18, height:18, background: hovered?'#2563eb':'#E8DFC4', clipPath:'polygon(100% 0,0 0,100% 100%)', transition:'background 0.3s' }} />
 
       {/* Ghost notation */}
-      <div style={{ position:'absolute', top:'1rem', right:'1.5rem', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'3.5rem', fontWeight:700, color: hovered?'rgba(37, 99, 235,0.1)':'rgba(37, 99, 235,0.05)', pointerEvents:'none', lineHeight:1, transition:'color 0.3s', userSelect:'none' }}>
+      <div style={{ position:'absolute', top:'1rem', right:'1.5rem', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'3.5rem', fontWeight:700, color: hovered?'rgba(37, 99, 235,0.1)':'rgba(37, 99, 235,0.05)', pointerEvents:'none', lineHeight:1, transition:'color 0.3s', userSelect:'none' }}>
         {area.notation}
       </div>
 
       {/* Header row */}
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'1.25rem' }}>
         <div style={{ display:'flex', alignItems:'center', gap:'0.75rem' }}>
-          <span style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.7rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600 }}>{area.num}</span>
+          <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.7rem', color:'#2563eb', letterSpacing:'0.15em', fontWeight:600 }}>{area.num}</span>
           <div style={{ width:'44px', height:'44px', background: hovered?'#FDF5E0':'#F5EFD8', border:'1px solid #E8D89A', borderRadius:'4px', display:'flex', alignItems:'center', justifyContent:'center', color:'#2563eb', transition:'all 0.3s', transform: hovered?'scale(1.08) rotate(-4deg)':'scale(1)' }}>
             <Icon size={20} />
           </div>
         </div>
         {/* Metric badge */}
-        <div style={{ padding:'0.3rem 0.75rem', border:'1px solid rgba(37, 99, 235,0.35)', borderRadius:'1px', fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.85rem', fontWeight:700, color:'#2563eb', letterSpacing:'0.05em' }}>
+        <div style={{ padding:'0.3rem 0.75rem', border:'1px solid rgba(37, 99, 235,0.35)', borderRadius:'1px', fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.85rem', fontWeight:700, color:'#2563eb', letterSpacing:'0.05em' }}>
           {area.metric}
         </div>
       </div>
 
-      <h3 style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'1.3rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
+      <h3 style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'1.3rem', fontWeight:700, color:'#0f172a', margin:'0 0 0.5rem', letterSpacing:'-0.01em', lineHeight:1.2 }}>
         {area.title}
       </h3>
 
@@ -519,7 +519,7 @@ function ResearchCard({ area, index, visible }) {
         <div style={{ flex:1, height:'2px', background:'rgba(37, 99, 235,0.15)', borderRadius:'1px', overflow:'hidden' }}>
           <div style={{ height:'100%', width: hovered?'100%':'35%', background:'linear-gradient(90deg,#2563eb,#60a5fa)', transition:'width 0.5s ease', borderRadius:'1px' }} />
         </div>
-        <span style={{ fontFamily:"'Plus Jakarta Sans',serif", fontSize:'0.72rem', color:'#2563eb', letterSpacing:'0.08em', fontWeight:600, flexShrink:0 }}>
+        <span style={{ fontFamily:"'Plus Jakarta Sans', sans-serif", fontSize:'0.72rem', color:'#2563eb', letterSpacing:'0.08em', fontWeight:600, flexShrink:0 }}>
           {area.notation}
         </span>
       </div>

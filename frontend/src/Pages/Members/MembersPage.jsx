@@ -48,16 +48,16 @@ function AvatarIcon() {
       width: 52,
       height: 52,
       borderRadius: "50%",
-      background: "#E8E4DC",
+      background: "#e2e8f0",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       flexShrink: 0,
-      border: "1px solid rgba(139,112,72,0.15)",
+      border: "1px solid rgba(100, 116, 139,0.15)",
     }}>
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="8" r="4" fill="#B0A898" />
-        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#B0A898" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+        <circle cx="12" cy="8" r="4" fill="#94a3b8" />
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" fill="none" />
       </svg>
     </div>
   );
@@ -77,21 +77,21 @@ function MemberCard({ member }) {
         justifyContent: "space-between",
         gap: "1rem",
         padding: "1.1rem 1.5rem",
-        background: hovered ? "#FDFAF4" : "#FFFFFF",
-        border: `1px solid ${hovered ? "rgba(201,168,76,0.25)" : "rgba(139,112,72,0.12)"}`,
+        background: hovered ? "#ffffff" : "#FFFFFF",
+        border: `1px solid ${hovered ? "rgba(37, 99, 235,0.25)" : "rgba(100, 116, 139,0.12)"}`,
         borderRadius: "6px",
         transition: "all 0.2s ease",
-        boxShadow: hovered ? "0 2px 12px rgba(201,168,76,0.08)" : "0 1px 3px rgba(0,0,0,0.04)",
+        boxShadow: hovered ? "0 2px 12px rgba(37, 99, 235,0.08)" : "0 1px 3px rgba(0,0,0,0.04)",
       }}
     >
       {/* Left: Avatar + Name */}
       <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
         <AvatarIcon />
         <span style={{
-          fontFamily: "'Plus Jakarta Sans', 'Jost', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', 'Plus Jakarta Sans', sans-serif",
           fontSize: "0.95rem",
           fontWeight: 500,
-          color: "#1C1A17",
+          color: "#0f172a",
           letterSpacing: "0.01em",
         }}>
           {member.name}
@@ -101,7 +101,7 @@ function MemberCard({ member }) {
       {/* Right: Badge + Date */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.3rem", flexShrink: 0 }}>
         <span style={{
-          fontFamily: "'Plus Jakarta Sans', 'Jost', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', 'Plus Jakarta Sans', sans-serif",
           fontSize: "0.72rem",
           fontWeight: 500,
           color: "#4A7CC9",
@@ -115,16 +115,16 @@ function MemberCard({ member }) {
           Member ID: {member.id}
         </span>
         <span style={{
-          fontFamily: "'Plus Jakarta Sans', 'Jost', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', 'Plus Jakarta Sans', sans-serif",
           fontSize: "0.72rem",
-          color: "#8B8580",
+          color: "#64748b",
           display: "flex",
           alignItems: "center",
           gap: "0.3rem",
         }}>
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="4" width="18" height="18" rx="2" stroke="#8B8580" strokeWidth="1.8" fill="none"/>
-            <path d="M16 2v4M8 2v4M3 10h18" stroke="#8B8580" strokeWidth="1.8" strokeLinecap="round"/>
+            <rect x="3" y="4" width="18" height="18" rx="2" stroke="#64748b" strokeWidth="1.8" fill="none"/>
+            <path d="M16 2v4M8 2v4M3 10h18" stroke="#64748b" strokeWidth="1.8" strokeLinecap="round"/>
           </svg>
           Registered: {member.registered}
         </span>
@@ -157,7 +157,7 @@ export default function MembersPage() {
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.href =
-      "https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap";
+      "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap";
     document.head.appendChild(link);
   }, []);
 
@@ -166,8 +166,8 @@ export default function MembersPage() {
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
-      background: "#F7F5F0",
-      color: "#1C1A17",
+      background: "#f8fafc",
+      color: "#0f172a",
     }}>
       <Header />
 
@@ -176,15 +176,15 @@ export default function MembersPage() {
         {/* ── PAGE HEADER STRIP ── */}
         <div style={{
           background: "#FFFFFF",
-          borderBottom: "1px solid rgba(139,112,72,0.12)",
+          borderBottom: "1px solid rgba(100, 116, 139,0.12)",
           padding: "2.5rem 2rem",
         }}>
           <div style={{ maxWidth: "860px", margin: "0 auto" }}>
             <h1 style={{
-              fontFamily: "'Cormorant Garamond', 'Playfair Display', serif",
+              fontFamily: "'Plus Jakarta Sans', 'Plus Jakarta Sans', sans-serif",
               fontSize: "clamp(1.6rem, 4vw, 2.2rem)",
               fontWeight: 600,
-              color: "#1C1A17",
+              color: "#0f172a",
               margin: "0 0 0.25rem",
               letterSpacing: "-0.01em",
             }}>
@@ -193,7 +193,7 @@ export default function MembersPage() {
             <p style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: "0.82rem",
-              color: "#8B8580",
+              color: "#64748b",
               margin: 0,
             }}>
               {filtered.length} member{filtered.length !== 1 ? "s" : ""} found
@@ -210,15 +210,15 @@ export default function MembersPage() {
             alignItems: "center",
             gap: "0.75rem",
             background: "#FFFFFF",
-            border: "1px solid rgba(139,112,72,0.18)",
+            border: "1px solid rgba(100, 116, 139,0.18)",
             borderRadius: "6px",
             padding: "0.65rem 1rem",
             marginBottom: "1.5rem",
             boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
           }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
-              <circle cx="11" cy="11" r="7" stroke="#B0A898" strokeWidth="1.8" fill="none"/>
-              <path d="M16.5 16.5L21 21" stroke="#B0A898" strokeWidth="1.8" strokeLinecap="round"/>
+              <circle cx="11" cy="11" r="7" stroke="#94a3b8" strokeWidth="1.8" fill="none"/>
+              <path d="M16.5 16.5L21 21" stroke="#94a3b8" strokeWidth="1.8" strokeLinecap="round"/>
             </svg>
             <input
               type="text"
@@ -232,7 +232,7 @@ export default function MembersPage() {
                 background: "transparent",
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: "0.88rem",
-                color: "#1C1A17",
+                color: "#0f172a",
                 fontWeight: 300,
               }}
             />
@@ -243,7 +243,7 @@ export default function MembersPage() {
                   border: "none",
                   background: "none",
                   cursor: "pointer",
-                  color: "#B0A898",
+                  color: "#94a3b8",
                   fontSize: "1rem",
                   lineHeight: 1,
                   padding: 0,
@@ -266,7 +266,7 @@ export default function MembersPage() {
               textAlign: "center",
               padding: "4rem 2rem",
               fontFamily: "'Plus Jakarta Sans', sans-serif",
-              color: "#B0A898",
+              color: "#94a3b8",
               fontSize: "0.9rem",
             }}>
               No members found for "<strong>{search}</strong>"
