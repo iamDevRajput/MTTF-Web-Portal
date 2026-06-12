@@ -41,17 +41,17 @@ export default function Header() {
     <>
       {/* Google Fonts */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
       `}</style>
 
-      <header style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      <header style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
 
         {/* Fixed header bar */}
         <div
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[400ms] ${
             scrolled
-              ? "bg-[rgba(254,249,239,0.97)] backdrop-blur-xl shadow-[0_2px_32px_rgba(180,145,60,0.08)]"
-              : "bg-[rgba(254,249,239,0.92)] backdrop-blur-[8px]"
+              ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-slate-100/80"
+              : "bg-white/90 backdrop-blur-[8px]"
           }`}
         >
           {/* Inner container */}
@@ -61,11 +61,11 @@ export default function Header() {
             <Link to="/" className="flex items-center gap-3 no-underline">
 
               {/* Logo mark box */}
-              <div className="w-[38px] h-[38px] border border-[#b9943c] flex items-center justify-center relative">
-                <span className="absolute inset-[3px] border border-[rgba(185,148,60,0.4)]" />
+              <div className="w-[38px] h-[38px] border border-blue-600 flex items-center justify-center relative rounded-md transition-all duration-300 hover:scale-105">
+                <span className="absolute inset-[3px] border border-blue-600/20 rounded-sm" />
                 <span
-                  className="text-[18px] font-medium text-[#b9943c] tracking-[0.5px] relative z-10"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  className="text-[18px] font-bold text-blue-600 tracking-[0.5px] relative z-10"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
                   M
                 </span>
@@ -74,12 +74,12 @@ export default function Header() {
               {/* Logo text */}
               <div className="flex flex-col">
                 <span
-                  className="text-[16px] font-semibold text-[#1a1610] tracking-[2.5px] uppercase leading-[1.1]"
-                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                  className="text-[16px] font-extrabold text-slate-900 tracking-[2.5px] uppercase leading-[1.1]"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
                   MTTF
                 </span>
-                <span className="text-[9.5px] font-light text-[#8a7a5a] tracking-[1.8px] uppercase">
+                <span className="text-[9.5px] font-medium text-slate-500 tracking-[1.8px] uppercase">
                   MathTech Thinking Foundation
                 </span>
               </div>
@@ -107,16 +107,16 @@ export default function Header() {
                     >
                       <Link
                         to={item.href}
-                        className={`block px-4 py-2 text-[12.5px] font-normal tracking-[1.4px] uppercase no-underline transition-colors duration-[250ms] relative group ${
+                        className={`block px-4 py-2 text-[12.5px] font-semibold tracking-[1.4px] uppercase no-underline transition-colors duration-[250ms] relative group ${
                           isActive(item.href)
-                            ? "text-[#b9943c]"
-                            : "text-[#4a3f2a] hover:text-[#b9943c]"
+                            ? "text-blue-600"
+                            : "text-slate-600 hover:text-blue-600"
                         }`}
                       >
                         {item.name}
                         {/* Animated underline */}
                         <span
-                          className={`absolute bottom-1 left-4 right-4 h-px bg-[#b9943c] transition-transform duration-300 origin-left ${
+                          className={`absolute bottom-1 left-4 right-4 h-[2px] bg-blue-600 transition-transform duration-300 origin-left rounded-full ${
                             isActive(item.href)
                               ? "scale-x-100"
                               : "scale-x-0 group-hover:scale-x-100"
@@ -163,10 +163,10 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               to="/auth"
-              className="hidden md:flex items-center gap-[10px] px-6 py-[11px] bg-[#1a1610] text-[#f0e4c4] text-[11px] font-medium tracking-[1.8px] uppercase no-underline border border-transparent transition-colors duration-300 relative overflow-hidden group hover:border-[#b9943c] hover:text-white"
+              className="hidden md:flex items-center gap-[10px] px-6 py-[11px] bg-blue-600 text-white text-[11px] font-semibold tracking-[1.8px] uppercase no-underline border border-transparent rounded-full shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group hover:bg-blue-700"
             >
-              {/* Slide-in gold background */}
-              <span className="absolute inset-0 bg-[#b9943c] -translate-x-full group-hover:translate-x-0 transition-transform duration-[350ms] z-0" />
+              {/* Slide-in blue background */}
+              <span className="absolute inset-0 bg-blue-800 -translate-x-full group-hover:translate-x-0 transition-transform duration-[350ms] z-0" />
               <span className="relative z-10">Join Membership</span>
               <svg className="relative z-10 w-[11px] h-[11px]" viewBox="0 0 12 12" fill="none">
                 <path
@@ -181,8 +181,8 @@ export default function Header() {
 
           </div>
 
-          {/* Thin gold divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-[rgba(185,148,60,0.35)] to-transparent" />
+          {/* Thin blue/slate divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
         </div>
       </header>
     </>

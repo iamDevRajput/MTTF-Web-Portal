@@ -6,28 +6,28 @@ export default function ResearchIdeasMegaMenu() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         .research-menu {
-          font-family: 'Jost', sans-serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .research-panel {
-          background: #FDFAF5;
-          border: 1px solid #E8DCC8;
-          border-top: 3px solid #C9A84C;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-top: 3px solid #2563eb;
           box-shadow:
-            0 4px 6px -1px rgba(139, 109, 56, 0.06),
-            0 20px 60px -10px rgba(139, 109, 56, 0.15),
-            0 0 0 1px rgba(201, 168, 76, 0.08);
+            0 10px 25px -5px rgba(0, 0, 0, 0.08),
+            0 8px 10px -6px rgba(0, 0, 0, 0.05);
+          border-radius: 12px;
         }
 
         .research-link {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 17px;
-          font-weight: 400;
-          color: #5C4A2A;
-          letter-spacing: 0.02em;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          color: #475569;
+          letter-spacing: 0.01em;
           display: inline-flex;
           align-items: center;
           position: relative;
@@ -41,14 +41,14 @@ export default function ResearchIdeasMegaMenu() {
           bottom: 0;
           left: 0;
           width: 0;
-          height: 1px;
-          background: #C9A84C;
+          height: 1.5px;
+          background: #2563eb;
           transition: width 0.3s ease;
         }
 
         .research-link:hover {
-          color: #8B6D38;
-          letter-spacing: 0.04em;
+          color: #2563eb;
+          letter-spacing: 0.02em;
         }
 
         .research-link:hover::after {
@@ -59,9 +59,9 @@ export default function ResearchIdeasMegaMenu() {
           opacity: 0;
           transform: translateX(-4px);
           transition: all 0.25s ease;
-          font-size: 13px;
+          font-size: 12px;
           margin-left: 6px;
-          color: #C9A84C;
+          color: #2563eb;
         }
 
         .research-link:hover .research-link-arrow {
@@ -70,10 +70,10 @@ export default function ResearchIdeasMegaMenu() {
         }
 
         .research-number {
-          font-family: 'Cormorant Garamond', serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 11px;
-          font-style: italic;
-          color: #C9A84C;
+          font-weight: 700;
+          color: #2563eb;
           opacity: 0.7;
           min-width: 20px;
           padding-top: 2px;
@@ -81,26 +81,26 @@ export default function ResearchIdeasMegaMenu() {
 
         .research-tag {
           font-size: 9px;
-          font-family: 'Jost', sans-serif;
-          font-weight: 500;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-weight: 600;
           letter-spacing: 0.12em;
-          color: #C9A84C;
-          border: 1px solid #C9A84C;
-          padding: 1px 6px;
-          border-radius: 2px;
-          opacity: 0.7;
+          color: #2563eb;
+          border: 1px solid #2563eb;
+          padding: 2px 10px;
+          border-radius: 9999px;
+          background: rgba(37, 99, 235, 0.05);
         }
       `}</style>
 
       <div className="research-menu absolute left-1/2 top-full mt-5 -translate-x-1/2 z-50"
         style={{ width: '340px' }}
       >
-        <div className="research-panel rounded-sm overflow-hidden">
+        <div className="research-panel overflow-hidden">
 
-          {/* Gold top accent */}
+          {/* Top accent */}
           <div style={{
             height: '3px',
-            background: 'linear-gradient(90deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%)',
+            background: 'linear-gradient(90deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%)',
             borderRadius: '2px 2px 0 0'
           }} />
 
@@ -109,14 +109,14 @@ export default function ResearchIdeasMegaMenu() {
             {/* Header row */}
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2">
-                <BookOpen size={14} style={{ color: '#C9A84C', opacity: 0.85 }} />
+                <BookOpen size={14} style={{ color: '#2563eb', opacity: 0.85 }} />
                 <span style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: '10px',
-                  fontWeight: 500,
-                  letterSpacing: '0.18em',
+                  fontWeight: 700,
+                  letterSpacing: '0.14em',
                   textTransform: 'uppercase',
-                  color: '#C9A84C',
+                  color: '#2563eb',
                 }}>
                   Blog
                 </span>
@@ -127,18 +127,18 @@ export default function ResearchIdeasMegaMenu() {
             {/* Thin separator */}
             <div style={{
               height: '1px',
-              background: 'linear-gradient(90deg, #C9A84C22, #C9A84C66, #C9A84C22)',
+              background: 'linear-gradient(90deg, rgba(37,99,235,0.05), rgba(37,99,235,0.15), rgba(37,99,235,0.05))',
               marginBottom: '22px'
             }} />
 
             {/* Eyebrow */}
             <p style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: '11px',
-              letterSpacing: '0.18em',
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: '10px',
+              letterSpacing: '0.15em',
               textTransform: 'uppercase',
-              color: '#A08858',
-              fontWeight: 300,
+              color: '#64748b',
+              fontWeight: 600,
               marginBottom: '18px',
             }}>
               Explore Topics
@@ -162,7 +162,7 @@ export default function ResearchIdeasMegaMenu() {
                   {i < arr.length - 1 && (
                     <div style={{
                       height: '1px',
-                      background: 'linear-gradient(90deg, #C9A84C33, transparent)',
+                      background: 'linear-gradient(90deg, rgba(37,99,235,0.1), transparent)',
                     }} />
                   )}
                 </li>
@@ -172,7 +172,7 @@ export default function ResearchIdeasMegaMenu() {
             {/* Bottom separator */}
             <div style={{
               height: '1px',
-              background: 'linear-gradient(90deg, #C9A84C22, #C9A84C44, #C9A84C22)',
+              background: 'linear-gradient(90deg, rgba(37,99,235,0.05), rgba(37,99,235,0.15), rgba(37,99,235,0.05))',
               marginTop: '20px',
               marginBottom: '14px'
             }} />
@@ -182,12 +182,12 @@ export default function ResearchIdeasMegaMenu() {
               <Link
                 to="/blogs"
                 style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: '11px',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: '#C9A84C',
+                  color: '#2563eb',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',

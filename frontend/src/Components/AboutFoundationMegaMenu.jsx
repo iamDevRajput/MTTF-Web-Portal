@@ -6,48 +6,48 @@ export default function AboutFoundationMegaMenu() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
         .luxury-menu {
-          font-family: 'Jost', sans-serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .luxury-menu-panel {
-          background: #FDFAF5;
-          border: 1px solid #E8DCC8;
-          border-top: 3px solid #C9A84C;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-top: 3px solid #2563eb;
           box-shadow:
-            0 4px 6px -1px rgba(139, 109, 56, 0.06),
-            0 20px 60px -10px rgba(139, 109, 56, 0.15),
-            0 0 0 1px rgba(201, 168, 76, 0.08);
+            0 10px 25px -5px rgba(0, 0, 0, 0.08),
+            0 8px 10px -6px rgba(0, 0, 0, 0.05);
+          border-radius: 12px;
         }
 
         .luxury-section-label {
-          font-family: 'Jost', sans-serif;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 10px;
-          font-weight: 500;
-          letter-spacing: 0.18em;
+          font-weight: 700;
+          letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #C9A84C;
+          color: #2563eb;
         }
 
         .luxury-section-icon {
-          color: #C9A84C;
+          color: #2563eb;
           opacity: 0.85;
         }
 
         .luxury-divider {
           width: 1px;
-          background: linear-gradient(to bottom, transparent, #D4C4A0, transparent);
-          opacity: 0.6;
+          background: linear-gradient(to bottom, transparent, #e2e8f0, transparent);
+          opacity: 0.8;
         }
 
         .luxury-link {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 16px;
-          font-weight: 400;
-          color: #5C4A2A;
-          letter-spacing: 0.02em;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          color: #475569;
+          letter-spacing: 0.01em;
           display: inline-flex;
           align-items: center;
           gap: 0px;
@@ -62,14 +62,14 @@ export default function AboutFoundationMegaMenu() {
           bottom: 0;
           left: 0;
           width: 0;
-          height: 1px;
-          background: #C9A84C;
+          height: 1.5px;
+          background: #2563eb;
           transition: width 0.3s ease;
         }
 
         .luxury-link:hover {
-          color: #8B6D38;
-          letter-spacing: 0.04em;
+          color: #2563eb;
+          letter-spacing: 0.02em;
         }
 
         .luxury-link:hover::after {
@@ -82,7 +82,7 @@ export default function AboutFoundationMegaMenu() {
           transition: all 0.25s ease;
           font-size: 12px;
           margin-left: 4px;
-          color: #C9A84C;
+          color: #2563eb;
         }
 
         .luxury-link:hover .luxury-link-arrow {
@@ -92,27 +92,27 @@ export default function AboutFoundationMegaMenu() {
 
         .luxury-top-accent {
           height: 3px;
-          background: linear-gradient(90deg, #C9A84C 0%, #E8C97A 50%, #C9A84C 100%);
+          background: linear-gradient(90deg, #2563eb 0%, #60a5fa 50%, #2563eb 100%);
           border-radius: 2px 2px 0 0;
         }
 
         .luxury-tag {
           font-size: 9px;
-          font-family: 'Jost', sans-serif;
-          font-weight: 500;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-weight: 600;
           letter-spacing: 0.12em;
-          color: #C9A84C;
-          border: 1px solid #C9A84C;
-          padding: 1px 6px;
-          border-radius: 2px;
-          opacity: 0.7;
+          color: #2563eb;
+          border: 1px solid #2563eb;
+          padding: 2px 10px;
+          border-radius: 9999px;
+          background: rgba(37, 99, 235, 0.05);
         }
       `}</style>
 
       <div className="luxury-menu absolute left-1/2 top-full mt-5 w-[860px] -translate-x-1/2 z-50">
-        <div className="luxury-menu-panel rounded-sm overflow-hidden">
+        <div className="luxury-menu-panel overflow-hidden">
 
-          {/* Gold top accent line */}
+          {/* Top accent line */}
           <div className="luxury-top-accent" />
 
           <div className="px-10 py-8">
@@ -120,12 +120,12 @@ export default function AboutFoundationMegaMenu() {
             {/* Header row */}
             <div className="flex items-center justify-between mb-7">
               <p style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '11px',
-                letterSpacing: '0.22em',
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: '10px',
+                letterSpacing: '0.15em',
                 textTransform: 'uppercase',
-                color: '#A08858',
-                fontWeight: 300,
+                color: '#64748b',
+                fontWeight: 600,
               }}>
                 Foundation Overview
               </p>
@@ -133,7 +133,7 @@ export default function AboutFoundationMegaMenu() {
             </div>
 
             {/* Thin separator */}
-            <div style={{ height: '1px', background: 'linear-gradient(90deg, #C9A84C22, #C9A84C66, #C9A84C22)', marginBottom: '28px' }} />
+            <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(37,99,235,0.05), rgba(37,99,235,0.15), rgba(37,99,235,0.05))', marginBottom: '28px' }} />
 
             {/* 4-column grid */}
             <div className="grid grid-cols-4 gap-0">
@@ -240,25 +240,26 @@ export default function AboutFoundationMegaMenu() {
             </div>
 
             {/* Bottom bar */}
-            <div style={{ height: '1px', background: 'linear-gradient(90deg, #C9A84C22, #C9A84C44, #C9A84C22)', marginTop: '28px', marginBottom: '16px' }} />
+            <div style={{ height: '1px', background: 'linear-gradient(90deg, rgba(37,99,235,0.05), rgba(37,99,235,0.15), rgba(37,99,235,0.05))', marginTop: '28px', marginBottom: '16px' }} />
             <div className="flex items-center justify-between">
               <p style={{
-                fontFamily: "'Jost', sans-serif",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '11px',
-                color: '#B8A080',
-                letterSpacing: '0.06em',
+                color: '#64748b',
+                letterSpacing: '0.04em',
+                fontWeight: 500,
               }}>
                 MathTech Trust Foundation
               </p>
               <Link
                 to="/about/mttf/about"
                 style={{
-                  fontFamily: "'Jost', sans-serif",
+                  fontFamily: "'Plus Jakarta Sans', sans-serif",
                   fontSize: '11px',
-                  fontWeight: 500,
+                  fontWeight: 600,
                   letterSpacing: '0.12em',
                   textTransform: 'uppercase',
-                  color: '#C9A84C',
+                  color: '#2563eb',
                   display: 'flex',
                   alignItems: 'center',
                   gap: '6px',

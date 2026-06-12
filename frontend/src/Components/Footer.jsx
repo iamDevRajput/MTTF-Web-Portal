@@ -2,23 +2,23 @@ import React from "react";
 import { Instagram, Linkedin, Twitter, Facebook } from "lucide-react";
 
 const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
   :root {
-    --gold: #C9A84C;
-    --gold-light: #E8C96A;
-    --gold-pale: rgba(201,168,76,0.12);
-    --cream: #FAF8F3;
-    --charcoal: #1C1A17;
-    --mid: #6B6560;
-    --divider: rgba(201,168,76,0.18);
-    --divider-dark: rgba(250,248,243,0.08);
+    --gold: #2563eb;
+    --gold-light: #60a5fa;
+    --gold-pale: rgba(37, 99, 235, 0.08);
+    --cream: #f8fafc;
+    --charcoal: #0b1329;
+    --mid: #94a3b8;
+    --divider: rgba(37, 99, 235, 0.1);
+    --divider-dark: rgba(255, 255, 255, 0.06);
   }
 
   /* ── Footer shell ── */
   .lux-footer {
     background: var(--charcoal);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     position: relative;
     overflow: hidden;
   }
@@ -59,16 +59,16 @@ const styles = `
   }
 
   .lux-footer-cta-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(36px, 4vw, 52px);
-    font-weight: 400;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 800;
     color: var(--cream);
     line-height: 1.1;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
 
   .lux-footer-cta-heading em {
-    font-style: italic;
+    font-style: normal;
     color: var(--gold-light);
   }
 
@@ -79,18 +79,20 @@ const styles = `
     gap: 10px;
     padding: 14px 32px;
     background: var(--gold);
-    color: var(--charcoal);
-    font-family: 'DM Sans', sans-serif;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.18em;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     border: none;
+    border-radius: 9999px;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
     white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
   }
 
   .lux-cta-btn::before {
@@ -106,6 +108,7 @@ const styles = `
   .lux-cta-btn span, .lux-cta-btn svg { position: relative; z-index: 1; }
   .lux-cta-btn svg { transition: transform 0.3s ease; }
   .lux-cta-btn:hover svg { transform: translateX(3px); }
+  .lux-cta-btn:hover { color: #ffffff; box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35); transform: translateY(-1px); }
 
   /* ── Main grid ── */
   .lux-footer-grid {
@@ -133,6 +136,7 @@ const styles = `
     justify-content: center;
     position: relative;
     flex-shrink: 0;
+    border-radius: 6px;
   }
 
   .lux-footer-logo-mark::before {
@@ -141,12 +145,13 @@ const styles = `
     inset: 4px;
     background: var(--gold);
     opacity: 0.08;
+    border-radius: 3px;
   }
 
   .lux-footer-brand-name {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 800;
     color: var(--cream);
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -156,8 +161,8 @@ const styles = `
 
   .lux-footer-brand-sub {
     font-size: 9px;
-    font-weight: 400;
-    color: var(--gold);
+    font-weight: 500;
+    color: var(--gold-light);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     display: block;
@@ -166,7 +171,7 @@ const styles = `
 
   .lux-footer-brand-desc {
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(250,248,243,0.5);
     line-height: 1.8;
     max-width: 280px;
@@ -175,10 +180,10 @@ const styles = `
   /* Column headings */
   .lux-footer-col-head {
     font-size: 9px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-light);
     margin-bottom: 28px;
     display: flex;
     align-items: center;
@@ -205,7 +210,7 @@ const styles = `
 
   .lux-footer-links a {
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(250,248,243,0.5);
     text-decoration: none;
     display: inline-flex;
@@ -218,7 +223,7 @@ const styles = `
   .lux-footer-links a::before {
     content: '—';
     font-size: 10px;
-    color: var(--gold);
+    color: var(--gold-light);
     opacity: 0;
     width: 0;
     overflow: hidden;
@@ -244,7 +249,7 @@ const styles = `
 
   .lux-footer-contact-item {
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(250,248,243,0.5);
     line-height: 1.7;
     cursor: pointer;
@@ -283,7 +288,7 @@ const styles = `
 
   .lux-social-btn:hover {
     border-color: var(--gold);
-    color: var(--gold-light);
+    color: var(--cream);
     background: var(--gold-pale);
   }
 
@@ -298,7 +303,7 @@ const styles = `
 
   .lux-footer-copy {
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(250,248,243,0.3);
     letter-spacing: 0.04em;
   }
@@ -311,7 +316,7 @@ const styles = `
 
   .lux-footer-legal a {
     font-size: 11px;
-    font-weight: 300;
+    font-weight: 400;
     color: rgba(250,248,243,0.3);
     text-decoration: none;
     letter-spacing: 0.06em;
@@ -359,7 +364,7 @@ const Footer = () => {
               <div className="lux-footer-logo">
                 <div className="lux-footer-logo-mark">
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style={{ position: "relative", zIndex: 1 }}>
-                    <path d="M9 2L16 8V16H12V12H6V16H2V8L9 2Z" stroke="#C9A84C" strokeWidth="1.2" strokeLinejoin="round" fill="none"/>
+                    <path d="M9 2L16 8V16H12V12H6V16H2V8L9 2Z" stroke="#2563eb" strokeWidth="1.2" strokeLinejoin="round" fill="none"/>
                   </svg>
                 </div>
                 <div>
