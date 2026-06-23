@@ -222,6 +222,9 @@ export default function AdminDashboard() {
           position: sticky; top: 0; z-index: 40;
           box-shadow: 0 1px 12px rgba(37,99,235,0.04);
         }
+        @media (max-width: 600px) {
+          .adm-topbar { padding: 16px; height: auto; flex-wrap: wrap; gap: 12px; }
+        }
         .adm-topbar-left { display: flex; flex-direction: column; }
         .adm-page-title { font-size: 17px; font-weight: 700; color: #0b1329; }
         .adm-page-sub { font-size: 12px; color: #64748b; font-weight: 300; }
@@ -239,6 +242,7 @@ export default function AdminDashboard() {
 
         /* ── Content ── */
         .adm-content { padding: 32px; flex: 1; }
+        @media (max-width: 600px) { .adm-content { padding: 16px; } }
 
         /* ── Stat Cards ── */
         .adm-stats-grid {
@@ -272,6 +276,7 @@ export default function AdminDashboard() {
           box-shadow: 0 2px 12px rgba(37,99,235,0.04);
           margin-bottom: 24px;
         }
+        @media (max-width: 600px) { .adm-section-wrap { padding: 16px; } }
         .adm-section-head {
           display: flex; align-items: center; justify-content: space-between;
           margin-bottom: 24px;
@@ -299,7 +304,7 @@ export default function AdminDashboard() {
 
         /* ── Pricing Form ── */
         .adm-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
-        @media (max-width: 600px) { .adm-price-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 800px) { .adm-price-grid { grid-template-columns: 1fr; } }
 
         .adm-price-field label {
           display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.8px;
