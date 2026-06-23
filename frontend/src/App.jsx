@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 /* ===================== MAIN ===================== */
 import MainPage from "./Pages/Mainpage";
 import Auth from "./Pages/Auth/Auth";
+import PaymentPage from "./Pages/Payment/PaymentPage";
+import AdminLogin from "./Pages/Admin/AdminLogin";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
 
 /* ===================== CONSULTANCY SERVICES ===================== */
 import ConsultancyServices from "./Pages/OurPrograms/Consultancy_Services/ConsultancyServices";
@@ -64,8 +67,13 @@ function App() {
           path="/programs"
           element={<Navigate to="/programs/consultancy-services" replace />}
         />
-        {/*===================== AUTH======================*/}
+        {/*===================== AUTH ======================*/}
           <Route path="/auth" element={<Auth />} />
+          <Route path="/payment" element={<PaymentPage />} />
+
+        {/*===================== ADMIN (Hidden) ======================*/}
+          <Route path="/mttf-admin-2025" element={<AdminLogin />} />
+          <Route path="/mttf-admin-2025/dashboard" element={<AdminDashboard />} />
 
         {/* ===================== CONSULTANCY SERVICES ===================== */}
         <Route

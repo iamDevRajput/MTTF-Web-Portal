@@ -436,7 +436,7 @@ export default function Auth() {
                   <p style={{ color: "#475569", fontSize: "13.5px", lineHeight: 1.7, fontWeight: 300 }}>
                     Your membership is active. Complete your onboarding by paying the membership fee to unlock all programs and resources.
                   </p>
-                  <button className="mem-pay-btn">Pay ₹2,000 Membership Fee</button>
+                  <button className="mem-pay-btn" onClick={() => navigate("/payment")}>Pay Membership Fee</button>
                   <button className="mem-logout" onClick={() => {
                     localStorage.removeItem("token");
                     localStorage.removeItem("user");
