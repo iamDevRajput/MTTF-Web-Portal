@@ -96,7 +96,7 @@ export default function PaymentResultPage({ fallbackStatus = "status" }) {
   useEffect(() => {
     if (!orderId || !token) return undefined;
     const terminal = ["FAILED", "REFUNDED", "CANCELLED"].includes(payment?.paymentStatus);
-    const active = payment?.paymentStatus === "SUCCESS" && payment?.webhookVerified && payment?.isMembershipPaid;
+    const active = payment?.paymentStatus === "SUCCESS" && payment?.isMembershipPaid;
     if (terminal || active) return undefined;
 
     const interval = setInterval(() => {
@@ -104,13 +104,13 @@ export default function PaymentResultPage({ fallbackStatus = "status" }) {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [orderId, token, payment?.paymentStatus, payment?.webhookVerified, payment?.isMembershipPaid]);
+  }, [orderId, token, payment?.paymentStatus, payment?.isMembershipPaid]);
 
   const view = useMemo(() => {
     if (error) return "error";
     if (!payment) return fallbackStatus;
-    if (payment.paymentStatus === "SUCCESS" && payment.webhookVerified && payment.isMembershipPaid) return "success";
-    if (payment.paymentStatus === "SUCCESS" && !payment.webhookVerified) return "pending";
+    if (payment.paymentStatus === "SUCCESS" && payment.isMembershipPaid) return "success";
+    if (payment.paymentStatus === "SUCCESS" && !payment.isMembershipPaid) return "pending";
     if (["FAILED", "REFUNDED", "CANCELLED"].includes(payment.paymentStatus)) return "failure";
     return "pending";
   }, [error, payment, fallbackStatus]);
