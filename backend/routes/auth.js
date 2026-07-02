@@ -94,6 +94,17 @@ router.post('/signup', async (req, res) => {
       });
     }
 
+    // 8. Verify OTP was completed successfully
+    const OtpVerification = require('../models/OtpVerification');
+    const otpRecord = await OtpVerification.findOne({ email, verified: true });
+    
+    if (!otpRecord) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please verify your email with OTP before creating an account.',
+      });
+    }
+
     // Create new user — bcrypt hash kept exactly as is (salt 12)
     const hashedPassword = await bcrypt.hash(password, 12);
     console.log('Creating user with hashed password');
@@ -105,10 +116,14 @@ router.post('/signup', async (req, res) => {
       password: hashedPassword,
       membershipType,
       institutionSize: membershipType === 'institutional' ? institutionSize : undefined,
+      isEmailVerified: true,
     });
 
     await user.save();
     console.log('User saved successfully');
+
+    // Clean up OTP record
+    await OtpVerification.deleteMany({ email });
 
     // Generate token
     const token = generateToken(user._id);
@@ -250,11 +265,16 @@ router.get('/me', async (req, res) => {
 // POST /api/auth/send-otp
 router.post('/send-otp', async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, type = 'signup' } = req.body;
     if (!email) return res.status(400).json({ success: false, message: 'Email is required.' });
 
     const existing = await User.findOne({ email });
-    if (existing) return res.status(409).json({ success: false, message: 'This email is already registered.' });
+    if (type === 'signup' && existing) {
+      return res.status(409).json({ success: false, message: 'This email is already registered.' });
+    }
+    if (type === 'reset' && !existing) {
+      return res.status(404).json({ success: false, message: 'No account found with this email.' });
+    }
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const OtpVerification = require('../models/OtpVerification');
@@ -312,6 +332,43 @@ router.post('/verify-otp', async (req, res) => {
   } catch (error) {
     console.error('Verify OTP error:', error);
     res.status(500).json({ success: false, message: 'OTP verification failed.' });
+  }
+});
+
+// POST /api/auth/reset-password
+router.post('/reset-password', async (req, res) => {
+  try {
+    const { email, newPassword } = req.body;
+    if (!email || !newPassword) {
+      return res.status(400).json({ success: false, message: 'Email and new password are required.' });
+    }
+    
+    if (newPassword.length < 6) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 6 characters.' });
+    }
+
+    const OtpVerification = require('../models/OtpVerification');
+    const otpRecord = await OtpVerification.findOne({ email, verified: true });
+    
+    if (!otpRecord) {
+      return res.status(400).json({ success: false, message: 'Please verify your email with OTP before resetting password.' });
+    }
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ success: false, message: 'User not found.' });
+    }
+
+    const bcrypt = require('bcryptjs');
+    user.password = await bcrypt.hash(newPassword, 12);
+    await user.save();
+
+    await OtpVerification.deleteMany({ email });
+
+    res.json({ success: true, message: 'Password has been reset successfully.' });
+  } catch (error) {
+    console.error('Reset password error:', error);
+    res.status(500).json({ success: false, message: 'Failed to reset password.' });
   }
 });
 

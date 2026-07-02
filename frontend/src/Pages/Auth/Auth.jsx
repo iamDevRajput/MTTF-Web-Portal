@@ -123,10 +123,11 @@ export default function Auth() {
     if (!form.email) { setOtpError("Enter email first."); return; }
     setOtpLoading(true); setOtpError("");
     try {
+      const type = page === "forgot-password" ? "reset" : "signup";
       const res = await fetch(`${API}/auth/send-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: form.email }),
+        body: JSON.stringify({ email: form.email, type }),
       });
       const data = await res.json();
       if (!res.ok || !data.success) { setOtpError(data.message || "Failed to send OTP."); return; }
@@ -150,6 +151,52 @@ export default function Auth() {
       setOtpVerified(true); setOtpError("");
     } catch { setOtpError("Network error."); }
     finally { setOtpLoading(false); }
+  };
+
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
+    if (!otpVerified) {
+      setError("Please verify your email with OTP first.");
+      return;
+    }
+    if (form.password.length < 6) {
+      setError("Password must be at least 6 characters.");
+      return;
+    }
+    if (form.password !== form.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch(`${API}/auth/reset-password`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: form.email,
+          newPassword: form.password,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setError(data.message || "Failed to reset password.");
+      } else {
+        setSuccess("Password reset successfully. You can now login.");
+        setPage("login");
+        setForm({ ...form, password: "", confirmPassword: "", email: "" });
+        setOtpSent(false);
+        setOtpVerified(false);
+        setOtp("");
+      }
+    } catch (err) {
+      setError("Network error. Check your connection.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleLogin = async (e) => {
@@ -487,17 +534,19 @@ export default function Auth() {
               <>
                 <p className="auth-eyebrow">MathTech Thinking Foundation</p>
                 <h2 className="auth-title">
-                  {page === "signup" ? "Create an Account" : "Welcome Back"}
+                  {page === "signup" ? "Create an Account" : page === "forgot-password" ? "Reset Password" : "Welcome Back"}
                 </h2>
 
-                <div className="auth-toggle-wrap">
-                  <button className={`auth-toggle-btn ${page === "login" ? "active" : ""}`} onClick={() => { setPage("login"); setError(""); setSuccess(""); }}>
-                    Sign In
-                  </button>
-                  <button className={`auth-toggle-btn ${page === "signup" ? "active" : ""}`} onClick={() => { setPage("signup"); setError(""); setSuccess(""); }}>
-                    Sign Up
-                  </button>
-                </div>
+                {page !== "forgot-password" && (
+                  <div className="auth-toggle-wrap">
+                    <button className={`auth-toggle-btn ${page === "login" ? "active" : ""}`} onClick={() => { setPage("login"); setError(""); setSuccess(""); }}>
+                      Sign In
+                    </button>
+                    <button className={`auth-toggle-btn ${page === "signup" ? "active" : ""}`} onClick={() => { setPage("signup"); setError(""); setSuccess(""); }}>
+                      Sign Up
+                    </button>
+                  </div>
+                )}
 
                 {error && <div className="auth-error">{error}</div>}
                 {success && <div className="auth-success">{success}</div>}
@@ -670,7 +719,14 @@ export default function Auth() {
                     </div>
 
                     <div className="auth-field">
-                      <label className="auth-label">Password</label>
+                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline"}}>
+                        <label className="auth-label">Password</label>
+                        <button type="button" 
+                          style={{background:"none",border:"none",color:"#2563eb",fontSize:"10px",cursor:"pointer",fontFamily:"'Plus Jakarta Sans', sans-serif"}}
+                          onClick={() => { setPage("forgot-password"); setError(""); setSuccess(""); setForm({...form, email:""}); setOtpSent(false); setOtpVerified(false); }}>
+                          Forgot Password?
+                        </button>
+                      </div>
                       <input className="auth-input" type="password" placeholder="········" required
                         onChange={(e) => setForm({ ...form, password: e.target.value })} />
                     </div>
@@ -685,6 +741,95 @@ export default function Auth() {
                     </p>
                   </form>
                 )}
+
+                {page === "forgot-password" && (
+                  <form onSubmit={handleResetPassword}>
+                    <p style={{fontSize:"13px", color:"#475569", marginBottom:"20px", textAlign:"center", lineHeight:1.5}}>
+                      Enter your email address to receive an OTP and reset your password.
+                    </p>
+
+                    <div className="auth-field">
+                      <label className="auth-label">Email Address</label>
+                      <div className="auth-input-wrap">
+                        <input
+                          className="auth-input with-btn"
+                          type="email"
+                          placeholder="example@gmail.com"
+                          required
+                          disabled={otpVerified}
+                          value={form.email}
+                          onChange={(e) => {
+                            setForm({ ...form, email: e.target.value });
+                            setOtpSent(false);
+                            setOtpVerified(false);
+                          }}
+                        />
+                        {!otpVerified && (
+                          <button type="button" className="auth-verify-btn"
+                            onClick={handleSendOtp} disabled={otpLoading}>
+                            {otpLoading ? "..." : otpSent ? "Resend" : "Send OTP"}
+                          </button>
+                        )}
+                        {otpVerified && (
+                          <span style={{position:"absolute",right:12,top:"50%",
+                            transform:"translateY(-50%)",color:"#16a34a",fontSize:18}}>✓</span>
+                        )}
+                      </div>
+                      {otpSent && !otpVerified && (
+                        <div style={{marginTop:8,display:"flex",gap:8}}>
+                          <input
+                            className="auth-input"
+                            type="text"
+                            placeholder="Enter 6-digit OTP"
+                            maxLength={6}
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value.replace(/\D/g,""))}
+                            style={{flex:1}}
+                          />
+                          <button
+                            type="button"
+                            className="auth-verify-btn"
+                            style={{position:"relative",padding:"0 16px"}}
+                            onClick={handleVerifyOtp}
+                            disabled={otpLoading}>
+                            {otpLoading ? "..." : "Verify"}
+                          </button>
+                        </div>
+                      )}
+                      {otpError && (
+                        <div style={{color:"#dc2626",fontSize:11,marginTop:4}}>{otpError}</div>
+                      )}
+                      {otpVerified && (
+                        <div style={{color:"#16a34a",fontSize:11,marginTop:4}}>✓ Email verified</div>
+                      )}
+                    </div>
+
+                    {otpVerified && (
+                      <>
+                        <div className="auth-field inst-reveal">
+                          <label className="auth-label">New Password</label>
+                          <input className="auth-input" type="password" placeholder="········" required
+                            onChange={(e) => setForm({ ...form, password: e.target.value })} />
+                        </div>
+                        <div className="auth-field inst-reveal">
+                          <label className="auth-label">Confirm New Password</label>
+                          <input className="auth-input" type="password" placeholder="········" required
+                            onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} />
+                        </div>
+                        <div className="auth-divider" />
+                        <button type="submit" className="auth-submit" disabled={loading}>
+                          <span>{loading ? "Resetting..." : "Reset Password"}</span>
+                        </button>
+                      </>
+                    )}
+
+                    <p className="auth-footer-link" style={{marginTop:otpVerified?"20px":"32px"}}>
+                      Remember your password?{" "}
+                      <button type="button" onClick={() => { setPage("login"); setError(""); setSuccess(""); }}>Sign In</button>
+                    </p>
+                  </form>
+                )}
+
               </>
             )}
           </div>
