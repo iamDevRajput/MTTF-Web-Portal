@@ -247,4 +247,72 @@ router.get('/me', async (req, res) => {
   }
 });
 
+// POST /api/auth/send-otp
+router.post('/send-otp', async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ success: false, message: 'Email is required.' });
+
+    const existing = await User.findOne({ email });
+    if (existing) return res.status(409).json({ success: false, message: 'This email is already registered.' });
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const OtpVerification = require('../models/OtpVerification');
+    
+    await OtpVerification.deleteMany({ email });
+    await OtpVerification.create({
+      email,
+      otp,
+      expiresAt: new Date(Date.now() + 10 * 60 * 1000),
+    });
+
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      return res.json({ success: true, message: 'OTP generated.', devOtp: otp });
+    }
+
+    const nodemailer = require('nodemailer');
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS },
+    });
+
+    await transporter.sendMail({
+      from: `"MTTF" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: 'MTTF Email Verification OTP',
+      html: `<div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:32px;background:#f8faff;">
+        <h2 style="color:#0b1329;">Email Verification</h2>
+        <p style="color:#475569;">Your OTP expires in 10 minutes.</p>
+        <div style="background:#2563eb;color:#fff;font-size:32px;font-weight:700;letter-spacing:8px;text-align:center;padding:20px;border-radius:8px;">${otp}</div>
+      </div>`,
+    });
+
+    res.json({ success: true, message: 'OTP sent to your email.' });
+  } catch (error) {
+    console.error('Send OTP error:', error);
+    res.status(500).json({ success: false, message: 'Failed to send OTP.' });
+  }
+});
+
+// POST /api/auth/verify-otp
+router.post('/verify-otp', async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+    if (!email || !otp) return res.status(400).json({ success: false, message: 'Email and OTP required.' });
+
+    const OtpVerification = require('../models/OtpVerification');
+    const record = await OtpVerification.findOne({ email, verified: false }).sort({ createdAt: -1 });
+
+    if (!record) return res.status(400).json({ success: false, message: 'No OTP found. Request a new one.' });
+    if (new Date() > record.expiresAt) return res.status(400).json({ success: false, message: 'OTP expired. Request a new one.' });
+    if (record.otp !== String(otp)) return res.status(400).json({ success: false, message: 'Invalid OTP.' });
+
+    await OtpVerification.updateOne({ _id: record._id }, { verified: true });
+    res.json({ success: true, message: 'Email verified successfully.' });
+  } catch (error) {
+    console.error('Verify OTP error:', error);
+    res.status(500).json({ success: false, message: 'OTP verification failed.' });
+  }
+});
+
 module.exports = router;

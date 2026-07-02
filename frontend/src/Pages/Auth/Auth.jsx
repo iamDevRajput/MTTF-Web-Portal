@@ -38,6 +38,11 @@ export default function Auth() {
   const [user, setUser] = useState(null);
   const [terms, setTerms] = useState(false);
   const [countryCode, setCountryCode] = useState("+91");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpVerified, setOtpVerified] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [otpLoading, setOtpLoading] = useState(false);
+  const [otpError, setOtpError] = useState("");
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -48,7 +53,7 @@ export default function Auth() {
     institutionSize: "",
   });
 
-  const API = "http://localhost:8000/api/auth";
+  const API = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -79,7 +84,7 @@ export default function Auth() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${API}/signup`, {
+      const res = await fetch(`${API}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -114,13 +119,46 @@ export default function Auth() {
   };
 
 
+  const handleSendOtp = async () => {
+    if (!form.email) { setOtpError("Enter email first."); return; }
+    setOtpLoading(true); setOtpError("");
+    try {
+      const res = await fetch(`${API}/auth/send-otp`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) { setOtpError(data.message || "Failed to send OTP."); return; }
+      setOtpSent(true);
+      if (data.devOtp) setOtp(data.devOtp);
+    } catch { setOtpError("Network error."); }
+    finally { setOtpLoading(false); }
+  };
+
+  const handleVerifyOtp = async () => {
+    if (!otp) { setOtpError("Enter OTP."); return; }
+    setOtpLoading(true); setOtpError("");
+    try {
+      const res = await fetch(`${API}/auth/verify-otp`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: form.email, otp }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) { setOtpError(data.message || "Invalid OTP."); return; }
+      setOtpVerified(true); setOtpError("");
+    } catch { setOtpError("Network error."); }
+    finally { setOtpLoading(false); }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      const res = await fetch(`${API}/login`, {
+      const res = await fetch(`${API}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -507,10 +545,56 @@ export default function Auth() {
                     <div className="auth-field">
                       <label className="auth-label">Email Address</label>
                       <div className="auth-input-wrap">
-                        <input className="auth-input with-btn" type="email" placeholder="example@gmail.com" required
-                          onChange={(e) => setForm({ ...form, email: e.target.value })} />
-                        <button type="button" className="auth-verify-btn">Verify</button>
+                        <input
+                          className="auth-input with-btn"
+                          type="email"
+                          placeholder="example@gmail.com"
+                          required
+                          disabled={otpVerified}
+                          onChange={(e) => {
+                            setForm({ ...form, email: e.target.value });
+                            setOtpSent(false);
+                            setOtpVerified(false);
+                          }}
+                        />
+                        {!otpVerified && (
+                          <button type="button" className="auth-verify-btn"
+                            onClick={handleSendOtp} disabled={otpLoading}>
+                            {otpLoading ? "..." : otpSent ? "Resend" : "Verify"}
+                          </button>
+                        )}
+                        {otpVerified && (
+                          <span style={{position:"absolute",right:12,top:"50%",
+                            transform:"translateY(-50%)",color:"#16a34a",fontSize:18}}>✓</span>
+                        )}
                       </div>
+                      {otpSent && !otpVerified && (
+                        <div style={{marginTop:8,display:"flex",gap:8}}>
+                          <input
+                            className="auth-input"
+                            type="text"
+                            placeholder="Enter 6-digit OTP"
+                            maxLength={6}
+                            value={otp}
+                            onChange={(e) => setOtp(e.target.value.replace(/\D/g,""))}
+                            style={{flex:1}}
+                          />
+                          <button
+                            type="button"
+                            className="auth-verify-btn"
+                            style={{position:"relative",padding:"0 16px"}}
+                            onClick={handleVerifyOtp}
+                            disabled={otpLoading}>
+                            {otpLoading ? "..." : "Confirm"}
+                          </button>
+                        </div>
+                      )}
+                      {otpError && (
+                        <div style={{color:"#dc2626",fontSize:11,marginTop:4}}>{otpError}</div>
+                      )}
+                      {otpVerified && (
+                        <div style={{color:"#16a34a",fontSize:11,marginTop:4}}>✓ Email verified</div>
+                      )}
                     </div>
 
                     <div className="auth-field">

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MTTF_LOGO from "../../assets/MTTF_REC.jfif";
 
-const API = "http://localhost:8000/api/admin";
+const API = `${import.meta.env.VITE_API_URL || "http://localhost:8000/api"}/admin`;
 
 export default function AdminLogin() {
   const navigate = useNavigate();
