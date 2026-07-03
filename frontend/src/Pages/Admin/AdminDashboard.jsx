@@ -102,13 +102,14 @@ export default function AdminDashboard() {
 
   useEffect(() => { if (tab === "payments") loadPayments(); }, [tab, paymentStatus]);
 
+  const DONATIONS_API = `${import.meta.env.VITE_API_URL || "http://localhost:8000/api"}`;
   const loadDonations = useCallback(async () => {
     setLoadingDonations(true);
     try {
       const params = new URLSearchParams();
       if (donationSearch) params.set("search", donationSearch);
       if (donationStatus) params.set("status", donationStatus);
-      const res = await fetch(`${API}/donations/admin/list?${params.toString()}`, { headers });
+      const res = await fetch(`${DONATIONS_API}/donations/admin/list?${params.toString()}`, { headers });
       if (res.status === 401) { logout(); return; }
       const data = await res.json();
       if (data.success) setDonations(data.donations);
@@ -123,7 +124,7 @@ export default function AdminDashboard() {
       const params = new URLSearchParams();
       if (donationSearch) params.set("search", donationSearch);
       if (donationStatus) params.set("status", donationStatus);
-      const res = await fetch(`${API}/donations/admin/export.csv?${params.toString()}`, { headers });
+      const res = await fetch(`${DONATIONS_API}/donations/admin/export.csv?${params.toString()}`, { headers });
       if (res.status === 401) { logout(); return; }
       const blob = await res.blob();
       const url = URL.createObjectURL(blob);
@@ -653,6 +654,35 @@ export default function AdminDashboard() {
                       <StatCard label="Paid Members" value={stats?.paidUsers} sub="Active membership" icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 13L9 17L19 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>} accentColor="#16a34a" />
                       <StatCard label="Pending Payment" value={stats?.pendingUsers} icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8"/><path d="M12 8v4l3 3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>} accentColor="#d97706" />
                       <StatCard label="Est. Revenue" value={stats?.revenue != null ? fmt(stats.revenue) : null} icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>} accentColor="#7c3aed" />
+                      <StatCard label="Donation Revenue" value={stats?.donationRevenue != null ? fmt(stats.donationRevenue) : null} icon={<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" fill="#ef4444"/></svg>} accentColor="#ef4444" sub={`${stats?.totalDonations || 0} donations`} />
+                    </div>
+
+                    <div className="adm-section-wrap" style={{marginBottom:24}}>
+                      <div className="adm-section-head">
+                        <div>
+                          <div className="adm-section-title">Total Revenue Summary</div>
+                          <div className="adm-section-sub">Membership + Donation combined</div>
+                        </div>
+                      </div>
+                      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16}}>
+                        <div style={{padding:"20px 24px",background:"rgba(124,58,237,0.06)",border:"1.5px solid rgba(124,58,237,0.2)",borderRadius:12}}>
+                          <div style={{fontSize:10,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:"#7c3aed",marginBottom:8}}>Membership Revenue</div>
+                          <div style={{fontSize:28,fontWeight:800,color:"#0b1329"}}>{stats?.revenue != null ? fmt(stats.revenue) : "—"}</div>
+                          <div style={{fontSize:11,color:"#94a3b8",marginTop:4}}>{stats?.successfulPayments || 0} payments</div>
+                        </div>
+                        <div style={{padding:"20px 24px",background:"rgba(239,68,68,0.06)",border:"1.5px solid rgba(239,68,68,0.2)",borderRadius:12}}>
+                          <div style={{fontSize:10,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:"#ef4444",marginBottom:8}}>Donation Revenue</div>
+                          <div style={{fontSize:28,fontWeight:800,color:"#0b1329"}}>{stats?.donationRevenue != null ? fmt(stats.donationRevenue) : "—"}</div>
+                          <div style={{fontSize:11,color:"#94a3b8",marginTop:4}}>{stats?.totalDonations || 0} donations</div>
+                        </div>
+                        <div style={{padding:"20px 24px",background:"rgba(37,99,235,0.06)",border:"1.5px solid rgba(37,99,235,0.2)",borderRadius:12}}>
+                          <div style={{fontSize:10,fontWeight:700,letterSpacing:2,textTransform:"uppercase",color:"#2563eb",marginBottom:8}}>Total Combined</div>
+                          <div style={{fontSize:28,fontWeight:800,color:"#2563eb"}}>
+                            {stats?.revenue != null && stats?.donationRevenue != null ? fmt((stats.revenue || 0) + (stats.donationRevenue || 0)) : "—"}
+                          </div>
+                          <div style={{fontSize:11,color:"#94a3b8",marginTop:4}}>{(stats?.successfulPayments || 0) + (stats?.totalDonations || 0)} total transactions</div>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="adm-section-wrap">
