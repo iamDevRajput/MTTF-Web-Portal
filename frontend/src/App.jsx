@@ -3,17 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 
 /* ===================== MAIN ===================== */
 import MainPage from "./Pages/Mainpage";
-import Auth from "./Pages/Auth/Auth";
-import PaymentPage from "./Pages/Payment/PaymentPage";
-import PaymentResultPage from "./Pages/Payment/PaymentResultPage";
-import AdminLogin from "./Pages/Admin/AdminLogin";
-import AdminDashboard from "./Pages/Admin/AdminDashboard";
-
-/* ===================== DONATION ===================== */
-import DonationPage from "./Pages/Donation/DonationPage";
-import DonationSuccessPage from "./Pages/Donation/DonationSuccessPage";
-import DonationFailurePage from "./Pages/Donation/DonationFailurePage";
-import CertificateVerificationPage from "./Pages/Certificate/CertificateVerificationPage";
+import { lazy, Suspense } from "react";
+const Auth = lazy(() => import("./Pages/Auth/Auth"));
+const PaymentPage = lazy(() => import("./Pages/Payment/PaymentPage"));
+const PaymentResultPage = lazy(() => import("./Pages/Payment/PaymentResultPage"));
+const AdminLogin = lazy(() => import("./Pages/Admin/AdminLogin"));
+const AdminDashboard = lazy(() => import("./Pages/Admin/AdminDashboard"));
+const DonationPage = lazy(() => import("./Pages/Donation/DonationPage"));
+const DonationSuccessPage = lazy(() => import("./Pages/Donation/DonationSuccessPage"));
+const DonationFailurePage = lazy(() => import("./Pages/Donation/DonationFailurePage"));
+const CertificateVerificationPage = lazy(() => import("./Pages/Certificate/CertificateVerificationPage"));
 
 /* ===================== CONSULTANCY SERVICES ===================== */
 import ConsultancyServices from "./Pages/OurPrograms/Consultancy_Services/ConsultancyServices";
@@ -68,7 +67,30 @@ const ProtectedAdminRoute = ({ children }) => {
 function App() {
   return (
     <Router>
-      <Routes>
+      <Suspense fallback={
+        <div style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          color: "#2563eb",
+          fontSize: "14px",
+          gap: "10px"
+        }}>
+          <div style={{
+            width: "20px",
+            height: "20px",
+            border: "2px solid rgba(37,99,235,0.2)",
+            borderTop: "2px solid #2563eb",
+            borderRadius: "50%",
+            animation: "spin 0.7s linear infinite"
+          }} />
+          Loading...
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+      }>
+        <Routes>
 
         {/* ===================== HOME ===================== */}
         <Route path="/" element={<MainPage />} />
@@ -181,7 +203,8 @@ function App() {
         {/* ===================== FALLBACK ===================== */}
         <Route path="*" element={<Navigate to="/" replace />} />
 
-      </Routes>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

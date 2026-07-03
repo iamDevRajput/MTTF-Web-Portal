@@ -102,8 +102,14 @@ router.put('/settings', requireAdmin, async (req, res) => {
 // ─── GET /api/admin/users ─────────────────────────────────────────────────────
 router.get('/users', requireAdmin, async (req, res) => {
   try {
-    const users = await User.find({}).select('-password').sort({ createdAt: -1 });
-    res.json({ success: true, users });
+    const page = Math.max(1, parseInt(req.query.page) || 1);
+    const limit = Math.min(100, parseInt(req.query.limit) || 50);
+    const skip = (page - 1) * limit;
+    const [users, total] = await Promise.all([
+      User.find({}).select('-password').sort({ createdAt: -1 }).skip(skip).limit(limit),
+      User.countDocuments()
+    ]);
+    res.json({ success: true, users, pagination: { page, limit, total, pages: Math.ceil(total / limit) } });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Server error.' });
   }
