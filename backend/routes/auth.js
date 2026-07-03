@@ -333,7 +333,11 @@ router.post('/verify-otp', otpLimiter, async (req, res) => {
 
     if (!record) return res.status(400).json({ success: false, message: 'No OTP found. Request a new one.' });
     if (new Date() > record.expiresAt) return res.status(400).json({ success: false, message: 'OTP expired. Request a new one.' });
-    if (record.otp !== String(otp)) return res.status(400).json({ success: false, message: 'Invalid OTP.' });
+    const otpBuffer = Buffer.from(record.otp);
+    const inputBuffer = Buffer.from(String(otp).padEnd(record.otp.length, ' '));
+    const otpMatch = otpBuffer.length === inputBuffer.length && 
+      require('crypto').timingSafeEqual(otpBuffer, inputBuffer);
+    if (!otpMatch) return res.status(400).json({ success: false, message: 'Invalid OTP.' });
 
     await OtpVerification.updateOne({ _id: record._id }, { verified: true });
     res.json({ success: true, message: 'Email verified successfully.' });
