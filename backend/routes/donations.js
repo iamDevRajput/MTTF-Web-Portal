@@ -20,6 +20,7 @@ router.get("/admin/list", requireAdmin, async (req, res) => {
     if (search) {
       const safe = new RegExp(String(search).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
       query.$or = [
+        { orderId: safe },
         { donationId: safe },
         { donorName: safe },
         { donorEmail: safe },
@@ -43,7 +44,7 @@ router.get("/admin/export.csv", requireAdmin, async (req, res) => {
     if (status) query.paymentStatus = String(status).toUpperCase();
     if (search) {
       const safe = new RegExp(String(search).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-      query.$or = [{ donationId: safe }, { donorName: safe }, { donorEmail: safe }];
+      query.$or = [{ orderId: safe }, { donationId: safe }, { donorName: safe }, { donorEmail: safe }];
     }
     const donations = await Donation.find(query)
       .sort({ createdAt: -1 })
@@ -53,7 +54,7 @@ router.get("/admin/export.csv", requireAdmin, async (req, res) => {
     const csvValue = (v) => `"${String(v == null ? '' : v).replace(/"/g, '""')}"`;
     const header = ['Donation ID','Donor Name','Donor Email','Donor Phone','Amount','Currency','Status','Certificate ID','Receipt Sent','Created At'];
     const rows = donations.map(d => [
-      d.donationId, d.donorName, d.donorEmail, d.donorPhone,
+      d.orderId || d.donationId, d.donorName, d.donorEmail, d.donorPhone,
       d.amount, d.currency, d.paymentStatus,
       d.certificateId || '', d.receiptSent,
       d.createdAt?.toISOString()
