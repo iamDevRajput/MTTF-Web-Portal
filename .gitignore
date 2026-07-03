@@ -17,3 +17,9 @@ build
 .DS_Store
 Thumbs.db
 backend/certificates/
+
+# Security & PII exclusions
+backend/.env
+backend/MTTF_2021_Members.xlsx
+backend/Users-Export-*.csv
+backend/certificates/*.pdf

@@ -5,6 +5,7 @@ const Payment = require('../models/Payment');
 const Admin = require('../models/Admin');
 const membershipConfigRepository = require('../repositories/membershipConfigRepository');
 const { requireAdmin } = require('../middleware/adminMiddleware');
+const { authLimiter } = require('../middleware/rateLimiters');
 
 // Seed initial admin if none exists
 const seedAdmin = async () => {
@@ -51,7 +52,7 @@ const csvValue = (value) => {
 };
 
 // ─── POST /api/admin/login ────────────────────────────────────────────────────
-router.post('/login', async (req, res) => {
+router.post('/login', authLimiter, async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {

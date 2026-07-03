@@ -60,6 +60,11 @@ import TechnicalTeam from "./Pages/About_The_Foundation/OurOrganisation/Technica
 import About from "./Pages/About_The_Foundation/MTTF_About/About";
 import MTTFContact from "./Pages/About_The_Foundation/MTTF_About/MTTFContact";
 
+const ProtectedAdminRoute = ({ children }) => {
+  const adminToken = localStorage.getItem("adminToken");
+  return adminToken ? children : <Navigate to="/mttf-admin-2025" />;
+};
+
 function App() {
   return (
     <Router>
@@ -91,7 +96,7 @@ function App() {
 
         {/*===================== ADMIN (Hidden) ======================*/}
           <Route path="/mttf-admin-2025" element={<AdminLogin />} />
-          <Route path="/mttf-admin-2025/dashboard" element={<AdminDashboard />} />
+          <Route path="/mttf-admin-2025/dashboard" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute>} />
 
         {/* ===================== CONSULTANCY SERVICES ===================== */}
         <Route

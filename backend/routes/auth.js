@@ -323,7 +323,7 @@ router.post('/send-otp', otpLimiter, async (req, res) => {
 });
 
 // POST /api/auth/verify-otp
-router.post('/verify-otp', async (req, res) => {
+router.post('/verify-otp', otpLimiter, async (req, res) => {
   try {
     const { email, otp } = req.body;
     if (!email || !otp) return res.status(400).json({ success: false, message: 'Email and OTP required.' });
