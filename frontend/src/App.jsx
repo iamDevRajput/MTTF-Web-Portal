@@ -13,6 +13,7 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import DonationPage from "./Pages/Donation/DonationPage";
 import DonationSuccessPage from "./Pages/Donation/DonationSuccessPage";
 import DonationFailurePage from "./Pages/Donation/DonationFailurePage";
+import CertificateVerificationPage from "./Pages/Certificate/CertificateVerificationPage";
 
 /* ===================== CONSULTANCY SERVICES ===================== */
 import ConsultancyServices from "./Pages/OurPrograms/Consultancy_Services/ConsultancyServices";
@@ -84,6 +85,9 @@ function App() {
           <Route path="/donate" element={<DonationPage />} />
           <Route path="/donate/success" element={<DonationSuccessPage />} />
           <Route path="/donate/failure" element={<DonationFailurePage />} />
+          
+          {/* Certificate Public Verification */}
+          <Route path="/certificate/verify/:certificateId" element={<CertificateVerificationPage />} />
 
         {/*===================== ADMIN (Hidden) ======================*/}
           <Route path="/mttf-admin-2025" element={<AdminLogin />} />

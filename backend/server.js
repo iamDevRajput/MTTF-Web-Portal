@@ -61,10 +61,12 @@ const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
 const paymentRoutes = require('./routes/payments');
 const donationRoutes = require('./routes/donations');
+const certificateRoutes = require('./routes/certificates');
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/donations', donationRoutes);
+app.use('/api/certificates', certificateRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
