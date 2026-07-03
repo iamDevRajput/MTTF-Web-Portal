@@ -173,23 +173,22 @@ export default function AdminDashboard() {
   return (
     <>
       <style>{`
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .adm-dash-shell, .adm-dash-shell *, .adm-dash-shell *::before, .adm-dash-shell *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         .adm-dash-shell {
-          display: grid;
-          grid-template-columns: 240px 1fr;
+          display: block;
           min-height: 100vh;
           font-family: 'Plus Jakarta Sans', sans-serif;
-          background: #f1f5f9;
+          background: #F8FAFC;
         }
         @media (max-width: 900px) {
-          .adm-dash-shell { grid-template-columns: 1fr; }
           .adm-sidebar { display: none; }
+          .adm-main { margin-left: 0; }
         }
 
         /* ── Sidebar ── */
         .adm-sidebar {
-          background: linear-gradient(180deg, #0b1329 0%, #1e3a8a 100%);
+          background: #111827;
           display: flex; flex-direction: column;
           position: fixed; top: 0; left: 0; bottom: 0; width: 240px;
           z-index: 50;
@@ -229,10 +228,11 @@ export default function AdminDashboard() {
         }
         .adm-nav-item:hover { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.85); }
         .adm-nav-item.active {
-          background: rgba(37,99,235,0.25); color: #fff;
+          background: linear-gradient(90deg, #2563EB, #3B82F6); color: #FFFFFF;
           border: 1px solid rgba(37,99,235,0.35);
+          box-shadow: 0 4px 15px rgba(37,99,235,0.25);
         }
-        .adm-nav-item.active svg { color: #60a5fa; }
+        .adm-nav-item.active svg { color: #FFFFFF; }
 
         .adm-sidebar-footer {
           margin-top: auto; padding: 20px 12px;
@@ -275,7 +275,7 @@ export default function AdminDashboard() {
 
         /* ── Top Bar ── */
         .adm-topbar {
-          background: #fff; border-bottom: 1px solid rgba(37,99,235,0.08);
+          background: #FFFFFF; border-bottom: 1px solid #E2E8F0;
           padding: 0 32px; height: 64px;
           display: flex; align-items: center; justify-content: space-between;
           position: sticky; top: 0; z-index: 40;
@@ -285,15 +285,15 @@ export default function AdminDashboard() {
           .adm-topbar { padding: 16px; height: auto; flex-wrap: wrap; gap: 12px; }
         }
         .adm-topbar-left { display: flex; flex-direction: column; }
-        .adm-page-title { font-size: 17px; font-weight: 700; color: #0b1329; }
-        .adm-page-sub { font-size: 12px; color: #64748b; font-weight: 300; }
+        .adm-page-title { font-size: 17px; font-weight: 700; color: #0F172A; }
+        .adm-page-sub { font-size: 12px; color: #475569; font-weight: 300; }
         .adm-topbar-right { display: flex; align-items: center; gap: 12px; }
 
         .adm-refresh-btn {
           display: flex; align-items: center; gap: 6px;
-          padding: 8px 14px; background: rgba(37,99,235,0.06);
-          border: 1px solid rgba(37,99,235,0.15); border-radius: 999px;
-          color: #2563eb; font-family: 'Plus Jakarta Sans', sans-serif;
+          padding: 8px 14px; background: #FFFFFF;
+          border: 1px solid #2563EB; border-radius: 9999px;
+          color: #2563EB; font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
           cursor: pointer; transition: all 0.2s;
         }
@@ -311,11 +311,11 @@ export default function AdminDashboard() {
         @media (max-width: 600px) { .adm-stats-grid { grid-template-columns: 1fr; } }
 
         .adm-stat-card {
-          background: #fff; border: 1px solid rgba(37,99,235,0.1);
-          border-radius: 14px; padding: 22px 20px;
+          background: #FFFFFF; border: 1px solid #E2E8F0; border-top: 4px solid #2563EB;
+          border-radius: 20px; padding: 22px 20px;
           display: flex; align-items: center; gap: 16px;
-          box-shadow: 0 2px 12px rgba(37,99,235,0.04);
-          transition: box-shadow 0.2s, transform 0.2s;
+          box-shadow: 0 8px 30px rgba(15,23,42,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
           animation: fadeUp 0.4s both;
         }
         .adm-stat-card:hover { box-shadow: 0 6px 24px rgba(37,99,235,0.1); transform: translateY(-2px); }
@@ -324,15 +324,15 @@ export default function AdminDashboard() {
           width: 48px; height: 48px; border-radius: 12px;
           display: flex; align-items: center; justify-content: center; flex-shrink: 0;
         }
-        .adm-stat-value { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
-        .adm-stat-label { font-size: 12px; color: #64748b; font-weight: 400; margin-top: 4px; }
+        .adm-stat-value { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; color: #0F172A; }
+        .adm-stat-label { font-size: 12px; color: #475569; font-weight: 400; margin-top: 4px; }
         .adm-stat-sub { font-size: 11px; color: #94a3b8; margin-top: 2px; }
 
         /* ── Section ── */
         .adm-section-wrap {
-          background: #fff; border: 1px solid rgba(37,99,235,0.1);
-          border-radius: 16px; padding: 28px;
-          box-shadow: 0 2px 12px rgba(37,99,235,0.04);
+          background: #FFFFFF; border: 1px solid #E2E8F0;
+          border-radius: 20px; padding: 28px;
+          box-shadow: 0 8px 30px rgba(15,23,42,0.08);
           margin-bottom: 24px;
         }
         @media (max-width: 600px) { .adm-section-wrap { padding: 16px; } }
@@ -340,24 +340,24 @@ export default function AdminDashboard() {
           display: flex; align-items: center; justify-content: space-between;
           margin-bottom: 24px;
         }
-        .adm-section-title { font-size: 16px; font-weight: 700; color: #0b1329; }
-        .adm-section-sub { font-size: 12px; color: #64748b; font-weight: 300; margin-top: 2px; }
+        .adm-section-title { font-size: 16px; font-weight: 700; color: #0F172A; }
+        .adm-section-sub { font-size: 12px; color: #475569; font-weight: 300; margin-top: 2px; }
 
         /* ── Price Cards (Overview) ── */
         .adm-price-overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         @media (max-width: 600px) { .adm-price-overview-grid { grid-template-columns: 1fr; } }
 
         .adm-price-overview-card {
-          padding: 20px 22px; border-radius: 12px;
-          border: 1.5px solid rgba(37,99,235,0.15);
-          background: linear-gradient(135deg, rgba(37,99,235,0.04), rgba(37,99,235,0.01));
+          padding: 20px 22px; border-radius: 20px;
+          border: 1px solid #E2E8F0;
+          background: #F8FAFC;
         }
         .adm-price-overview-label {
           font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
           color: #2563eb; margin-bottom: 8px;
         }
         .adm-price-overview-val {
-          font-size: 30px; font-weight: 800; color: #0b1329; letter-spacing: -0.02em;
+          font-size: 30px; font-weight: 800; color: #0F172A; letter-spacing: -0.02em;
         }
         .adm-price-overview-sub { font-size: 11px; color: #94a3b8; margin-top: 4px; }
 
@@ -376,9 +376,9 @@ export default function AdminDashboard() {
         }
         .adm-price-input {
           width: 100%; padding: 14px 16px 14px 34px;
-          background: #f8faff; border: 1.5px solid rgba(37,99,235,0.12);
+          background: #F8FAFC; border: 1.5px solid #E2E8F0;
           border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 20px; font-weight: 700; color: #0b1329; outline: none;
+          font-size: 20px; font-weight: 700; color: #0F172A; outline: none;
           transition: border-color 0.25s, box-shadow 0.25s;
         }
         .adm-price-input:focus {
@@ -388,12 +388,12 @@ export default function AdminDashboard() {
 
         .adm-save-btn {
           display: inline-flex; align-items: center; gap: 8px;
-          padding: 13px 28px; background: #2563eb; border: none;
-          color: #fff; font-family: 'Plus Jakarta Sans', sans-serif;
+          padding: 13px 28px; background: linear-gradient(135deg, #2563EB, #3B82F6); border: none;
+          color: #FFFFFF; font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-          border-radius: 999px; cursor: pointer;
+          border-radius: 9999px; cursor: pointer;
           box-shadow: 0 4px 16px rgba(37,99,235,0.3);
-          transition: all 0.25s;
+          transition: all 0.3s ease;
         }
         .adm-save-btn:hover:not(:disabled) { background: #1d4ed8; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,99,235,0.4); }
         .adm-save-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
@@ -411,10 +411,10 @@ export default function AdminDashboard() {
         /* ── Users Table ── */
         .adm-search {
           padding: 10px 16px;
-          background: #f8faff; border: 1.5px solid rgba(37,99,235,0.12);
+          background: #F8FAFC; border: 1.5px solid #E2E8F0;
           border-radius: 10px; font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 13px; color: #0b1329; outline: none;
-          transition: border-color 0.2s, box-shadow 0.2s; width: 280px;
+          font-size: 13px; color: #0F172A; outline: none;
+          transition: border-color 0.3s, box-shadow 0.3s; width: 280px;
         }
         .adm-search::placeholder { color: #cbd5e1; }
         .adm-search:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
@@ -423,14 +423,14 @@ export default function AdminDashboard() {
         .adm-table th {
           text-align: left; padding: 12px 16px;
           font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-          color: #64748b; border-bottom: 2px solid rgba(37,99,235,0.08);
-          background: #f8faff;
+          color: #475569; border-bottom: 2px solid #E2E8F0;
+          background: #F8FAFC;
         }
         .adm-table th:first-child { border-radius: 8px 0 0 0; }
         .adm-table th:last-child { border-radius: 0 8px 0 0; }
         .adm-table td {
           padding: 14px 16px; font-size: 13px; font-weight: 400;
-          color: #334155; border-bottom: 1px solid rgba(37,99,235,0.05);
+          color: #0F172A; border-bottom: 1px solid #E2E8F0;
           vertical-align: middle;
         }
         .adm-table tr:last-child td { border-bottom: none; }
@@ -476,8 +476,8 @@ export default function AdminDashboard() {
         }
         .adm-select {
           padding: 10px 14px;
-          background: #f8faff;
-          border: 1.5px solid rgba(37,99,235,0.12);
+          background: #F8FAFC;
+          border: 1.5px solid #E2E8F0;
           border-radius: 10px;
           font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 12px;
@@ -489,7 +489,7 @@ export default function AdminDashboard() {
           align-items: center;
           gap: 6px;
           padding: 10px 14px;
-          background: #0b1329;
+          background: #0F172A;
           border: none;
           border-radius: 999px;
           color: #fff;

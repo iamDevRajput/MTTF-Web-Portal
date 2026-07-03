@@ -39,7 +39,7 @@ export default function AdminLogin() {
   return (
     <>
       <style>{`
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        .adm-login-shell, .adm-login-shell *, .adm-login-shell *::before, .adm-login-shell *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         .adm-login-shell {
           min-height: 100vh;
@@ -54,7 +54,7 @@ export default function AdminLogin() {
 
         /* ── Left Brand Panel ── */
         .adm-left-panel {
-          background: linear-gradient(160deg, #0b1329 0%, #1e3a8a 55%, #2563eb 100%);
+          background: linear-gradient(160deg, #0F172A 0%, #1e3a8a 55%, #2563EB 100%);
           display: flex; flex-direction: column;
           justify-content: space-between;
           padding: 48px;
@@ -112,7 +112,7 @@ export default function AdminLogin() {
 
         /* ── Right Form Panel ── */
         .adm-right-panel {
-          background: #f8faff;
+          background: #F8FAFC;
           display: flex; align-items: center; justify-content: center;
           padding: 48px 40px;
         }
@@ -129,7 +129,7 @@ export default function AdminLogin() {
         .adm-form-eyebrow span { width: 5px; height: 5px; border-radius: 50%; background: #2563eb; }
 
         .adm-form-title {
-          font-size: 28px; font-weight: 800; color: #0b1329;
+          font-size: 28px; font-weight: 800; color: #0F172A;
           letter-spacing: -0.02em; margin-bottom: 6px;
         }
         .adm-form-sub {
@@ -138,10 +138,10 @@ export default function AdminLogin() {
         }
 
         .adm-card {
-          background: #fff;
-          border: 1px solid rgba(37,99,235,0.12);
-          border-radius: 16px;
-          box-shadow: 0 4px 24px rgba(37,99,235,0.06);
+          background: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          border-radius: 20px;
+          box-shadow: 0 8px 30px rgba(15,23,42,0.08);
           padding: 32px 28px;
         }
 
@@ -153,12 +153,12 @@ export default function AdminLogin() {
         .adm-input-wrap { position: relative; }
         .adm-input {
           width: 100%; padding: 13px 16px;
-          background: #f8faff;
-          border: 1.5px solid rgba(37,99,235,0.12);
+          background: #F8FAFC;
+          border: 1.5px solid #E2E8F0;
           border-radius: 10px;
           font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px;
-          font-weight: 300; color: #0b1329; outline: none;
-          transition: border-color 0.25s, box-shadow 0.25s;
+          font-weight: 300; color: #0F172A; outline: none;
+          transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .adm-input::placeholder { color: #cbd5e1; }
         .adm-input:focus {
@@ -183,19 +183,18 @@ export default function AdminLogin() {
 
         .adm-submit {
           width: 100%; padding: 15px;
-          background: #2563eb; border: none; color: #fff;
+          background: linear-gradient(135deg, #2563EB, #3B82F6); border: none; color: #FFFFFF;
           font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px;
           font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
-          border-radius: 999px; cursor: pointer;
+          border-radius: 9999px; cursor: pointer;
           display: flex; align-items: center; justify-content: center; gap: 8px;
           transition: all 0.3s ease;
           box-shadow: 0 4px 16px rgba(37,99,235,0.3);
           margin-top: 8px;
         }
         .adm-submit:hover:not(:disabled) {
-          background: #1d4ed8;
           box-shadow: 0 8px 28px rgba(37,99,235,0.4);
-          transform: translateY(-1px);
+          transform: translateY(-2px);
         }
         .adm-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
