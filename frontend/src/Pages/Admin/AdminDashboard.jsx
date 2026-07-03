@@ -36,6 +36,10 @@ export default function AdminDashboard() {
   const [priceForm, setPriceForm] = useState({ individual: 2000, institutional: 5000 });
   const [users, setUsers] = useState([]);
   const [payments, setPayments] = useState([]);
+  const [donations, setDonations] = useState([]);
+  const [loadingDonations, setLoadingDonations] = useState(false);
+  const [donationSearch, setDonationSearch] = useState("");
+  const [donationStatus, setDonationStatus] = useState("");
   const [loadingStats, setLoadingStats] = useState(true);
   const [loadingUsers, setLoadingUsers] = useState(false);
   const [loadingPayments, setLoadingPayments] = useState(false);
@@ -98,6 +102,41 @@ export default function AdminDashboard() {
 
   useEffect(() => { if (tab === "payments") loadPayments(); }, [tab, paymentStatus]);
 
+  const loadDonations = useCallback(async () => {
+    setLoadingDonations(true);
+    try {
+      const params = new URLSearchParams();
+      if (donationSearch) params.set("search", donationSearch);
+      if (donationStatus) params.set("status", donationStatus);
+      const res = await fetch(`${API}/donations/admin/list?${params.toString()}`, { headers });
+      if (res.status === 401) { logout(); return; }
+      const data = await res.json();
+      if (data.success) setDonations(data.donations);
+    } catch {}
+    finally { setLoadingDonations(false); }
+  }, [donationSearch, donationStatus]);
+
+  useEffect(() => { if (tab === "donations") loadDonations(); }, [tab, donationStatus]);
+
+  const exportDonations = async () => {
+    try {
+      const params = new URLSearchParams();
+      if (donationSearch) params.set("search", donationSearch);
+      if (donationStatus) params.set("status", donationStatus);
+      const res = await fetch(`${API}/donations/admin/export.csv?${params.toString()}`, { headers });
+      if (res.status === 401) { logout(); return; }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `donations-${Date.now()}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    } catch {}
+  };
+
   const exportPayments = async () => {
     try {
       const params = new URLSearchParams();
@@ -155,6 +194,7 @@ export default function AdminDashboard() {
     { key: "pricing", label: "Pricing", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg> },
     { key: "users", label: "Members", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="4" stroke="currentColor" strokeWidth="1.8"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/><path d="M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.87" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg> },
     { key: "payments", label: "Payments", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.8"/><path d="M2 10h20M7 15h4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg> },
+    { key: "donations", label: "Donations", icon: <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z" fill="#ef4444"/></svg> },
   ];
 
   const getPageTitle = () => {
@@ -757,6 +797,86 @@ export default function AdminDashboard() {
                             >
                               View Info
                             </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+            )}
+
+            {/* ── DONATIONS ── */}
+            {tab === "donations" && (
+              <div className="adm-section-wrap">
+                <div className="adm-section-head">
+                  <div>
+                    <div className="adm-section-title">Donation Registry</div>
+                    <div className="adm-section-sub">All donations with amounts and status</div>
+                  </div>
+                  <div className="adm-filter-row">
+                    <input
+                      className="adm-search"
+                      placeholder="Search name, email, order ID…"
+                      value={donationSearch}
+                      onChange={e => setDonationSearch(e.target.value)}
+                      onKeyDown={e => { if (e.key === "Enter") loadDonations(); }}
+                    />
+                    <select className="adm-select" value={donationStatus} onChange={e => setDonationStatus(e.target.value)}>
+                      <option value="">All Statuses</option>
+                      <option value="PENDING">Pending</option>
+                      <option value="SUCCESS">Success</option>
+                      <option value="FAILED">Failed</option>
+                      <option value="CANCELLED">Cancelled</option>
+                    </select>
+                    <button className="adm-refresh-btn" onClick={loadDonations}>Search</button>
+                    <button className="adm-export-btn" onClick={exportDonations}>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3v12M7 10l5 5 5-5M5 21h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      Export CSV
+                    </button>
+                  </div>
+                </div>
+                {loadingDonations ? (
+                  <div className="adm-loading"><span className="adm-loading-spin" /> Loading donations…</div>
+                ) : donations.length === 0 ? (
+                  <div className="adm-empty">No donations found.</div>
+                ) : (
+                  <table className="adm-table">
+                    <thead>
+                      <tr>
+                        <th>Order ID</th>
+                        <th>Donor</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Certificate</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {donations.map((d) => (
+                        <tr key={d._id}>
+                          <td style={{ fontFamily:"monospace", fontSize:11, color:"#475569" }}>{d.donationId || d.orderId}</td>
+                          <td>
+                            <div style={{ fontWeight:700, color:"#0b1329" }}>{d.donorName}</div>
+                            <div style={{ fontSize:11, color:"#94a3b8" }}>{d.donorEmail}</div>
+                          </td>
+                          <td style={{ fontWeight:700, color:"#ef4444", fontSize:16 }}>₹{Number(d.amount).toLocaleString("en-IN")}</td>
+                          <td>
+                            <span className={`adm-status-pill ${String(d.paymentStatus || "pending").toLowerCase()}`}>
+                              <span className="adm-status-dot" />
+                              {d.paymentStatus}
+                            </span>
+                          </td>
+                          <td>
+                            <span className={`adm-status-pill ${d.certificateId ? "success" : "pending"}`}>
+                              <span className="adm-status-dot" />
+                              {d.certificateId ? "Generated" : "Pending"}
+                            </span>
+                          </td>
+                          <td style={{ fontSize:12, color:"#94a3b8" }}>
+                            {new Date(d.createdAt).toLocaleDateString("en-IN", { day:"2-digit", month:"short", year:"numeric" })}
                           </td>
                         </tr>
                       ))}

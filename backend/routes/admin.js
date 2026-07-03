@@ -128,6 +128,14 @@ router.get('/stats', requireAdmin, async (req, res) => {
       { $match: { paymentStatus: 'SUCCESS', webhookVerified: true } },
       { $group: { _id: null, revenue: { $sum: '$amount' }, successfulPayments: { $sum: 1 } } },
     ]);
+    const Donation = require('../models/Donation');
+    const donationAgg = await Donation.aggregate([
+      { $match: { paymentStatus: 'SUCCESS' } },
+      { $group: { _id: null, total: { $sum: '$amount' }, count: { $sum: 1 } } },
+    ]);
+    const donationRevenue = donationAgg[0]?.total || 0;
+    const totalDonations = donationAgg[0]?.count || 0;
+
     const failedPayments = await Payment.countDocuments({ paymentStatus: 'FAILED' });
     const refundedPayments = await Payment.countDocuments({ paymentStatus: 'REFUNDED' });
     const pendingPayments = await Payment.countDocuments({ paymentStatus: 'PENDING' });
@@ -144,6 +152,8 @@ router.get('/stats', requireAdmin, async (req, res) => {
         failedPayments,
         refundedPayments,
         pendingPayments,
+        donationRevenue,
+        totalDonations,
       }
     });
   } catch (err) {
