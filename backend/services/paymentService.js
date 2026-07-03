@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 const Payment = require("../models/Payment");
 const AppError = require("../utils/AppError");
-const cashfreeService = require("./cashfreeService");
+const razorpayService = require("./razorpayService");
 const membershipService = require("./membershipService");
 const paymentRepository = require("../repositories/paymentRepository");
 const membershipConfigRepository = require("../repositories/membershipConfigRepository");
@@ -21,7 +21,7 @@ const generateOrderId = () => {
 const mapGatewayStatus = (rawStatus, eventType) => {
   const status = String(rawStatus || eventType || "").toUpperCase();
 
-  if (["SUCCESS", "PAID", "PAYMENT_SUCCESS"].some((key) => status.includes(key))) {
+  if (["SUCCESS", "PAID", "PAYMENT_SUCCESS", "CAPTURED"].some((key) => status.includes(key))) {
     return "SUCCESS";
   }
   if (["REFUND", "REFUNDED"].some((key) => status.includes(key))) {
@@ -40,7 +40,7 @@ const mapGatewayStatus = (rawStatus, eventType) => {
 const getFrontendUrl = () => process.env.FRONTEND_URL || "http://localhost:5173";
 
 const getWebhookUrl = () => (
-  process.env.CASHFREE_WEBHOOK_URL ||
+  process.env.RAZORPAY_WEBHOOK_URL ||
   (process.env.BACKEND_URL ? `${process.env.BACKEND_URL.replace(/\/$/, "")}/api/payments/webhook` : undefined)
 );
 
@@ -48,9 +48,9 @@ const redactGatewayResponse = (response) => {
   if (!response || typeof response !== "object") {
     return response;
   }
-  const clone = { ...response };
-  delete clone.payment_session_id;
-  return clone;
+  // Nothing sensitive to strip from Razorpay order objects,
+  // but keep the helper for structural consistency.
+  return { ...response };
 };
 
 const getPublicMembershipConfig = async () => {
@@ -73,18 +73,19 @@ const createPaymentOrder = async ({ user, req }) => {
     await paymentRepository.appendAuditLog(reusablePayment.orderId, {
       event: "ORDER_REUSED",
       status: "PENDING",
-      message: "Reusable pending payment session returned to user.",
+      message: "Reusable pending payment order returned to user.",
       ...context,
     });
 
     return {
       orderId: reusablePayment.orderId,
-      paymentSessionId: reusablePayment.paymentSessionId,
+      razorpayOrderId: reusablePayment.paymentSessionId,   // stored in paymentSessionId field
+      razorpayKeyId: razorpayService.getRazorpayConfig().keyId,
       amount: reusablePayment.amount,
       currency: reusablePayment.currency,
       membershipType: reusablePayment.membershipType,
       paymentStatus: reusablePayment.paymentStatus,
-      cashfreeEnvironment: cashfreeService.getCashfreeConfig().environment,
+      razorpayEnvironment: razorpayService.getRazorpayConfig().environment,
     };
   }
 
@@ -115,50 +116,50 @@ const createPaymentOrder = async ({ user, req }) => {
   });
 
   try {
-    const frontendUrl = getFrontendUrl().replace(/\/$/, "");
-    const cashfreeOrder = await cashfreeService.createOrder({
+    const razorpayOrder = await razorpayService.createOrder({
       orderId,
       amount: config.amount,
       currency: config.currency,
       user,
-      returnUrl: `${frontendUrl}/payment/status?order_id={order_id}`,
-      notifyUrl: getWebhookUrl(),
     });
 
-    if (!cashfreeOrder.payment_session_id) {
-      throw new AppError(502, "Cashfree did not return a payment session.");
+    if (!razorpayOrder.id) {
+      throw new AppError(502, "Razorpay did not return an order id.");
     }
 
     await paymentRepository.updatePayment(orderId, {
-      paymentSessionId: cashfreeOrder.payment_session_id,
-      cashfreeOrderStatus: cashfreeOrder.order_status,
-      gatewayResponse: redactGatewayResponse(cashfreeOrder),
+      // We re-use the paymentSessionId field to store razorpay order id
+      // so the DB schema and repository layer stay unchanged.
+      paymentSessionId: razorpayOrder.id,
+      gatewayOrderStatus: razorpayOrder.status,
+      gatewayResponse: redactGatewayResponse(razorpayOrder),
       $push: {
         auditLogs: {
-          event: "CASHFREE_ORDER_CREATED",
-          status: cashfreeOrder.order_status || "PENDING",
-          message: "Cashfree order created successfully.",
+          event: "RAZORPAY_ORDER_CREATED",
+          status: razorpayOrder.status || "created",
+          message: "Razorpay order created successfully.",
           ...context,
-          metadata: { gatewayOrderId: cashfreeOrder.order_id },
+          metadata: { razorpayOrderId: razorpayOrder.id, receipt: razorpayOrder.receipt },
         },
       },
     });
 
     return {
       orderId,
-      paymentSessionId: cashfreeOrder.payment_session_id,
+      razorpayOrderId: razorpayOrder.id,
+      razorpayKeyId: razorpayService.getRazorpayConfig().keyId,
       amount: config.amount,
       currency: config.currency,
       membershipType,
       paymentStatus: payment.paymentStatus,
-      cashfreeEnvironment: cashfreeService.getCashfreeConfig().environment,
+      razorpayEnvironment: razorpayService.getRazorpayConfig().environment,
     };
   } catch (error) {
     await paymentRepository.updatePayment(orderId, {
       paymentStatus: "FAILED",
       $push: {
         auditLogs: {
-          event: "CASHFREE_ORDER_FAILED",
+          event: "RAZORPAY_ORDER_FAILED",
           status: "FAILED",
           message: error.message,
           ...context,
@@ -191,7 +192,7 @@ const toClientPayment = (payment, user) => ({
   paymentMethod: payment.paymentMethod,
   membershipType: payment.membershipType,
   webhookVerified: payment.webhookVerified,
-  cfPaymentId: payment.cfPaymentId,
+  gatewayPaymentId: payment.gatewayPaymentId,
   isMembershipPaid: Boolean(user?.isMembershipPaid),
   membershipId: user?.membershipId,
   membershipActivatedAt: user?.membershipActivatedAt,
@@ -222,28 +223,33 @@ const verifyPaymentWithGateway = async ({ orderId, user, req }) => {
   const context = getClientContext(req);
   const payment = await getOwnedPayment({ orderId, user });
 
-  const [cashfreeOrder, cashfreePayments] = await Promise.all([
-    cashfreeService.fetchOrder(orderId),
-    cashfreeService.fetchOrderPayments(orderId),
+  // paymentSessionId stores the Razorpay order id (e.g. "order_XXXXXXXXX").
+  const razorpayOrderId = payment.paymentSessionId || orderId;
+
+  const [razorpayOrder, razorpayPayments] = await Promise.all([
+    razorpayService.fetchOrder(razorpayOrderId),
+    razorpayService.fetchOrderPayments(razorpayOrderId),
   ]);
 
-  const latestPayment = pickLatestGatewayPayment(cashfreePayments);
-  const gatewayStatus = mapGatewayStatus(
-    latestPayment?.payment_status || cashfreeOrder?.order_status,
-    latestPayment?.event
-  );
+  const latestPayment = pickLatestGatewayPayment(razorpayPayments);
 
-  const gatewayAmount = Number(latestPayment?.payment_amount || cashfreeOrder?.order_amount || payment.amount);
-  const amountMatches = gatewayAmount === Number(payment.amount);
+  // Razorpay payment statuses: "captured" = success, "failed" = failed.
+  const rawStatus = latestPayment?.status || razorpayOrder?.status;
+  const gatewayStatus = mapGatewayStatus(rawStatus, rawStatus);
+
+  // Razorpay amounts are in paise; convert back to rupees for comparison.
+  const gatewayAmountPaise = Number(latestPayment?.amount || razorpayOrder?.amount || 0);
+  const gatewayAmount = gatewayAmountPaise / 100;
+  const amountMatches = Math.round(gatewayAmount) === Math.round(Number(payment.amount));
   const nextStatus = amountMatches ? gatewayStatus : "FAILED";
 
   const update = {
-    cashfreeOrderStatus: cashfreeOrder?.order_status,
+    gatewayOrderStatus: razorpayOrder?.status,
     paymentStatus: nextStatus,
-    cfPaymentId: latestPayment?.cf_payment_id || payment.cfPaymentId,
-    paymentMethod: latestPayment?.payment_group || latestPayment?.payment_method || payment.paymentMethod,
+    gatewayPaymentId: latestPayment?.id || payment.gatewayPaymentId,
+    paymentMethod: latestPayment?.method || payment.paymentMethod,
     gatewayResponse: {
-      order: redactGatewayResponse(cashfreeOrder),
+      order: redactGatewayResponse(razorpayOrder),
       latestPayment: redactGatewayResponse(latestPayment),
     },
     $push: {
@@ -251,8 +257,8 @@ const verifyPaymentWithGateway = async ({ orderId, user, req }) => {
         event: "CLIENT_VERIFY",
         status: nextStatus,
         message: amountMatches
-          ? "Client-requested gateway status sync completed."
-          : "Gateway amount mismatch during client-requested verification.",
+          ? "Client-requested Razorpay status sync completed."
+          : "Razorpay amount mismatch during client-requested verification.",
         ...context,
         metadata: { gatewayAmount },
       },
@@ -283,59 +289,90 @@ const verifyPaymentWithGateway = async ({ orderId, user, req }) => {
   return toClientPayment(updatedPayment, user);
 };
 
+// Razorpay webhook body shape:
+// body.event         → e.g. "payment.captured", "payment.failed"
+// body.payload.payment.entity → the payment object
+// body.payload.order.entity   → the order object
 const extractWebhookData = (body) => {
-  const order = body?.data?.order || body?.order || {};
-  const payment = body?.data?.payment || body?.payment || {};
+  const paymentEntity = body?.payload?.payment?.entity || {};
+  const orderEntity   = body?.payload?.order?.entity   || {};
+
+  // orderId stored in Razorpay order receipt = our internal MTTF_xxx id
+  const receipt = orderEntity?.receipt || paymentEntity?.order_id || "";
+
+  // Razorpay amounts are in paise; convert to rupees for comparison.
+  const amountPaise = Number(
+    paymentEntity?.amount ||
+    orderEntity?.amount ||
+    0
+  );
 
   return {
-    eventType: body?.type || body?.event || body?.event_type,
-    orderId: order.order_id || body?.order_id,
-    gatewayOrderStatus: order.order_status || body?.order_status,
-    gatewayAmount: Number(payment.payment_amount || order.order_amount || body?.order_amount),
-    gatewayCurrency: payment.payment_currency || order.order_currency || body?.order_currency || "INR",
-    cfPaymentId: payment.cf_payment_id || body?.cf_payment_id,
-    gatewayPaymentStatus: payment.payment_status || body?.payment_status,
-    paymentMethod: payment.payment_group || payment.payment_method || body?.payment_method,
-    eventId: body?.event_id || body?.data?.event_id,
+    eventType:          body?.event,
+    // receipt is our internal orderId stored at creation time
+    receipt:            receipt,
+    // Razorpay order id ("order_XXXXXX") used to cross-reference paymentSessionId in DB
+    razorpayOrderId:    paymentEntity?.order_id || orderEntity?.id,
+    gatewayOrderStatus: orderEntity?.status,
+    gatewayAmount:      amountPaise / 100,       // back to rupees
+    gatewayCurrency:    paymentEntity?.currency || orderEntity?.currency || "INR",
+    gatewayPaymentId:   paymentEntity?.id,
+    gatewayPaymentStatus: paymentEntity?.status, // "captured", "failed"
+    paymentMethod:      paymentEntity?.method,
+    // Use Razorpay payment id as idempotency key (unique per payment attempt)
+    eventId:            paymentEntity?.id || body?.event_id,
   };
 };
 
-const handleCashfreeWebhook = async ({ req }) => {
+const handleRazorpayWebhook = async ({ req }) => {
   const context = getClientContext(req);
-  const signature = req.get("x-webhook-signature");
-  const timestamp = req.get("x-webhook-timestamp");
+  const signature = req.get("x-razorpay-signature");
   const rawBody = req.rawBody;
 
-  if (!cashfreeService.verifyWebhookSignature({ rawBody, signature, timestamp })) {
-    throw new AppError(401, "Invalid Cashfree webhook signature.");
+  if (!razorpayService.verifyWebhookSignature({ rawBody, signature })) {
+    throw new AppError(401, "Invalid Razorpay webhook signature.");
   }
 
   const webhook = extractWebhookData(req.body);
-  if (!webhook.orderId) {
-    throw new AppError(400, "Webhook order id is missing.");
+
+  // Look up payment record by:
+  // 1. receipt (our internal MTTF_xxx orderId, stored at Razorpay order creation)
+  // 2. Fallback: match paymentSessionId field which stores razorpayOrderId
+  
+  if (webhook.receipt && /^DONATE_/.test(webhook.receipt)) {
+    const donationService = require("./donationService");
+    return await donationService.handleRazorpayWebhook({ req });
   }
 
-  const payment = await paymentRepository.findByOrderId(webhook.orderId, true);
+  let payment = null;
+  if (webhook.receipt && /^MTTF_/.test(webhook.receipt)) {
+    payment = await paymentRepository.findByOrderId(webhook.receipt, true);
+  }
+  if (!payment && webhook.razorpayOrderId) {
+    payment = await require("../models/Payment").findOne(
+      { paymentSessionId: webhook.razorpayOrderId },
+    ).select("+paymentSessionId +processedWebhookKeys +gatewayResponse");
+  }
+
   if (!payment) {
     throw new AppError(404, "Webhook payment record not found.");
   }
 
   const webhookKey = webhook.eventId ||
-    webhook.cfPaymentId ||
     crypto.createHash("sha256").update(rawBody || JSON.stringify(req.body)).digest("hex");
 
   if (payment.processedWebhookKeys.includes(webhookKey)) {
     await paymentRepository.appendAuditLog(payment.orderId, {
       event: "WEBHOOK_DUPLICATE",
       status: payment.paymentStatus,
-      message: "Duplicate webhook ignored.",
+      message: "Duplicate Razorpay webhook ignored.",
       ...context,
       metadata: { webhookKey },
     });
     return { duplicate: true, paymentStatus: payment.paymentStatus };
   }
 
-  const amountMatches = Number(webhook.gatewayAmount) === Number(payment.amount);
+  const amountMatches = Math.round(Number(webhook.gatewayAmount)) === Math.round(Number(payment.amount));
   const currencyMatches = String(webhook.gatewayCurrency || "INR").toUpperCase() === payment.currency;
   const mappedStatus = mapGatewayStatus(webhook.gatewayPaymentStatus || webhook.gatewayOrderStatus, webhook.eventType);
   const nextStatus = amountMatches && currencyMatches ? mappedStatus : "FAILED";
@@ -343,8 +380,8 @@ const handleCashfreeWebhook = async ({ req }) => {
   const updatedPayment = await paymentRepository.updatePayment(payment.orderId, {
     paymentStatus: nextStatus,
     webhookVerified: true,
-    cfPaymentId: webhook.cfPaymentId || payment.cfPaymentId,
-    cashfreeOrderStatus: webhook.gatewayOrderStatus || payment.cashfreeOrderStatus,
+    gatewayPaymentId: webhook.gatewayPaymentId || payment.gatewayPaymentId,
+    gatewayOrderStatus: webhook.gatewayOrderStatus || payment.gatewayOrderStatus,
     paymentMethod: webhook.paymentMethod || payment.paymentMethod,
     $addToSet: { processedWebhookKeys: webhookKey },
     $push: {
@@ -352,12 +389,12 @@ const handleCashfreeWebhook = async ({ req }) => {
         event: "WEBHOOK_RECEIVED",
         status: nextStatus,
         message: amountMatches && currencyMatches
-          ? "Signed Cashfree webhook processed."
-          : "Signed Cashfree webhook rejected due to amount or currency mismatch.",
+          ? "Signed Razorpay webhook processed."
+          : "Signed Razorpay webhook rejected due to amount or currency mismatch.",
         ...context,
         metadata: {
           eventType: webhook.eventType,
-          cfPaymentId: webhook.cfPaymentId,
+          gatewayPaymentId: webhook.gatewayPaymentId,
           gatewayAmount: webhook.gatewayAmount,
           gatewayCurrency: webhook.gatewayCurrency,
           expectedAmount: payment.amount,
@@ -377,11 +414,15 @@ const handleCashfreeWebhook = async ({ req }) => {
   return { duplicate: false, paymentStatus: nextStatus };
 };
 
+// Backward-compat alias so paymentController.js import still works.
+const handleCashfreeWebhook = handleRazorpayWebhook;
+
 module.exports = {
   getPublicMembershipConfig,
   createPaymentOrder,
   getPaymentStatus,
   getPaymentHistory,
   verifyPaymentWithGateway,
-  handleCashfreeWebhook,
+  handleRazorpayWebhook,
+  handleCashfreeWebhook,  // alias kept for backward compatibility
 };

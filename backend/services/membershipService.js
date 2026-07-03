@@ -4,8 +4,8 @@ const paymentRepository = require("../repositories/paymentRepository");
 const emailService = require("./emailService");
 
 const generateMembershipId = () => {
-  const suffix = crypto.randomBytes(4).toString("hex").toUpperCase();
-  return `MTTF-${new Date().getFullYear()}-${suffix}`;
+  const suffix = Math.floor(10000000 + Math.random() * 90000000);
+  return `MTTF${suffix}`;
 };
 
 const activateMembershipForPayment = async ({ payment, ipAddress, userAgent }) => {
@@ -39,7 +39,7 @@ const activateMembershipForPayment = async ({ payment, ipAddress, userAgent }) =
   await paymentRepository.appendAuditLog(payment.orderId, {
     event: "MEMBERSHIP_ACTIVATED",
     status: "SUCCESS",
-    message: "Membership activated after verified Cashfree webhook.",
+    message: "Membership activated after verified payment webhook.",
     ipAddress,
     userAgent,
     metadata: {

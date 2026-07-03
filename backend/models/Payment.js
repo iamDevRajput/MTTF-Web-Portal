@@ -27,7 +27,7 @@ const paymentSchema = new mongoose.Schema({
   },
   userName: { type: String, required: true, trim: true },
   userEmail: { type: String, required: true, lowercase: true, trim: true },
-  amount: { type: Number, required: true, min: 1 },
+  amount: { type: Number, required: true },
   currency: { type: String, default: "INR", uppercase: true },
   paymentGateway: { type: String, default: "CASHFREE" },
   paymentSessionId: { type: String, select: false },

@@ -4,36 +4,36 @@ import MTTF_LOGO from "../../assets/MTTF_REC.jfif";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 
-let cashfreeSdkPromise;
+let razorpaySdkPromise;
 
-const loadCashfreeSdk = () => {
-  if (window.Cashfree) {
-    return Promise.resolve(window.Cashfree);
+const loadRazorpaySdk = () => {
+  if (window.Razorpay) {
+    return Promise.resolve(window.Razorpay);
   }
 
-  if (!cashfreeSdkPromise) {
-    cashfreeSdkPromise = new Promise((resolve, reject) => {
-      const existingScript = document.getElementById("cashfree-sdk-v3");
+  if (!razorpaySdkPromise) {
+    razorpaySdkPromise = new Promise((resolve, reject) => {
+      const existingScript = document.getElementById("razorpay-sdk");
       if (existingScript) {
-        existingScript.addEventListener("load", () => resolve(window.Cashfree));
-        existingScript.addEventListener("error", () => reject(new Error("Cashfree SDK failed to load.")));
+        existingScript.addEventListener("load", () => resolve(window.Razorpay));
+        existingScript.addEventListener("error", () => reject(new Error("Razorpay SDK failed to load.")));
         return;
       }
 
       const script = document.createElement("script");
-      script.id = "cashfree-sdk-v3";
-      script.src = "https://sdk.cashfree.com/js/v3/cashfree.js";
+      script.id = "razorpay-sdk";
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.async = true;
       script.onload = () => {
-        if (window.Cashfree) resolve(window.Cashfree);
-        else reject(new Error("Cashfree SDK is unavailable."));
+        if (window.Razorpay) resolve(window.Razorpay);
+        else reject(new Error("Razorpay SDK is unavailable."));
       };
-      script.onerror = () => reject(new Error("Cashfree SDK failed to load."));
+      script.onerror = () => reject(new Error("Razorpay SDK failed to load."));
       document.body.appendChild(script);
     });
   }
 
-  return cashfreeSdkPromise;
+  return razorpaySdkPromise;
 };
 
 const BENEFITS = {
@@ -140,22 +140,40 @@ export default function PaymentPage() {
         throw new Error(data.message || "Unable to create secure payment order.");
       }
 
-      if (data.order.paymentSessionId.startsWith("mock_session_")) {
+      if (data.order.razorpayOrderId.startsWith("order_mock_")) {
         setTimeout(() => {
           window.location.href = `/payment/status?order_id=${data.order.orderId}`;
         }, 1000);
         return;
       }
 
-      const Cashfree = await loadCashfreeSdk();
-      const cashfree = Cashfree({
-        mode: data.order.cashfreeEnvironment === "production" ? "production" : "sandbox",
-      });
+      await loadRazorpaySdk();
 
-      await cashfree.checkout({
-        paymentSessionId: data.order.paymentSessionId,
-        redirectTarget: "_self",
+      const options = {
+        key: data.order.razorpayKeyId,
+        amount: data.order.amount * 100, // Razorpay expects paise
+        currency: data.order.currency,
+        name: "MathTech Thinking Foundation",
+        description: "Membership Payment",
+        order_id: data.order.razorpayOrderId,
+        handler: function (response) {
+          window.location.href = `/payment/status?order_id=${data.order.orderId}`;
+        },
+        prefill: {
+          name: user?.name || "",
+          email: user?.email || "",
+          contact: user?.phone || "",
+        },
+        theme: {
+          color: "#2563EB",
+        },
+      };
+
+      const rzp = new window.Razorpay(options);
+      rzp.on("payment.failed", function (response) {
+        window.location.href = `/payment/status?order_id=${data.order.orderId}`;
       });
+      rzp.open();
     } catch (err) {
       setError(err.message || "Payment could not be started. Please try again.");
     } finally {

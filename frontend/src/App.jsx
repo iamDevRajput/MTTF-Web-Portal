@@ -9,6 +9,11 @@ import PaymentResultPage from "./Pages/Payment/PaymentResultPage";
 import AdminLogin from "./Pages/Admin/AdminLogin";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
 
+/* ===================== DONATION ===================== */
+import DonationPage from "./Pages/Donation/DonationPage";
+import DonationSuccessPage from "./Pages/Donation/DonationSuccessPage";
+import DonationFailurePage from "./Pages/Donation/DonationFailurePage";
+
 /* ===================== CONSULTANCY SERVICES ===================== */
 import ConsultancyServices from "./Pages/OurPrograms/Consultancy_Services/ConsultancyServices";
 import ExpertConsultancyServices from "./Pages/OurPrograms/Consultancy_Services/ExpertConsultancyServices";
@@ -74,6 +79,11 @@ function App() {
           <Route path="/payment/status" element={<PaymentResultPage />} />
           <Route path="/payment/success" element={<PaymentResultPage fallbackStatus="success" />} />
           <Route path="/payment/failure" element={<PaymentResultPage fallbackStatus="failure" />} />
+
+        {/*===================== DONATION ======================*/}
+          <Route path="/donate" element={<DonationPage />} />
+          <Route path="/donate/success" element={<DonationSuccessPage />} />
+          <Route path="/donate/failure" element={<DonationFailurePage />} />
 
         {/*===================== ADMIN (Hidden) ======================*/}
           <Route path="/mttf-admin-2025" element={<AdminLogin />} />

@@ -39,7 +39,7 @@ const buildPaymentQuery = ({ status, search }) => {
       { orderId: safeSearch },
       { userName: safeSearch },
       { userEmail: safeSearch },
-      { cfPaymentId: safeSearch },
+      { gatewayPaymentId: safeSearch },
     ];
   }
   return query;
@@ -201,7 +201,7 @@ router.get('/payments/export.csv', requireAdmin, async (req, res) => {
       payment.amount,
       payment.currency,
       payment.paymentGateway,
-      payment.cfPaymentId,
+      payment.gatewayPaymentId,
       payment.paymentStatus,
       payment.paymentMethod,
       payment.membershipType,

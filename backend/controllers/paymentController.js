@@ -12,7 +12,7 @@ const createOrder = asyncHandler(async (req, res) => {
 });
 
 const webhook = asyncHandler(async (req, res) => {
-  const result = await paymentService.handleCashfreeWebhook({ req });
+  const result = await paymentService.handleRazorpayWebhook({ req });
   res.json({ success: true, ...result });
 });
 

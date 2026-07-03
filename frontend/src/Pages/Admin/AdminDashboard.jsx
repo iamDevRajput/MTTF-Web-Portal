@@ -44,6 +44,7 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const [paymentSearch, setPaymentSearch] = useState("");
   const [paymentStatus, setPaymentStatus] = useState("");
+  const [selectedUserExtraInfo, setSelectedUserExtraInfo] = useState(null);
 
   const token = localStorage.getItem("adminToken");
 
@@ -502,6 +503,37 @@ export default function AdminDashboard() {
         }
 
         @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+        /* ── Modal ── */
+        .adm-modal-overlay {
+          position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+          background: rgba(15,23,42,0.6); backdrop-filter: blur(4px);
+          display: flex; align-items: center; justify-content: center; z-index: 100;
+        }
+        .adm-modal {
+          background: #fff; width: 400px; max-width: 90vw; border-radius: 20px;
+          box-shadow: 0 20px 60px rgba(15,23,42,0.16);
+          overflow: hidden; animation: fadeUp 0.3s;
+        }
+        .adm-modal-header {
+          padding: 20px 24px; border-bottom: 1px solid #E2E8F0;
+          display: flex; align-items: center; justify-content: space-between;
+        }
+        .adm-modal-header h3 { font-size: 16px; font-weight: 700; color: #0F172A; margin: 0; }
+        .adm-modal-close {
+          background: none; border: none; font-size: 24px; color: #64748b;
+          cursor: pointer; line-height: 1; transition: color 0.2s; padding: 0;
+        }
+        .adm-modal-close:hover { color: #0F172A; }
+        .adm-modal-body { padding: 24px; }
+        .adm-info-row {
+          display: flex; justify-content: space-between; padding: 12px 0;
+          border-bottom: 1px solid #f1f5f9; font-size: 13px;
+        }
+        .adm-info-row:last-child { border-bottom: none; }
+        .adm-info-row span { color: #64748b; }
+        .adm-info-row strong { color: #0F172A; font-weight: 600; text-align: right; }
+
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes spin { to { transform: rotate(360deg); } }
       `}</style>
 
@@ -692,7 +724,9 @@ export default function AdminDashboard() {
                         <th>Phone</th>
                         <th>Type</th>
                         <th>Payment</th>
+                        <th>MTTF ID</th>
                         <th>Joined</th>
+                        <th>Extra Info</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -709,8 +743,20 @@ export default function AdminDashboard() {
                               {u.isMembershipPaid ? "Paid" : "Pending"}
                             </span>
                           </td>
+                          <td style={{ fontFamily: "monospace", fontSize: 12, color: "#2563eb", fontWeight: 600 }}>
+                            {u.membershipId || "—"}
+                          </td>
                           <td style={{ fontSize: 12, color: "#94a3b8" }}>
                             {new Date(u.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}
+                          </td>
+                          <td>
+                            <button
+                               className="adm-refresh-btn"
+                               style={{ padding: "6px 12px", fontSize: "10px", borderRadius: "6px", border: "1px solid #E2E8F0" }}
+                               onClick={() => setSelectedUserExtraInfo(u)}
+                            >
+                              View Info
+                            </button>
                           </td>
                         </tr>
                       ))}
@@ -807,6 +853,65 @@ export default function AdminDashboard() {
           </div>
         </main>
       </div>
+
+      {selectedUserExtraInfo && (
+        <div className="adm-modal-overlay" onClick={() => setSelectedUserExtraInfo(null)}>
+          <div className="adm-modal" onClick={e => e.stopPropagation()}>
+            <div className="adm-modal-header">
+              <h3>Extra Info: {selectedUserExtraInfo.name}</h3>
+              <button className="adm-modal-close" onClick={() => setSelectedUserExtraInfo(null)}>×</button>
+            </div>
+            <div className="adm-modal-body">
+              {selectedUserExtraInfo.dob && selectedUserExtraInfo.dob !== "1990-01-01T00:00:00.000Z" && (
+                <div className="adm-info-row"><span>Date of Birth:</span> <strong>{new Date(selectedUserExtraInfo.dob).toLocaleDateString("en-IN")}</strong></div>
+              )}
+              {selectedUserExtraInfo.institutionSize && (
+                <div className="adm-info-row"><span>Institution Size:</span> <strong style={{ textTransform: "capitalize" }}>{selectedUserExtraInfo.institutionSize}</strong></div>
+              )}
+              <div className="adm-info-row"><span>Email Verified:</span> <strong>{selectedUserExtraInfo.isEmailVerified ? "Yes" : "No"}</strong></div>
+              <div className="adm-info-row"><span>Membership Paid At:</span> <strong>{selectedUserExtraInfo.membershipPaidAt ? new Date(selectedUserExtraInfo.membershipPaidAt).toLocaleString("en-IN") : "N/A"}</strong></div>
+              <div className="adm-info-row"><span>Membership Activated At:</span> <strong>{selectedUserExtraInfo.membershipActivatedAt ? new Date(selectedUserExtraInfo.membershipActivatedAt).toLocaleString("en-IN") : "N/A"}</strong></div>
+              
+              {selectedUserExtraInfo.extraInfo && (
+                selectedUserExtraInfo.extraInfo.departmentName ||
+                selectedUserExtraInfo.extraInfo.jobTitle?.length > 0 ||
+                selectedUserExtraInfo.extraInfo.educationLevel?.length > 0 ||
+                selectedUserExtraInfo.extraInfo.contactAddress ||
+                selectedUserExtraInfo.extraInfo.billingUniversity ||
+                selectedUserExtraInfo.extraInfo.researchExp ||
+                selectedUserExtraInfo.extraInfo.computationalSkills
+              ) && (
+                <>
+                  <hr style={{ margin: "16px 0", border: "none", borderTop: "1px dashed #e2e8f0" }} />
+                  <div style={{ fontSize: 11, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", marginBottom: 8, letterSpacing: 1 }}>Legacy Details</div>
+                  
+                  {selectedUserExtraInfo.extraInfo.departmentName && (
+                    <div className="adm-info-row"><span>Department:</span> <strong>{selectedUserExtraInfo.extraInfo.departmentName}</strong></div>
+                  )}
+                  {selectedUserExtraInfo.extraInfo.jobTitle?.length > 0 && (
+                    <div className="adm-info-row"><span>Job Title:</span> <strong>{selectedUserExtraInfo.extraInfo.jobTitle.join(", ")}</strong></div>
+                  )}
+                  {selectedUserExtraInfo.extraInfo.educationLevel?.length > 0 && (
+                    <div className="adm-info-row"><span>Education:</span> <strong>{selectedUserExtraInfo.extraInfo.educationLevel.join(", ")}</strong></div>
+                  )}
+                  {selectedUserExtraInfo.extraInfo.contactAddress && (
+                    <div className="adm-info-row"><span>Address:</span> <strong>{selectedUserExtraInfo.extraInfo.contactAddress}</strong></div>
+                  )}
+                  {selectedUserExtraInfo.extraInfo.billingUniversity && (
+                    <div className="adm-info-row"><span>University:</span> <strong>{selectedUserExtraInfo.extraInfo.billingUniversity}</strong></div>
+                  )}
+                  {selectedUserExtraInfo.extraInfo.researchExp && (
+                    <div className="adm-info-row"><span>Research Exp:</span> <strong>{selectedUserExtraInfo.extraInfo.researchExp}</strong></div>
+                  )}
+                  {selectedUserExtraInfo.extraInfo.computationalSkills && (
+                    <div className="adm-info-row"><span>Comp Skills:</span> <strong>{selectedUserExtraInfo.extraInfo.computationalSkills}</strong></div>
+                  )}
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

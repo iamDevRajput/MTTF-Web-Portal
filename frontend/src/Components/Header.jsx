@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import OurProgramsMegaMenu from "./OurProgramsMegaMenu";
 import ResearchIdeasMegaMenu from "./ResearchIdeasMegaMenu";
 import AboutFoundationMegaMenu from "./AboutFoundationMegaMenu";
@@ -15,6 +15,7 @@ const navItems = [
   { name: "Research & Ideas", href: "/research" },
   { name: "About the Foundation", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Donate", href: "/donate" },
 ];
 
 export default function Header() {

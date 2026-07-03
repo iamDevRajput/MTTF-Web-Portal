@@ -10,13 +10,14 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    required: [true, 'Phone number is required'],
+    required: [function() { return !this.legacyMember; }, 'Phone number is required'],
     unique: true,
+    sparse: true,
     trim: true
   },
   dob: {
     type: Date,
-    required: [true, 'Date of birth is required']
+    required: [function() { return !this.legacyMember; }, 'Date of birth is required']
   },
   email: {
     type: String,
@@ -28,7 +29,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Password is required'],
+    required: [function() { return !this.legacyMember; }, 'Password is required'],
     minlength: [6, 'Password must be at least 6 characters long'],
     select: false
   },
@@ -73,6 +74,23 @@ const userSchema = new mongoose.Schema({
     unique: true,
     sparse: true,
     trim: true
+  },
+  legacyMember: {
+    type: Boolean,
+    default: false
+  },
+  extraInfo: {
+    academicUrl: String,
+    billingUniversity: String,
+    contactAddress: String,
+    departmentName: String,
+    educationLevel: [String],
+    jobTitle: [String],
+    researchExp: String,
+    techExp: String,
+    computationalSkills: String,
+    otherInfo: String,
+    wpUserId: String,
   }
 }, {
   timestamps: true
