@@ -10,7 +10,7 @@ const getTransporter = () => {
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_PASS;
 
-  if (!user || !pass) {
+  if (!user || !pass || user.includes("your-smtp")) {
     return null;
   }
 

@@ -294,7 +294,7 @@ router.post('/send-otp', otpLimiter, async (req, res) => {
       expiresAt: new Date(Date.now() + 10 * 60 * 1000),
     });
 
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || process.env.EMAIL_USER.includes('your-smtp')) {
       return res.json({ success: true, message: 'OTP generated.', devOtp: otp });
     }
 
